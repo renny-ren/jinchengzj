@@ -1,0 +1,13 @@
+<%= form_for @user, url: :applicants do |f| %>
+		<p>
+			<%= f.label :"用户名" %>
+			<%= f.text_field :login %>
+		</p>
+
+		<p>
+			<%= f.label :"密 码" %>
+			<%= f.password_field :password %>
+		</p>
+
+	<%= f.submit "提交" %>
+<% end %>
