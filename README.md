@@ -1,24 +1,7 @@
-# README
+This is a opensource platform, a forum.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+After you login, you can check the announcement in your class and college. You can also receive the notice through the mobile app.
 
-Things you may want to cover:
+You can post lost and found here to find back your pet, your money, your ID card or even somebody...
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It's convenient and amazing, looking forward for you to find out.
