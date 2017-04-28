@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  root 'pages#index'
+  root 'home#index'
 
-  resources :pages
-  resources :sessions
-  resources :applicants
+  resources :home, only: :index
+  resources :sessions, only: :create
+  resources :applicants, only: :new
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :announcements
+
 end
