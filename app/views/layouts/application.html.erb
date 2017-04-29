@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Jczj</title>
-    <%= csrf_meta_tags %>
+    <title>锦城大学</title>
+    <meta name=keywords content="锦城, 锦城学院, 锦城大学, 锦城之家, 四川大学锦城学院">
+    <meta name=description content="锦城之家, 锦城学院论坛">
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <nav class="navbar navbar-default bg-faded">
+      <div class="container">
+
+        <div class="navbar-header">
+          <%= link_to image_tag('logo.png', alt: '锦城之家'), root_path, class: 'navbar-brand' %>
+        </div>
+
+        <div>
+          <ul class="nav user-bar">
+            <li><%= button_to '登录', new_user_session_path, class: 'btn btn-success' %></li>
+            <li><%= button_to '注册', new_user_registration_path, method: :get, class: 'btn btn-default' %></li>
+            <li><%= button_to '登出', destroy_user_session_path, method: :delete if user_signed_in? %></li>
+          </ul>
+        </div>
+
+      </div>      
+    </nav>
+
+
     <%= flash[:notice] %>
 
     <% flash.each do |name, msg| %>

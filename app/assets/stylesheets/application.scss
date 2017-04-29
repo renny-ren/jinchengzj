@@ -1,0 +1,17 @@
+@import 'bootstrap';
+
+.navbar-header{
+  float: left;
+}
+
+.user-bar{
+  float: right !important;
+}
+
+.btn{
+  cursor: pointer;
+}
+
+.nav > li:nth-child(2){    /* 注册按钮*/
+  padding-left: 10px;
+}
