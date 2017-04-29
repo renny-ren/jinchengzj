@@ -1,29 +1,36 @@
-<h2>Sign up</h2>
+<div class="container">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        <h3 class="panel-title">注册新用户</h3>
+      </div>
+      <div class="panel-body">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
+          <dl>
+            <dt><%= f.label "账  号" %></dt>
+            <dd><%= f.text_field :username, autofocus: true %></dd>
+          </dl>
+
+          <dl>
+            <dt><%= f.label "密  码" %></dt>
+            <dd><%= f.password_field :password, autocomplete: "off" %></dd>
+          </dl>
+
+          <dl>
+            <dt><%= f.label "确认密码" %></dt>
+            <dd><%= f.password_field :password_confirmation, autocomplete: "off" %></dd>
+          </dl>
+
+          <div class="text-center">
+            <%= f.submit "提交", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
