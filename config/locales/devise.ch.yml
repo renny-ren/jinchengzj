@@ -1,4 +1,7 @@
 "ch":
+  rucaptcha:
+    invalid: "验证码错啦！"
+
   errors:
     messages:
       not_found: "没有找到。"

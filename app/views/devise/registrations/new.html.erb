@@ -24,6 +24,12 @@
             <dd><%= f.password_field :password_confirmation, autocomplete: "off" %></dd>
           </dl>
 
+          <dl class="form-group">
+            <dt><%= f.label "验证码" %></dt>
+            <dd><%= rucaptcha_input_tag %></dd>
+            <a class="rucaptcha_image_box" href="#"><%= rucaptcha_image_tag(alt: '验证码，点击刷新') %></a>
+          </dl>
+
           <div class="text-center">
             <%= f.submit "提交", class: "btn btn-primary" %>
           </div>
