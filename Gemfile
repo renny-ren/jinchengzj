@@ -1,7 +1,7 @@
 # source 'https://rubygems.org'
 source 'https://ruby.taobao.org'
 
-gem 'devise'  # user system
+gem 'devise' # user system
 gem 'bootstrap'
 
 gem 'rucaptcha', '>=2.1.3'
