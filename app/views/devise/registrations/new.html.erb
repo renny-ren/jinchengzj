@@ -24,6 +24,11 @@
             <dd><%= f.password_field :password_confirmation, autocomplete: "off" %></dd>
           </dl>
 
+          <dl>
+            <dt><%= f.label "邮箱" %></dt>
+            <dd><%= f.email_field :email, autocomplete: true %></dd>
+          </dl>
+
           <dl class="form-group">
             <dt><%= f.label "验证码" %></dt>
             <dd>

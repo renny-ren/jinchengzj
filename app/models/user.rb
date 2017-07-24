@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_accessor :login
   validates :username, presence: true, uniqueness: true, length: 3..15
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -11,9 +12,15 @@ class User < ApplicationRecord
     end
   end
 
-  protected
-
-  def email_required?
-    false
+  def self.find_for_database_authentication warden_conditions
+    conditions = warden_conditions.dup
+    login = conditions.delete(:login)
+    where(conditions).where(["lower(username) = :value OR lower(email) = :value", {value: login.strip.downcase}]).first
   end
+
+  # protected
+
+  # def email_required?
+  #   false
+  # end
 end
