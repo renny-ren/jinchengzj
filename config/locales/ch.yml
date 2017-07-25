@@ -105,7 +105,7 @@
       messages:
         inclusion: "不包含于列表中"
         exclusion: "是保留关键字"
-        invalid: "是无效的"
+        invalid: "包含非法字符（只能包含字母、数字、下划线或标点符号）"
         confirmation: "不一致"
         accepted: "必须是可被接受的"
         empty: "不能留空"
