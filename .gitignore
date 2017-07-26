@@ -20,12 +20,8 @@ dump.rdb
 config/database.yml
 config/redis.yml
 config/secrets.yml
-config/settings.local.yml
-config/settings/*.local.yml
 config/environments/*.local.yml
-config/services.yml
-config/services.local.yml
-config/ssl
+config/settings.yml
 log/development.log
 public/assets
 
