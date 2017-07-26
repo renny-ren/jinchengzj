@@ -3,6 +3,7 @@ source 'https://ruby.taobao.org'
 
 gem 'devise' # user system
 gem 'bootstrap'
+gem 'config'
 
 gem 'rucaptcha', '>=2.1.3'
 
