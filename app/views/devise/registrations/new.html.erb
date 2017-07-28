@@ -33,7 +33,7 @@
             <dt><%= f.label "验证码" %></dt>
             <dd>
               <%= rucaptcha_input_tag %>
-              <a class="rucaptcha_image_box" href="#"><%= rucaptcha_image_tag(alt: '验证码，点击刷新') %></a>
+              <a class="rucaptcha_image_box"><%= rucaptcha_image_tag(alt: '验证码', title: '验证码，点击刷新') %></a>
             </dd>
           </dl>
 
