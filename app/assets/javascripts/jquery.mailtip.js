@@ -12,7 +12,7 @@
  */
 
 $(function(){
-  $('#mailtip').mailtip({
+  $('.mailtip').mailtip({
     onselected: function(mail){}
   });
 });
