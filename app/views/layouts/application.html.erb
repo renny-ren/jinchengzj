@@ -23,7 +23,7 @@
             <% if user_signed_in? %>
               <li><%= button_to '登出', destroy_user_session_path, method: :delete, class: 'btn btn-default' if user_signed_in? %></li>
             <% else %>
-              <li><%= button_to '登录', new_user_session_path, class: 'btn btn-success' %></li>
+              <li><%= button_to '登录', new_user_session_path, method: :get, class: 'btn btn-success' %></li>
               <li><%= button_to '注册', new_user_registration_path, method: :get, class: 'btn btn-default' %></li>
             <% end %>
           </ul>
