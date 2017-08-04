@@ -21,6 +21,7 @@
         <div>
           <ul class="nav user-bar">
             <% if user_signed_in? %>
+              <%= current_user.nickname %>
               <li><%= button_to '登出', destroy_user_session_path, method: :delete, class: 'btn btn-default' if user_signed_in? %></li>
             <% else %>
               <li><%= button_to '登录', new_user_session_path, method: :get, class: 'btn btn-success' %></li>
