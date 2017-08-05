@@ -9,9 +9,11 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  KEYS_ARRAY = %i( username nickname email password password_confirmation current_password avatar signature )
+
   def configure_permitted_parameters
    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :password, :password_confirmation])
    devise_parameter_sanitizer.permit(:sign_in, keys: [:login, :password, :password_confirmation])
-   devise_parameter_sanitizer.permit(:account_update, keys: [:username, :email, :password, :password_confirmation, :current_password, :avatar])
+   devise_parameter_sanitizer.permit(:account_update, keys: KEYS_ARRAY)
   end
 end

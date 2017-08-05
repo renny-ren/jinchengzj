@@ -14,7 +14,7 @@
         failure: '三方登陆过程异常，请重试。'
     failure:
       already_authenticated: '登录成功。'
-      unauthenticated: '请先注册或者登录。'
+      unauthenticated: '请先注册或登录。'
       unconfirmed: '请先激活您的帐号。'
       locked: '由于多次密码错误，您的帐号已被暂时锁定，一小时后将自动解锁，或者你可以通过邮件手动解锁。'
       invalid: '帐号或密码错误。'

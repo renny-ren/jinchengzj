@@ -5,6 +5,7 @@ gem 'devise' # user system
 gem 'bootstrap'
 gem 'config'
 gem 'paperclip'
+gem 'china_city'
 
 gem 'rucaptcha', '>=2.1.3'
 

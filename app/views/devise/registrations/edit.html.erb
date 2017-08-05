@@ -1,16 +1,64 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
+<div class="panel-body">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
+  <dl>
+    <dt><%= f.label "名字" %></dt>
+    <dd><%= f.text_field :nickname %></dd>
+  </dl>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <dl>
+    <dt><%= f.label "性别" %></dt>
+    <dd>
+      <%= radio_button_tag 'gender', 'male' %>
+      <%= f.label "男" %>
+      <%= radio_button_tag 'gender', 'female' %>
+      <%= f.label "女" %>
+    </dd>
+  </dl>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+  <dl>
+    <dt><%= f.label "邮箱" %></dt>
+    <dd><%= f.email_field :email, disabled: true %></dd>
+  </dl>
+
+  <dl>
+    <dt><%= f.label "院" %></dt>
+    <%= f.text_field :school %>
+
+    <b><%= f.label "系" %></b>
+    <%= f.text_field :department %>
+
+    <b><%= f.label "专业" %></b>
+    <%= f.text_field :major %>
+  </dl>
+
+  <dl>
+    <%= image_tag current_user.avatar.url(:small), width: '55px', height: '55px' %>
+    <dt><%= f.label "头像" %></dt>
+    <%= f.file_field :avatar %>
+  </dl>
+
+  <dl>
+    <dt><%= f.label "城市" %></dt>
+    <div class="city-group">
+      <select class="city-select">
+        <option>---省份---</option>
+        <%= options_for_select(ChinaCity.list) %>
+      </select>
+      <select class="city-select">
+        <option>---城市---</option>
+      </select>
+      <select class="city-select">
+        <option>---地区---</option>
+      </select>
+    </div>
+  </dl>
+
+  <dl>
+    <dt><%= f.label "个性签名" %></dt>
+    <%= f.text_area :signature %>
+  </dl>
+
 
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -31,8 +79,6 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
-  <%= f.file_field :avatar %>
-
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
@@ -43,3 +89,5 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+</div>
