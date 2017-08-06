@@ -1,69 +1,82 @@
 <%= render 'menu' %>
 
 <div class="panel-body">
-<%= form_for(@user, url: setting_path, html: { method: :put }) do |f| %>
-  <%= render "shared/error_messages", target: @user %>
-  <dl>
-    <dt><%= f.label "名字" %></dt>
-    <dd><%= f.text_field :nickname %></dd>
-  </dl>
+  <%= form_for(@user, url: setting_path, html: { method: :put }) do |f| %>
+    <%= render "shared/error_messages", target: @user %>
+    <dl>
+      <dt><%= f.label "名字" %></dt>
+      <dd><%= f.text_field :nickname %></dd>
+    </dl>
 
-  <dl>
-    <dt><%= f.label "性别" %></dt>
-    <dd>
-      <%= radio_button_tag 'gender', 'male' %>
-      <%= f.label "男" %>
-      <%= radio_button_tag 'gender', 'female' %>
-      <%= f.label "女" %>
-    </dd>
-  </dl>
+    <dl>
+      <dt><%= f.label "性别" %></dt>
+      <dd>
+        <%= f.radio_button 'gender', 'male' %>
+        <%= f.label "男" %>
+        <%= f.radio_button 'gender', 'female' %>
+        <%= f.label "女" %>
+      </dd>
+    </dl>
 
-  <dl>
-    <dt><%= f.label "邮箱" %></dt>
-    <dd><%= f.email_field :email, disabled: true %></dd>
-  </dl>
+    <dl>
+      <dt><%= f.label "邮箱" %></dt>
+      <dd><%= f.email_field :email, disabled: true, title: "邮箱不能更改了哦" %></dd>
+    </dl>
 
-  <dl>
-    <dt><%= f.label "院" %></dt>
-    <%= f.text_field :school %>
+    <dl>
+      <dt><%= f.label "院" %></dt>
+      <%= f.text_field :school %>
 
-    <b><%= f.label "系" %></b>
-    <%= f.text_field :department %>
+      <b><%= f.label "系" %></b>
+      <%= f.text_field :department %>
 
-    <b><%= f.label "专业" %></b>
-    <%= f.text_field :major %>
-  </dl>
+      <b><%= f.label "专业" %></b>
+      <%= f.text_field :major %>
+    </dl>
 
-  <dl>
-    <%= image_tag current_user.avatar.url(:small), width: '55px', height: '55px' %>
-    <dt><%= f.label "头像" %></dt>
-    <%= f.file_field :avatar %>
-  </dl>
+    <dl>
+      <%= image_tag current_user.avatar.url(:small), width: '55px', height: '55px' %>
+      <dt><%= f.label "头像" %></dt>
+      <%= f.file_field :avatar %>
+    </dl>
 
-  <dl>
-    <dt><%= f.label "城市" %></dt>
-    <div class="city-group">
-      <select class="city-select">
-        <option>---省份---</option>
-        <%= options_for_select(ChinaCity.list) %>
-      </select>
-      <select class="city-select">
-        <option>---城市---</option>
-      </select>
-      <select class="city-select">
-        <option>---地区---</option>
-      </select>
+    <dl>
+      <dt><%= f.label "QQ" %></dt>
+      <%= f.text_field :qq, pattern: "[0-9]*", maxlength: 12 %>
+    </dl>
+
+    <dl>
+      <dt><%= f.label "微信" %></dt>
+      <%= f.text_field :wechat %>
+    </dl>
+
+    <dl>
+      <dt><%= f.label "城市" %></dt>
+      <%= ChinaCity.get(current_user.city) %>
+
+      <div class="city-group">
+        <%= f.select(:city, {},{}, class: 'city-select') do %>
+          <option>---请选择省份---</option>
+          <%= options_for_select(ChinaCity.list) %>
+        <% end %>
+
+        <%= f.select(:city, {},{}, class: 'city-select') do %>
+          <option>---城市---</option>
+        <% end %>
+
+        <%= f.select(:city, {},{}, class: 'city-select') do %>
+          <option>---地区---</option>
+        <% end %>
+      </div>
+    </dl>
+
+    <dl>
+      <dt><%= f.label "个性签名" %></dt>
+      <%= f.text_area :signature %>
+    </dl>
+
+    <div class="actions">
+      <%= f.submit "更新资料", class: 'btn btn-primary' %>
     </div>
-  </dl>
-
-  <dl>
-    <dt><%= f.label "个性签名" %></dt>
-    <%= f.text_area :signature %>
-  </dl>
-
-  <div class="actions">
-    <%= f.submit "更新资料", class: 'btn btn-primary' %>
-  </div>
-<% end %>
-
+  <% end %>
 </div>

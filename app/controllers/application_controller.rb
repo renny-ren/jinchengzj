@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :set_local
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-  KEYS_ARRAY = [%i(username nickname email password password_confirmation current_password avatar signature)].freeze
+  KEYS_ARRAY = %i(username nickname email gender city qq wechat password password_confirmation 
+  current_password avatar signature school department major )
 
   def set_local
     I18n.locale = params[:locale] || I18n.default_locale
@@ -11,10 +12,10 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!(opts = {})
     return if current_user
-    if turbolinks_app?
-      render plain: '401 Unauthorized', status: 401
-      return
-    end
+    # if turbolinks_app?
+      # render plain: '401 Unauthorized', status: 401
+      # return
+    # end
 
     store_location
 

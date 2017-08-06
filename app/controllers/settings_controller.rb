@@ -26,6 +26,7 @@ class SettingsController < ApplicationController
   end
 
   def update_basic
+    verify_city
     if @user.update(user_params)
       redirect_to setting_path, notice: '更新成功'
     else
@@ -39,5 +40,10 @@ class SettingsController < ApplicationController
     else
       render 'password'
     end
+  end
+
+  def verify_city
+    KEYS_ARRAY.push(:city) unless KEYS_ARRAY.include?(:city)
+    KEYS_ARRAY.delete(:city) if params[:user][:city].match(/[^0-9]/)
   end
 end

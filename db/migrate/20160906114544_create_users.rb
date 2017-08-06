@@ -4,7 +4,9 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :username
       t.string :nickname
       t.string :gender
-      t.integer :qq
+      t.string :qq
+      t.string :wechat
+      t.string :city
       t.string :signature
       t.integer :topics
       t.integer :replies
