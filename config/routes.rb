@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  mount ChinaCity::Engine => '/china_city'
+
   devise_for :users, controllers: {
     registrations: :registrations
   }
 
-  mount ChinaCity::Engine => '/china_city'
+  resource :setting do
+    get :password
+  end
 
   root 'home#index'
 
