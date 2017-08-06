@@ -1,11 +1,11 @@
 # source 'https://rubygems.org'
 source 'https://ruby.taobao.org'
 
-gem 'devise' # user system
 gem 'bootstrap'
-gem 'config'
-gem 'paperclip'
 gem 'china_city'
+gem 'config'
+gem 'devise' # user system
+gem 'paperclip'
 
 gem 'rucaptcha', '>=2.1.3'
 
@@ -37,15 +37,15 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 
-  gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'rspec-rails'
   # gem 'rspec-collection_matchers'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
   gem 'listen', '~> 3.0.5'
+  gem 'web-console'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

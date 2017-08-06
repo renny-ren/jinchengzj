@@ -2,15 +2,13 @@ class SettingsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
 
-  def show
-  end
+  def show; end
 
-  def password
-  end
+  def password; end
 
   def update
     case params[:by]
-    when "password"
+    when 'password'
       update_password
     else
       update_basic
@@ -29,17 +27,17 @@ class SettingsController < ApplicationController
 
   def update_basic
     if @user.update(user_params)
-      redirect_to setting_path, notice: "更新成功"
+      redirect_to setting_path, notice: '更新成功'
     else
-      render "show"
+      render 'show'
     end
   end
 
   def update_password
     if @user.update_with_password(user_params)
-      redirect_to new_user_session_path, notice: "修改密码成功，请使用新密码重新登陆。"
+      redirect_to new_user_session_path, notice: '修改密码成功，请使用新密码重新登陆。'
     else
-      render "password"
+      render 'password'
     end
   end
 end
