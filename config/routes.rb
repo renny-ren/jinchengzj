@@ -13,4 +13,11 @@ Rails.application.routes.draw do
 
   resources :home, only: :index
   resources :announcements
+
+  resources :users, path: '', param: :username do
+    member do
+      get :topics
+    end
+  end
+
 end
