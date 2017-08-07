@@ -22,7 +22,17 @@
           <ul class="nav user-bar">
             <% if user_signed_in? %>
               <%= current_user.nickname %>
-              <%= image_tag current_user.avatar.url(:thumb), width: '50px', height: '50px' %>
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <%= image_tag current_user.avatar.url(:thumb), width: '45px', height: '45px' %>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><%= link_to "个人设置", setting_path %></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div>
               <li><%= button_to '登出', destroy_user_session_path, method: :delete, class: 'btn btn-default' if user_signed_in? %></li>
             <% else %>
               <li><%= button_to '登录', new_user_session_path, method: :get, class: 'btn btn-success' %></li>
