@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :wechat
       t.string :city
       t.string :signature
-      t.integer :topics
+      t.integer :topics_count, default: 0, null: false
       t.integer :replies
       t.integer :level
       t.integer :follower, default: 0, null: false
