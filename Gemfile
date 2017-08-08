@@ -6,6 +6,7 @@ gem 'china_city'
 gem 'config'
 gem 'devise' # user system
 gem 'paperclip'
+gem 'font-awesome-rails'
 
 gem 'rucaptcha', '>=2.1.3'
 

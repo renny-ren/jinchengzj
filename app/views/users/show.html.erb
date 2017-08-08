@@ -1,1 +1,56 @@
-<%= @user.username %>
+<div class="sidebar col-md-4">
+  <div class="panel profile panel-default">
+    <div class="panel-body">
+      <div class="media">
+        <div class="media-left">
+          <%= image_tag current_user.avatar.url, width: '100px', height: '100px' %>
+        </div>
+
+        <div class="media-body">
+          <%= @user.nickname %>
+
+             <% if @user.gender == "male" %>
+            <%= fa_icon 'mars', class: 'gender_male' %>
+          <% else %>
+            <%= fa_icon 'venus', class: 'gender_female' %>
+          <% end %>
+
+          <%= ChinaCity.get(@user.city) %>
+
+          <br>
+
+          第<%= @user.id %>位成员 
+
+          加入时间: <%= @user.created_at.to_date %>
+
+          <br>
+
+          学院：<%= @user.school %>
+          专业：<%= @user.major %>
+
+          <br>
+
+          <%= @user.topics || 0 %>篇帖子 | 
+          <%= @user.replies || 0 %>条回帖
+
+          <br>
+
+          <div class="follow-info row hide-ios">
+            <div class="col-xs-4 followers" data-login="<%= @user.login %>">
+              <%= @user.following || 0 %>
+              <div>关注者</div>
+            </div>
+            <div class="col-xs-4 following">
+              <%= @user.follower || 0 %>
+              <div>正在关注</div>
+            </div>
+          </div>
+
+          <%= @user.qq %>
+          <%= @user.wechat %>
+          个性签名<%= @user.signature %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

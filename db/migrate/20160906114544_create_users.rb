@@ -11,8 +11,8 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.integer :topics
       t.integer :replies
       t.integer :level
-      t.integer :follower
-      t.integer :following
+      t.integer :follower, default: 0, null: false
+      t.integer :following, default: 0, null: false
       t.string :school
       t.string :department
       t.string :major
