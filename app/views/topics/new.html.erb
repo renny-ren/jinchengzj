@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading hide-ios">发表新帖</div>
+  <div class="panel-body">
+    <%= form_for @topic do |f| %>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default" id="node-selector-button"
+                data-toggle="modal" data-target="#node-selector"><%= @topic.node&.name || '选择节点...' %></button>
+          </div>
+          <div><%= f.text_field :title, placeholder: '在这里填写标题' %></div><br>
+        </div>
+      </div>
+      <div><%= f.text_area :body, size: '100x20' %></div>
+      <%= f.submit '提交', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

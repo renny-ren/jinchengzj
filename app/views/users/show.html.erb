@@ -9,7 +9,7 @@
         <div class="media-body">
           <%= @user.nickname %>
 
-             <% if @user.gender == "male" %>
+          <% if @user.gender == "male" %>
             <%= fa_icon 'mars', class: 'gender_male' %>
           <% else %>
             <%= fa_icon 'venus', class: 'gender_female' %>
@@ -30,18 +30,18 @@
 
           <br>
 
-          <%= @user.topics || 0 %>篇帖子 | 
-          <%= @user.replies || 0 %>条回帖
+          <%= @user.topics_count %>篇帖子 | 
+          <%= @user.replies_count %>条回帖
 
           <br>
 
           <div class="follow-info row hide-ios">
             <div class="col-xs-4 followers" data-login="<%= @user.login %>">
-              <%= @user.following || 0 %>
+              <%= @user.following_count %>
               <div>关注者</div>
             </div>
             <div class="col-xs-4 following">
-              <%= @user.follower || 0 %>
+              <%= @user.followers_count %>
               <div>正在关注</div>
             </div>
           </div>

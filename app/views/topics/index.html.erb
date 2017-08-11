@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-9">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <% @topics.each do |topic| %>
+          <div class="media">
+            <div class="media-left">
+              <%= image_tag current_user.avatar.url(:thumb), width: '45px', height: '45px' %>
+            </div>
+            
+            <div class="media-body">
+              <div class="media-heading">
+                <%= link_to topic.node.name, node_path(1) %>
+                <%= link_to(topic.title, topic_path(1), title: topic.title) %>
+              </div>
+
+              <div>
+                <%= topic.user.nickname %>
+                <span class="hidden-mobile">•</span>
+                <% if topic.replies_count > 0  %>
+                  <%= "最后由#{topic.last_reply_user_nickname} 回复于 #{topic.last_reply_at}" %>
+                <% end %>
+              </div>
+            </div>
+
+            <div class="count media-right">
+              <% if topic.replies_count > 0 %>
+                <%= topic.replies_count %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+        <%= link_to "发帖", new_topic_path, method: :get, class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+</div>
