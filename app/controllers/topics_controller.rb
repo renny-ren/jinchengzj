@@ -4,11 +4,11 @@ class TopicsController < ApplicationController
   def index
     @nodes = Node.all
     @topics = Topic.all
-    @last_reply = Reply.where(topic_id: 1)
   end
 
   def new
-    @topic = Topic.create
+    @topic = Topic.new(user_id: current_user.id)
+    @nodes = Node.all
   end
 
   def create
