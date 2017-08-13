@@ -7,18 +7,18 @@
             <div class="media-left">
               <%= image_tag current_user.avatar.url(:thumb), width: '45px', height: '45px' %>
             </div>
-            
+
             <div class="media-body">
               <div class="media-heading">
-                <%= link_to topic.node.name, node_path(1) %>
-                <%= link_to(topic.title, topic_path(1), title: topic.title) %>
+                <%= link_to topic.node.name, node_path(topic.node.id) %>
+                <%= link_to(topic.title, topic_path(topic.id), title: topic.title) %>
               </div>
 
               <div>
                 <%= topic.user.nickname %>
                 <span class="hidden-mobile">•</span>
                 <% if topic.replies_count > 0  %>
-                  <%= "最后由#{topic.last_reply_user_nickname} 回复于 #{topic.last_reply_at}" %>
+                  <%= "最后由 #{topic.last_reply_user_nickname} 回复于 #{topic.last_reply_at}" %>
                 <% end %>
               </div>
             </div>

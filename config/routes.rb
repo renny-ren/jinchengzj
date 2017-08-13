@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   resources :home, only: :index
   resources :announcements
 
-  resources :topics
+  resources :topics do
+    resources :replies
+  end
   resources :nodes
 
   resources :users, path: '', param: :username do

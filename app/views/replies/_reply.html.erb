@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+  <div class="panel-heading">回帖</div>
+  <div class="panel-body">
+    <%= form_for(Reply.new, url: topic_replies_path(@topic)) do |f| %>
+      <%= f.text_area :body %>
+      <%= f.hidden_field :topic_id, value: @topic.id %>
+      <%= f.submit 'create' %>
+    <% end %>
+  </div>
+</div>

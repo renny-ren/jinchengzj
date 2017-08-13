@@ -1,3 +1,16 @@
-<%= @topic.title %>
-<%= @topic.body %>
-<%= @topic.user.nickname %>
+标题：<%= @topic.title %>
+
+内容：<%= @topic.body %>
+
+由 <%= @topic.user.nickname %> 发布于 <%= time_ago_in_words(@topic.created_at) %>
+
+<br>
+回复总数： <%= @topic.replies_count %>
+<br>
+
+<% @replies.each do |reply| %>
+  <%= link_to reply.user.nickname, user_path(reply.user.nickname) %>
+  <%= reply.body %>
+<% end %>
+
+<%= render 'replies/reply' %>

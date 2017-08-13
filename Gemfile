@@ -7,7 +7,6 @@ gem 'config'
 gem 'devise' # user system
 gem 'paperclip'
 gem 'font-awesome-rails'
-
 gem 'rucaptcha', '>=2.1.3'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'

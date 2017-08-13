@@ -22,19 +22,19 @@
         other: 不到 %{count} 秒
       over_x_years:
         one: 一年多
-        other: "%{count} 年多"
+        other: "%{count} 年多以前"
       x_days:
         one: 一天
-        other: "%{count} 天"
+        other: "%{count} 天前"
       x_minutes:
         one: 一分钟
-        other: "%{count} 分钟"
+        other: "%{count} 分钟前"
       x_months:
         one: 一个月
-        other: "%{count} 个月"
+        other: "%{count} 个月前"
       x_seconds:
         one: 一秒
-        other: "%{count} 秒"
+        other: "%{count} 秒前"
   omniauth:
     github: GitHub
     twitter: Twitter
