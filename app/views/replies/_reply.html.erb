@@ -2,9 +2,9 @@
   <div class="panel-heading">回帖</div>
   <div class="panel-body">
     <%= form_for(Reply.new, url: topic_replies_path(@topic)) do |f| %>
-      <%= f.text_area :body %>
+      <%= f.text_area :body, size: '80x5' %> <br />
       <%= f.hidden_field :topic_id, value: @topic.id %>
-      <%= f.submit 'create' %>
+      <%= f.submit '提交回复', class: 'btn btn-primary' %>
     <% end %>
   </div>
 </div>
