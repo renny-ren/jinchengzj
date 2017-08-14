@@ -6,7 +6,7 @@
 @import 'bootstrap';
 @import "font-awesome";
 
-.bg-nav{ box-shadow: 10px 5px 5px #888888; }
+.bg-nav{ box-shadow: 0 2px 5px #888888; }
 
 .dropdown{ cursor: pointer; }
 
@@ -18,7 +18,7 @@
 
 .user-bar{ float: right !important; }
 
-.nav > li{ padding-left: 10px; }
+.nav > li{ padding-left: 20px; }
 
 .nav a{
   color: black;
@@ -37,6 +37,7 @@
   margin-left: 140px;
 }
 
-.nav-body li{
-  font-size: 18px;
-}
+.nav-body li{ font-size: 18px; }
+
+.login-btn{ width: 65px; height: 35px; }
+.signup-btn{ width: 65px; height: 35px; }

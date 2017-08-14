@@ -16,7 +16,9 @@
     <nav class="navbar navbar-default bg-nav">
       <div class="container">
         <div class="navbar-header">
-          <%= link_to image_tag('logo.png', alt: '锦城之家'), root_path, class: 'navbar-brand' %>
+          <%= link_to(root_path) do %>
+            <%= image_tag 'logo.jpg', size: '36x36' %> 锦城之家
+          <% end %>
         </div>
 
         <ul class="nav nav-body">
@@ -40,13 +42,12 @@
                   <li role="separator" class="divider"></li>
                   <li><%= link_to "个人设置", setting_path, method: :get %></li>
                   <li role="separator" class="divider"></li>
-                  <li><%= link_to '登出', destroy_user_session_path, method: :delete %></li>
+                  <li><%= link_to '退出登录', destroy_user_session_path, method: :delete %></li>
                 </ul>
               </div>
-             
             <% else %>
-              <li><%= button_to '登录', new_user_session_path, method: :get, class: 'btn btn-success' %></li>
-              <li><%= button_to '注册', new_user_registration_path, method: :get, class: 'btn btn-default' %></li>
+              <li><%= button_to '登录', new_user_session_path, method: :get, class: 'btn btn-success login-btn' %></li>
+              <li><%= button_to '注册', new_user_registration_path, method: :get, class: 'btn btn-default signup-btn' %></li>
             <% end %>
           </ul>
         </div>
