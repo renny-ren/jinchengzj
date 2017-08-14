@@ -5,7 +5,7 @@
         <% @topics.each do |topic| %>
           <div class="media">
             <div class="media-left">
-              <%= image_tag current_user.avatar.url(:thumb), width: '45px', height: '45px' %>
+              <%= image_tag topic.user.avatar.url(:thumb), width: '45px', height: '45px' %>
             </div>
 
             <div class="media-body">
