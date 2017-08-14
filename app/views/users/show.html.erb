@@ -9,12 +9,14 @@
         <div class="media-body">
           <%= @user.nickname %>
 
-          <% if @user.gender == "male" %>
+          <% case @user.gender %>
+          <% when 'male' %>
             <%= fa_icon 'mars', class: 'gender_male' %>
-          <% else %>
+          <% when 'female' %>
             <%= fa_icon 'venus', class: 'gender_female' %>
+          <% else %>
           <% end %>
-
+          
           <%= ChinaCity.get(@user.city) %>
 
           <br>
