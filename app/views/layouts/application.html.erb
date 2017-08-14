@@ -8,6 +8,7 @@
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
     
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'logo.png' %>
     <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -17,7 +18,7 @@
       <div class="container">
         <div class="navbar-header">
           <%= link_to(root_path) do %>
-            <%= image_tag 'logo.jpg', size: '36x36' %> 锦城之家
+            <%= image_tag 'logo.png', size: '36x36' %> 锦城之家
           <% end %>
         </div>
 
@@ -52,7 +53,6 @@
           </ul>
         </div>
 
-        
       </div>      
     </nav>
 
