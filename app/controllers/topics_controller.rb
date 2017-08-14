@@ -20,8 +20,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @replies = Reply.unscoped.where(topic_id: @topic.id).order(:id).all
-    @reply = Reply.first
+    @replies = Reply.where(topic_id: @topic.id)
   end
 
   private

@@ -13,28 +13,37 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default bg-faded">
+    <nav class="navbar navbar-default bg-nav">
       <div class="container">
         <div class="navbar-header">
           <%= link_to image_tag('logo.png', alt: '锦城之家'), root_path, class: 'navbar-brand' %>
         </div>
 
+        <ul class="nav nav-body">
+          <li><%= link_to '首页', root_path %></li>
+          <li><%= link_to '论坛', topics_path %></li>
+          <li>失物招领</li>
+          <li>二手买卖</li>
+          <li>兼职招聘</li>
+        </ul>
+
         <div>
           <ul class="nav user-bar">
             <% if user_signed_in? %>
               <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <%= image_tag current_user.avatar.url(:thumb), width: '45px', height: '45px' %>
+                <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <%= image_tag current_user.avatar.url(:thumb), width: '36px', height: '36px' %>
                   <span class="caret"></span>
-                </button>
+                </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                   <li><%= link_to current_user.username, user_path(current_user.username) %></li>
                   <li role="separator" class="divider"></li>
                   <li><%= link_to "个人设置", setting_path, method: :get %></li>
                   <li role="separator" class="divider"></li>
+                  <li><%= link_to '登出', destroy_user_session_path, method: :delete %></li>
                 </ul>
               </div>
-              <li><%= button_to '登出', destroy_user_session_path, method: :delete, class: 'btn btn-default' if user_signed_in? %></li>
+             
             <% else %>
               <li><%= button_to '登录', new_user_session_path, method: :get, class: 'btn btn-success' %></li>
               <li><%= button_to '注册', new_user_registration_path, method: :get, class: 'btn btn-default' %></li>
@@ -42,13 +51,7 @@
           </ul>
         </div>
 
-        <ul class="nav">
-          <li class="active"><%= link_to '首页', root_path %></li>
-          <li><%= link_to '论坛', topics_path %></li>
-          <li>失物招领</li>
-          <li>二手买卖</li>
-          <li>兼职招聘</li>
-        </ul>
+        
       </div>      
     </nav>
 

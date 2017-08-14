@@ -1,8 +1,27 @@
-标题：<%= @topic.title %>
+<div class="panel">
+  <div class="panel-heading media">
+    <div class="media-left">
+      <%= image_tag @topic.user.avatar.url(:thumb), width: '45px', height: '45px' %>
+    </div>
+    <div class="media-body">
+      <div class="media-heading">
+        <%= link_to @topic.node.name, node_path(@topic.node.id) %>
+        <%= @topic.title %>
+      </div>
+      <div class="media-info">
+        由 <%= link_to @topic.user.nickname, user_path(@topic.user.nickname) %> 发布于 <%= time_ago_in_words(@topic.created_at) %> · 
+        <% if @topic.replies_count > 0 %>
+           最后由 <%= link_to @topic.last_reply_user_nickname, user_path(@topic.last_reply_user_nickname) %> 
+           回复于 <%= time_ago_in_words @topic.last_reply_at %>
+        <% end %>
+      </div>
+    </div> 
+  </div>
 
-内容：<%= @topic.body %>
-
-由 <%= @topic.user.nickname %> 发布于 <%= time_ago_in_words(@topic.created_at) %>
+  <div class="panel-body">
+    <%= @topic.body %>
+  </div>
+</div>
 
 <br>
 回复总数： <%= @topic.replies_count %>
