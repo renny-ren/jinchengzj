@@ -34,8 +34,8 @@
           <ul class="nav user-bar">
             <% if user_signed_in? %>
               <div class="dropdown">
-                <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <%= image_tag current_user.avatar.url(:thumb), width: '36px', height: '36px' %>
+                <a class="dropdown-toggle" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <%= user_avatar_tag(current_user, 36) %>
                   <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">

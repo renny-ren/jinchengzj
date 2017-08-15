@@ -35,7 +35,7 @@
     </dl>
 
     <dl>
-      <%= image_tag current_user.avatar.url(:small), width: '55px', height: '55px' %>
+      <%= user_avatar_tag(current_user, 55) %>
       <dt><%= f.label "头像" %></dt>
       <%= f.file_field :avatar %>
     </dl>

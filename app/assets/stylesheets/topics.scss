@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.topic-container{
+.main-container{
   margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.topic-container, .sidebar{ float: left; }
+
+.topic-item{
+  border-bottom: 1px solid #F0F0F0;
+  padding: 10px 0;
 }

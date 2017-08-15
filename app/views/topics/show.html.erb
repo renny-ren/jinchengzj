@@ -1,7 +1,7 @@
 <div class="panel">
   <div class="panel-heading media">
     <div class="media-left">
-      <%= image_tag @topic.user.avatar.url(:thumb), width: '45px', height: '45px' %>
+      <%= user_avatar_tag @topic.user, 45 %>
     </div>
     <div class="media-body">
       <div class="media-heading">
