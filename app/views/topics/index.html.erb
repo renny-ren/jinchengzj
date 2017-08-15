@@ -4,31 +4,35 @@
       <div class="panel-body">
         <% @topics.each do |topic| %>
           <div class="media topic-item">
-            <div class="media-left">
-              <%= user_avatar_tag topic.user, 45 %>
+            <div class="media-left avatar">
+              <%= link_to user_avatar_tag(topic.user, 45), user_path(topic.user.username), title: topic.user.nickname %>
             </div>
 
             <div class="media-body">
               <div class="media-heading">
-                <%= link_to topic.node.name, node_path(topic.node.id) %>
-                <%= link_to(topic.title, topic_path(topic.id), title: topic.title) %>
+                <span class="node"><%= link_to topic.node.name, node_path(topic.node.id) %></span>
+                <span class="topic-title"><%= link_to(topic.title, topic_path(topic.id), title: topic.title) %></span>
               </div>
 
               <div>
-                <%= link_to topic.user.nickname, user_path(topic.user.nickname) %>
+                <span class="topic-participant"><%= link_to topic.user.nickname, user_path(topic.user.nickname) %></span>
                 <span class="hidden-mobile">•</span>
-                <% if topic.replies_count > 0  %>
-                   最后由 <%= link_to topic.last_reply_user_nickname, user_path(topic.last_reply_user_nickname) %> 
-                   回复于 <%= time_ago_in_words topic.last_reply_at %>
-                <% end %>
+                <span class="topic-participant">
+                  <% if topic.replies_count > 0  %>
+                     最后由 <%= link_to topic.last_reply_user_nickname, user_path(topic.last_reply_user_nickname) %> 
+                     回复于 <%= time_ago_in_words topic.last_reply_at %>
+                  <% else %>
+                    发表于 <%= time_ago_in_words topic.created_at %>
+                  <% end %>
+                </span>
               </div>
             </div>
 
-            <div class="count media-right">
-              <% if topic.replies_count > 0 %>
-                <%= topic.replies_count %>
-              <% end %>
-            </div>
+            <% if topic.replies_count > 0 %>
+              <div class="count media-right">
+                <%= topic.replies_count  %>
+              </div>
+            <% end %>
           </div>
         <% end %>
 
