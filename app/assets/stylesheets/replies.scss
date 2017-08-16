@@ -1,3 +1,19 @@
 // Place all the styles related to the replies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.reply-item{ padding: 0 !important; border-bottom: solid 1px #eee; }
+.reply-user-info{
+  background-color: #FAFBFC;
+  border-right: 1px solid #C2D5E3;
+  padding: 20px;
+}
+.reply-body{ padding: 20px; }
+.reply-content{ min-height: 80px; }
+.reply-date, .reply-floor{
+  float: right; 
+  font-size: 0.8rem;
+  color: #999999;
+}
+.submit-reply-btn{ cursor: pointer; }

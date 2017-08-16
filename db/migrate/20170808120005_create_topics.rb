@@ -8,6 +8,7 @@ class CreateTopics < ActiveRecord::Migration[5.0]
       t.text :body, null: false
       t.integer :last_reply_user_id
       t.string :last_reply_user_nickname
+      t.string :last_reply_user_username
       t.datetime :last_reply_at
       t.integer :praise_count, default: 0
       t.integer :replies_count, default: 0, null: false

@@ -6,6 +6,17 @@
 @import 'bootstrap';
 @import "font-awesome";
 
+#flash_notice{ text-align: center; background: #feffcf; }
+.flash-notice{ 
+  text-align: center; 
+  background: #feffcf;
+  display: none;
+  margin-left: 50%;
+  margin-top: 10%;
+  position: fixed;
+  z-index: 99;
+  padding: 13px;
+}
 .panel-info{ border-color: #bce8f1; }
 .panel-info > .panel-heading{ color: #31708f; border-bottom: dashed 1px #bce8f1; }
 

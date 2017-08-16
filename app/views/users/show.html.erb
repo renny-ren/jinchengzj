@@ -1,14 +1,13 @@
+<div class="main-container">
 <div class="sidebar col-md-4">
   <div class="panel profile panel-default">
     <div class="panel-body">
       <div class="media">
         <div class="media-left">
-          <%= user_avatar_tag(@user, 100) %>
+          <%= user_avatar_tag(@user, 96) %>
         </div>
 
         <div class="media-body">
-          <%= @user.nickname %>
-
           <% case @user.gender %>
           <% when 'male' %>
             <%= fa_icon 'mars', class: 'gender_male' %>
@@ -16,16 +15,21 @@
             <%= fa_icon 'venus', class: 'gender_female' %>
           <% else %>
           <% end %>
-          
-          <%= ChinaCity.get(@user.city) %>
+          <%= @user.nickname %>&nbsp&nbsp
 
           <br>
 
-          第<%= @user.id %>位成员 
+          第 <%= @user.id %> 位成员  &nbsp&nbsp
 
           加入时间: <%= @user.created_at.to_date %>
+          <br>
+         
+          <%= ChinaCity.get(@user.city) %>
+
 
           <br>
+          <%= @user.qq %>
+          <%= @user.wechat %>
 
           学院：<%= @user.school %>
           专业：<%= @user.major %>
@@ -34,10 +38,16 @@
 
           <%= @user.topics_count %>篇帖子 | 
           <%= @user.replies_count %>条回帖
+        </div>
 
           <br>
+          <div role="separator" class="divider"></div>
 
-          <div class="follow-info row hide-ios">
+
+       
+      
+      </div>
+         <div class="follow-info row hide-ios">
             <div class="col-xs-4 followers" data-login="<%= @user.login %>">
               <%= @user.following_count %>
               <div>关注者</div>
@@ -48,11 +58,9 @@
             </div>
           </div>
 
-          <%= @user.qq %>
-          <%= @user.wechat %>
           个性签名<%= @user.signature %>
-        </div>
-      </div>
     </div>
   </div>
 </div>
+</div>
+<div style="font-size: 36px; font-weight: bold;">程序猿脑壳混乱了，这个页面明天再来写</div> 

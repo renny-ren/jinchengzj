@@ -16,11 +16,11 @@
               </div>
 
               <div>
-                <span class="topic-participant"><%= link_to topic.user.nickname, user_path(topic.user.nickname) %></span>
+                <span class="topic-participant"><%= link_to topic.user.nickname, user_path(topic.user.username) %></span>
                 <span class="hidden-mobile">•</span>
                 <span class="topic-participant">
                   <% if topic.replies_count > 0  %>
-                     最后由 <%= link_to topic.last_reply_user_nickname, user_path(topic.last_reply_user_nickname) %> 
+                     最后由 <%= link_to topic.last_reply_user_nickname, user_path(topic.last_reply_user_username) %> 
                      回复于 <%= time_ago_in_words topic.last_reply_at %>
                   <% else %>
                     发表于 <%= time_ago_in_words topic.created_at %>

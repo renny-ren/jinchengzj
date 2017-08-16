@@ -24,6 +24,4 @@ Rails.application.routes.draw do
       get :topics
     end
   end
-
-
 end

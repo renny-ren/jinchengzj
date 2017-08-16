@@ -9,6 +9,7 @@ class Topic < ApplicationRecord
     self.last_reply_at = reply.created_at
     self.last_reply_user_id = reply.user.id
     self.last_reply_user_nickname = reply.user.nickname
+    self.last_reply_user_username = reply.user.username
     save
   end
 end

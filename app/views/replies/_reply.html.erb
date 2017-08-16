@@ -1,10 +1,41 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    共收到 <%= @topic.replies_count %> 条回复
+  </div>
+
+  <% @replies.each_with_index do |reply, floor| %>
+  <div class="panel-body media reply-item">
+    <div class="media-left col-md-2 reply-user-info">
+      <div class="avatar">
+        <%= link_to user_avatar_tag(reply.user, 80), user_path(reply.user.username) %>
+      </div>
+      <%= link_to reply.user.nickname, user_path(reply.user.username) %>
+    </div>
+
+    <div class="media-body reply-body">
+      <div class="reply-content"><%= reply.body %></div>
+      <div class="reply-date"><%= reply.created_at.strftime("%Y-%m-%d %H:%M") %></div>
+      <div class="reply-floor"><%= floor + 1 %>楼&nbsp&nbsp</div>
+    </div>
+  </div>
+  <% end %>
+  
+</div>
+
 <div class="panel panel-default">
   <div class="panel-heading">回帖</div>
   <div class="panel-body">
-    <%= form_for(Reply.new, url: topic_replies_path(@topic)) do |f| %>
-      <%= f.text_area :body, size: '80x5' %> <br />
-      <%= f.hidden_field :topic_id, value: @topic.id %>
-      <%= f.submit '提交回复', class: 'btn btn-primary' %>
+    <% if user_signed_in? %>
+      <%= form_for(Reply.new, remote: true, url: topic_replies_path(@topic)) do |f| %>
+        <%= f.text_area :body, size: '80x5' %> <br />
+        <%= f.hidden_field :topic_id, value: @topic.id %>
+        <%= f.submit '提交回复', class: 'btn btn-primary submit-reply-btn' %>
+      <% end %>
+    <% else %>需要
+      <%= link_to '登录', new_user_session_path %>
+      后才能回复，如果你还没有账号，赶快
+      <%= link_to '点击这里', new_user_registration_path, method: :get %>
+      加入锦城之家吧！
     <% end %>
   </div>
 </div>
