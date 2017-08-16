@@ -37,7 +37,7 @@ CREATE TABLE `ar_internal_metadata` (
 
 LOCK TABLES `ar_internal_metadata` WRITE;
 /*!40000 ALTER TABLE `ar_internal_metadata` DISABLE KEYS */;
-INSERT INTO `ar_internal_metadata` VALUES ('environment','development','2017-08-10 07:34:49','2017-08-10 07:34:49');
+INSERT INTO `ar_internal_metadata` VALUES ('environment','development','2017-08-16 20:29:25','2017-08-16 20:29:25');
 /*!40000 ALTER TABLE `ar_internal_metadata` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +55,7 @@ CREATE TABLE `nodes` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE `nodes` (
 
 LOCK TABLES `nodes` WRITE;
 /*!40000 ALTER TABLE `nodes` DISABLE KEYS */;
-INSERT INTO `nodes` VALUES (1,'节点2',4,'2017-08-10 13:15:10','2017-08-10 13:15:10'),(2,'二手买卖',0,'2017-08-12 12:20:03','2017-08-12 12:20:03'),(3,'兼职招聘',1,'2017-08-12 12:20:34','2017-08-12 12:20:34'),(4,'讨论',0,'2017-08-12 12:20:51','2017-08-12 12:20:51');
+INSERT INTO `nodes` VALUES (1,'讨论',1,'2017-08-16 20:31:24','2017-08-16 20:31:24'),(2,'分享',0,'2017-08-16 20:31:28','2017-08-16 20:31:28'),(3,'学习',1,'2017-08-16 20:31:31','2017-08-16 20:31:31'),(4,'兼职招聘',0,'2017-08-16 20:31:35','2017-08-16 20:31:35'),(5,'二手买卖',0,'2017-08-16 20:31:42','2017-08-16 20:31:42'),(6,'活动报名',0,'2017-08-16 20:31:48','2017-08-16 20:31:48');
 /*!40000 ALTER TABLE `nodes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +85,7 @@ CREATE TABLE `replies` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +94,7 @@ CREATE TABLE `replies` (
 
 LOCK TABLES `replies` WRITE;
 /*!40000 ALTER TABLE `replies` DISABLE KEYS */;
-INSERT INTO `replies` VALUES (1,1,1,'沙发',NULL,0,'2017-08-11 03:52:50','2017-08-11 03:52:50'),(2,1,1,'aaa',NULL,0,'2017-08-13 06:43:03','2017-08-13 06:43:03'),(3,1,2,'sss',NULL,0,'2017-08-13 06:51:12','2017-08-13 06:51:12'),(4,1,4,'评论测试',NULL,0,'2017-08-13 06:58:52','2017-08-13 06:58:52'),(5,1,4,'sdf',NULL,0,'2017-08-13 07:11:46','2017-08-13 07:11:46'),(6,1,4,' 评论测试2',NULL,0,'2017-08-13 07:12:51','2017-08-13 07:12:51'),(7,1,4,'评论测试2 ',NULL,0,'2017-08-13 07:14:23','2017-08-13 07:14:23'),(8,1,4,'adsfsd',NULL,0,'2017-08-13 07:15:43','2017-08-13 07:15:43'),(9,1,4,'asaa',NULL,0,'2017-08-13 07:16:23','2017-08-13 07:16:23'),(10,1,4,'as',NULL,0,'2017-08-13 07:17:16','2017-08-13 07:17:16'),(11,1,1,'aa',NULL,0,'2017-08-13 07:21:47','2017-08-13 07:21:47'),(12,1,2,'a',NULL,0,'2017-08-13 07:21:57','2017-08-13 07:21:57');
+INSERT INTO `replies` VALUES (1,1,2,'回复测试112',NULL,0,'2017-08-16 20:33:17','2017-08-16 20:33:17'),(2,2,1,'我来回复一条\r\n测试啊',NULL,0,'2017-08-16 20:35:26','2017-08-16 20:35:26'),(3,2,2,'测试测试 \r\n沙发沙发\r\n地板店\r\n哇哈哈哈啊\r\n',NULL,0,'2017-08-16 20:35:55','2017-08-16 20:35:55');
 /*!40000 ALTER TABLE `replies` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -137,6 +137,7 @@ CREATE TABLE `topics` (
   `body` text NOT NULL,
   `last_reply_user_id` int(11) DEFAULT NULL,
   `last_reply_user_nickname` varchar(255) DEFAULT NULL,
+  `last_reply_user_username` varchar(255) DEFAULT NULL,
   `last_reply_at` datetime DEFAULT NULL,
   `praise_count` int(11) DEFAULT '0',
   `replies_count` int(11) NOT NULL DEFAULT '0',
@@ -150,7 +151,7 @@ CREATE TABLE `topics` (
   PRIMARY KEY (`id`),
   KEY `index_topics_on_deleted_at` (`deleted_at`),
   KEY `index_topics_on_praise_count` (`praise_count`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,7 +160,7 @@ CREATE TABLE `topics` (
 
 LOCK TABLES `topics` WRITE;
 /*!40000 ALTER TABLE `topics` DISABLE KEYS */;
-INSERT INTO `topics` VALUES (1,1,1,NULL,'aa','bbb',1,'ren','2017-08-13 07:21:47',0,3,NULL,0,NULL,NULL,NULL,'2017-08-10 13:16:00','2017-08-13 07:21:47'),(2,1,1,NULL,'bbb','asdfsdf',1,'ren','2017-08-13 07:21:57',0,2,NULL,0,NULL,NULL,NULL,'2017-08-10 13:16:37','2017-08-13 07:21:57'),(3,1,1,NULL,'aa','vv',NULL,NULL,NULL,0,0,NULL,0,NULL,NULL,NULL,'2017-08-11 04:27:22','2017-08-11 04:27:22'),(4,1,1,NULL,'tiezi','huieti',1,'ren','2017-08-13 07:17:16',0,7,NULL,0,NULL,NULL,NULL,'2017-08-12 12:05:32','2017-08-13 07:17:16'),(5,1,3,NULL,'title','body',NULL,NULL,NULL,0,0,NULL,0,NULL,NULL,NULL,'2017-08-12 12:21:29','2017-08-12 12:21:29');
+INSERT INTO `topics` VALUES (1,1,1,NULL,'想问下知情人士。为什么这届的专',' 想问下知情人士。为什么这届的专科理的调档线是180？',2,'任峻宏','rjh','2017-08-16 20:35:26',0,1,NULL,0,NULL,NULL,NULL,'2017-08-16 20:32:06','2017-08-16 20:35:26'),(2,1,3,NULL,'有专科的吗 刚被录取的','拉萨的开发 十大房价为荣 \r\n拉升到付款 测试\r\n测试测试内筒',2,'任峻宏','rjh','2017-08-16 20:35:55',0,2,NULL,0,NULL,NULL,NULL,'2017-08-16 20:33:05','2017-08-16 20:35:55');
 /*!40000 ALTER TABLE `topics` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -207,7 +208,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_users_on_username` (`username`),
   UNIQUE KEY `index_users_on_reset_password_token` (`reset_password_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -216,7 +217,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'ren','ren','male','123','wechat','511902','gexing\r\n','yuan','xi','major',NULL,1,5,12,0,0,'2017-08-10 07:35:38','2017-08-10 13:13:26','ren@qq.com','$2a$11$E7c6TLEHsShepkYNyfmMu.L2XkQz.vt4cb8YY8bzj1aBznJmDoMza',NULL,NULL,NULL,2,'2017-08-10 13:13:26','2017-08-10 07:35:38','::1','::1',NULL,NULL,NULL,NULL);
+INSERT INTO `users` VALUES (1,'ren','ren',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,1,2,1,0,0,'2017-08-16 20:30:05','2017-08-16 20:30:06','sadlfk@qq.com','$2a$11$uoCRyr.5mbqWp9IL8.8gLucyJW7uLt2NKGVGDNH4cXTfID/LF13wu',NULL,NULL,NULL,1,'2017-08-16 20:30:06','2017-08-16 20:30:06','::1','::1',NULL,NULL,NULL,NULL),(2,'rjh','任峻宏','male','','','510122','我的个性签名','计算机与软件学院','','电子商务',NULL,1,0,2,0,0,'2017-08-16 20:34:23','2017-08-16 20:35:05','askdfj@qq.com','$2a$11$O3x/PqiZkRl7QZNCQn7fL.f4Djjnfkz1LB5bAD2FYXhtcFU5gfEK2',NULL,NULL,NULL,1,'2017-08-16 20:34:23','2017-08-16 20:34:23','::1','::1',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -229,4 +230,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-14 10:28:56
+-- Dump completed on 2017-08-16 20:37:34
