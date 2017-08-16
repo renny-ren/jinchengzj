@@ -2,10 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* .bg{
+  background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502820393883&di=ba10346becc622f5436a18ba72cafef1&imgtype=0&src=http%3A%2F%2Fbwb.scujcc.cn%2Fupload%2F2011%2F4%2Ftupian%2F20110430002.JPG);
+} */
 .main-container{
   margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .topic-container, .sidebar{ float: left; }
@@ -31,4 +32,30 @@
   box-shadow: 1px 2px 4px lightblue;
   border-radius: 18px;
   padding: 0 8px;
+}
+
+.topic-show-info{ font-size: 0.8rem; }
+.topic-show-info a:hover{ text-decoration: none; font-weight: bold; }
+.topic-show-title{
+  font-family: "Microsoft Yahei", Helvetica, Arial, "PingFang SC", "Noto Sans", Roboto, sans-serif;
+  font-size: 20px;
+}
+/* .excellent-topic{
+  color: #3c763d !important;
+  background-color: #dff0d8 !important;
+  border-color: #d6e9c6 !important;
+} */
+
+.reply-item{ padding: 0 !important; border-bottom: solid 1px #eee; }
+.reply-user-info{
+  background-color: #FAFBFC;
+  border-right: 1px solid #C2D5E3;
+  padding: 20px;
+}
+.reply-body{ padding: 20px; }
+.reply-content{ min-height: 80px; }
+.reply-date{
+  float: right; 
+  font-size: 0.8rem;
+  color: #999999;
 }

@@ -6,6 +6,9 @@
 @import 'bootstrap';
 @import "font-awesome";
 
+.panel-info{ border-color: #bce8f1; }
+.panel-info > .panel-heading{ color: #31708f; border-bottom: dashed 1px #bce8f1; }
+
 .bg-nav{ box-shadow: 0 2px 5px #888888; }
 
 .dropdown{ cursor: pointer; }

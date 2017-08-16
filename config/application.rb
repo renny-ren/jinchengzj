@@ -13,6 +13,9 @@ module Jczj
     # -- all .rb files in that directory are automatically loaded.
     config.i18n.default_locale = 'ch'
 
+    config.time_zone = 'Beijing'
+    config.active_record.default_timezone = :local  
+
     config.generators do |g|
       g.test_framework :rspec,
                        fixtures: true,
