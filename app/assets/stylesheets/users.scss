@@ -2,10 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.gender_male{
-  color: blue;
-}
+.gender_male{ color: #0808ff; }
+.gender_female{ color: #ff7cbd; }
 
-.gender_female{
-  color: pink;
+.profile{
+  margin-top: 20px;
+  line-height: 1.5;
 }
+.info{ font-size: 14px; }
+
+.user-details li{ list-style: none; }
+.user-details{ padding: 10px 0 0 0; }
+.user-details .fa{ width: 15px; }

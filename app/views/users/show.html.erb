@@ -1,52 +1,43 @@
-<div class="main-container">
-<div class="sidebar col-md-4">
-  <div class="panel profile panel-default">
-    <div class="panel-body">
-      <div class="media">
-        <div class="media-left">
-          <%= user_avatar_tag(@user, 96) %>
-        </div>
+<div class="container main-container">
+  <div class="profile col-md-3">
+    <div class="avatar">
+      <%= user_avatar_tag(@user, 160) %>
+    </div>
 
-        <div class="media-body">
-          <% case @user.gender %>
-          <% when 'male' %>
-            <%= fa_icon 'mars', class: 'gender_male' %>
-          <% when 'female' %>
-            <%= fa_icon 'venus', class: 'gender_female' %>
-          <% else %>
-          <% end %>
-          <%= @user.nickname %>&nbsp&nbsp
+    <div class="profile">
+      <% case @user.gender %>
+      <% when 'male' %>
+        <%= fa_icon 'mars', class: 'gender_male' %>
+      <% when 'female' %>
+        <%= fa_icon 'venus', class: 'gender_female' %>
+      <% else %>
+      <% end %>
+      <%= @user.nickname %>
 
-          <br>
+      <div class="info">
+        第 <%= @user.id %> 位成员 ·  
+        <%= @user.created_at.strftime("%Y年%m月%d日") %>加入
+        <div role="separator" class="divider"></div>
+        
+        <ul class="user-details">
+          <li><%= fa_icon 'university' %> <%= @user.school %></li>
+          <li><%= fa_icon 'graduation-cap' %> <%= @user.major %></li>
+          <li><%= fa_icon 'map-marker' %> <%= ChinaCity.get(@user.city) %></li>
+          <li><%= fa_icon 'qq' %> <%= @user.qq %></li>
+          <li><%= fa_icon 'wechat' %> <%= @user.wechat %></li>
+        </ul>
+        <div role="separator" class="divider"></div>
+      </div>
 
-          第 <%= @user.id %> 位成员  &nbsp&nbsp
-
-          加入时间: <%= @user.created_at.to_date %>
-          <br>
-         
-          <%= ChinaCity.get(@user.city) %>
-
-
-          <br>
-          <%= @user.qq %>
-          <%= @user.wechat %>
-
-          学院：<%= @user.school %>
-          专业：<%= @user.major %>
-
-          <br>
-
-          <%= @user.topics_count %>篇帖子 | 
-          <%= @user.replies_count %>条回帖
-        </div>
-
-          <br>
-          <div role="separator" class="divider"></div>
+      <%= @user.topics_count %>篇帖子 | 
+      <%= @user.replies_count %>条回帖
+      <div role="separator" class="divider"></div>
+    </div>
 
 
        
       
-      </div>
+      
          <div class="follow-info row hide-ios">
             <div class="col-xs-4 followers" data-login="<%= @user.login %>">
               <%= @user.following_count %>
@@ -60,7 +51,4 @@
 
           个性签名<%= @user.signature %>
     </div>
-  </div>
 </div>
-</div>
-<div style="font-size: 36px; font-weight: bold;">程序猿脑壳混乱了，这个页面明天再来写</div> 
