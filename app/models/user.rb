@@ -11,6 +11,9 @@ class User < ApplicationRecord
   has_attached_file :avatar, styles: { medium: '100x100', small: '55x55', thumb: '45x45' }, default_url: 'missing.png'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+  has_many :topics, dependent: :destroy
+  has_many :replies, dependent: :destroy
+
   def send_welcome_mail
     UserMailer.welcome(id).deliver_later
   end

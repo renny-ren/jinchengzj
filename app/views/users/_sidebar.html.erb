@@ -1,0 +1,32 @@
+<div class="sidebar col-md-3">
+  <div class="avatar">
+    <%= user_avatar_tag(@user, 160) %>
+  </div>
+
+  <div class="profile">
+    <% case @user.gender %>
+    <% when 'male' %>
+      <%= fa_icon 'mars', class: 'gender_male' %>
+    <% when 'female' %>
+      <%= fa_icon 'venus', class: 'gender_female' %>
+    <% else %>
+    <% end %>
+    <%= @user.nickname %>
+
+    <div class="info">
+      第 <%= @user.id %> 位成员 ·  
+      <%= @user.created_at.strftime("%Y年%m月%d日") %>加入
+      <div><%= @user.signature %></div>
+      <div role="separator" class="divider"></div>
+
+      <ul class="user-details">
+        <li><%= fa_icon 'university' %> <%= @user.school %></li>
+        <li><%= fa_icon 'graduation-cap' %> <%= @user.major %></li>
+        <li><%= fa_icon 'map-marker' %> <%= ChinaCity.get(@user.city) %></li>
+        <li><%= fa_icon 'qq' %> <%= @user.qq %></li>
+        <li><%= fa_icon 'wechat' %> <%= @user.wechat %></li>
+      </ul>
+      <div role="separator" class="divider"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<ul class="nav nav-tabs">
+  <li class="active">
+    <%= link_to topics_user_path do %>
+      帖子<span class='nav-count'> <%= @user.topics_count %></span>
+    <% end %>
+  </li>
+
+  <li>
+    <%= link_to replies_user_path do %>
+      回帖<span class="nav-count"><%= @user.replies_count %></span>
+    <% end %>
+  </li>
+
+  <li>
+    <%= link_to followers_user_path do %>
+      关注者<span class="nav-count"><%= @user.following_count %></span>
+    <% end %>
+  </li>
+
+  <li>
+    <%= link_to following_user_path do %>
+      正在关注<span class="nav-count"><%= @user.followers_count %></span>
+    <% end %>
+  </li>
+
+  <li>
+    <%= link_to favorites_user_path do %>
+      收藏
+    <% end %>
+  </li>
+</ul>

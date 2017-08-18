@@ -14,3 +14,21 @@
 .user-details li{ list-style: none; }
 .user-details{ padding: 10px 0 0 0; }
 .user-details .fa{ width: 15px; }
+
+.nav-count{ 
+  color: #586069;
+  padding: 2px 5px;
+  margin-left: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: rgba(27,31,35,0.08);
+  border-radius: 20px;
+}
+
+.user-topics th, .user-topics td{ padding: 1rem; }
+.user-topics tr.odd{ background: #fafafa; }
+.user-topics .title{ width: 500px; }
+.date{ font-size: 12px; color: #bbb; margin-left: 10px; }
+
+.user-reply-item{ border-bottom: solid 1px #ddd; padding: 10px; }
+.user-reply-body{ margin-top: 6px; font-size: 15px; color: #666; }

@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   resources :users, path: '', param: :username do
     member do
       get :topics
+      get :replies
+      get :followers
+      get :following
+      get :favorites
     end
   end
 end
