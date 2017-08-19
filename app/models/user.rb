@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include Followable
+  
   attr_accessor :login
   validates :username, presence: true, uniqueness: true, length: 3..16
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true # Only allow letter, number, underscore and punctuation.

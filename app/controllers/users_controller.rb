@@ -14,6 +14,15 @@ class UsersController < ApplicationController
     @replies = @user.replies
   end
 
+  def followers
+  end
+
+  def following
+  end
+
+  def favorites
+  end
+
   private
 
   def set_user

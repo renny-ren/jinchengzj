@@ -24,6 +24,8 @@
   background-color: rgba(27,31,35,0.08);
   border-radius: 20px;
 }
+.nav-tabs { height: 35px; }
+.nav-tabs .active{ border-bottom: solid 2px #ffa705; }
 
 .user-topics th, .user-topics td{ padding: 1rem; }
 .user-topics tr.odd{ background: #fafafa; }
@@ -32,3 +34,8 @@
 
 .user-reply-item{ border-bottom: solid 1px #ddd; padding: 10px; }
 .user-reply-body{ margin-top: 6px; font-size: 15px; color: #666; }
+
+.nav-tabs li{ font-size: 16px; padding: 0 20px; }
+.nav-tabs li:hover{ border-bottom: solid 2px #ffa705; }
+.nav-tabs a, .nav-tabs a:hover{ color: black; text-decoration: none; padding-bottom: 12px; }
+

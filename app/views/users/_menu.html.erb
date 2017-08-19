@@ -1,29 +1,29 @@
 <ul class="nav nav-tabs">
-  <li class="active">
+  <li class=<%= "active" if action_name == 'topics' %>>
     <%= link_to topics_user_path do %>
-      帖子<span class='nav-count'> <%= @user.topics_count %></span>
+      发帖<span class='nav-count'> <%= @user.topics_count %></span>
     <% end %>
   </li>
 
-  <li>
+  <li class=<%= "active" if action_name == 'replies' %>>
     <%= link_to replies_user_path do %>
       回帖<span class="nav-count"><%= @user.replies_count %></span>
     <% end %>
   </li>
 
-  <li>
+  <li class=<%= "active" if action_name == 'followers' %>>
     <%= link_to followers_user_path do %>
       关注者<span class="nav-count"><%= @user.following_count %></span>
     <% end %>
   </li>
 
-  <li>
+  <li class=<%= "active" if action_name == 'following' %>>
     <%= link_to following_user_path do %>
       正在关注<span class="nav-count"><%= @user.followers_count %></span>
     <% end %>
   </li>
 
-  <li>
+  <li class=<%= "active" if action_name == 'favorites' %>>
     <%= link_to favorites_user_path do %>
       收藏
     <% end %>

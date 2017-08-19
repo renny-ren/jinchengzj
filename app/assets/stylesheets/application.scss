@@ -32,9 +32,11 @@
 
 .user-bar{ float: right !important; }
 
-.nav > li{ padding-left: 20px; }
-
-.nav a{
+.nav-body{
+  float: left;
+  margin-left: 140px;
+}
+.nav-body a{
   color: black;
   text-decoration: none;
   -o-transition: .5s;
@@ -43,14 +45,7 @@
   -webkit-transition: .5s;
   transition: .5s;
 }
-
-.nav a:hover{ color: orange; }
-
-.nav-body{
-  float: left;
-  margin-left: 140px;
-}
-
-.nav-body li{ font-size: 18px; }
+.nav-body a:hover{ color: orange; }
+.nav-body li{ font-size: 18px; padding-left: 20px; }
 
 .login-btn, .signup-btn{ width: 65px; height: 35px; cursor: pointer; }

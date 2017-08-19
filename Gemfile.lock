@@ -1,6 +1,8 @@
 GEM
   remote: https://gems.ruby-china.org/
   specs:
+    action-store (0.3.2)
+      rails (~> 5, >= 4.2.0)
     actioncable (5.0.0.1)
       actionpack (= 5.0.0.1)
       nio4r (~> 1.2)
@@ -245,6 +247,7 @@ PLATFORMS
   x86-mswin32
 
 DEPENDENCIES
+  action-store
   bcrypt (~> 3.1.7)
   bootstrap
   byebug

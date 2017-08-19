@@ -10,6 +10,7 @@ gem 'paperclip'
 gem 'font-awesome-rails'
 gem 'rucaptcha'
 gem 'letter_avatar'
+gem 'action-store'
 
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use mysql2 as the database for Active Record
