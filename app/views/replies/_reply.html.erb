@@ -1,3 +1,11 @@
+<script type="text/javascript">
+  $(function(){
+    <% if current_user %>
+      $(".visible a.edit[data-uid='<%= current_user.id %>']").show();
+    <% end %>
+  })
+</script>
+
 <div class="panel panel-info">
   <div class="panel-heading">
     共收到 <%= @topic.replies_count %> 条回复
@@ -16,6 +24,9 @@
       <div class="reply-content"><%= reply.body %></div>
       <div class="reply-date"><%= reply.created_at.strftime("%Y-%m-%d %H:%M") %></div>
       <div class="reply-floor"><%= floor + 1 %>楼&nbsp&nbsp</div>
+      <span class="visible">
+      <%= link_to '编辑', edit_topic_reply_path(@topic, reply), class: 'edit', 'data-uid' => reply.user_id %>
+      </span>
     </div>
   </div>
   <% end %>

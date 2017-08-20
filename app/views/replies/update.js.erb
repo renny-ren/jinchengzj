@@ -1,0 +1,2 @@
+<% flash[:notice] = '修改回帖成功。' %>
+Turbolinks.visit('<%= topic_path(@reply.topic_id) %>');

@@ -1,28 +1,33 @@
 <div class="container main-container">
-  <div class="panel panel-default">
-    <div class="panel-heading media">
-      <div class="media-left avatar">
-        <%= user_avatar_tag @topic.user, 45 %>
+  <div class="col-md-10 float-left">
+    <div class="panel panel-default">
+      <div class="panel-heading media">
+        <div class="media-left avatar">
+          <%= user_avatar_tag @topic.user, 45 %>
+        </div>
+        <div class="media-body">
+          <div class="media-heading">
+            <span class="node"><%= link_to @topic.node.name, node_path(@topic.node.id) %></span>
+            <span class="topic-show-title"><%= @topic.title %></span>
+          </div>
+          <div class="media-info topic-show-info">
+            <%= link_to @topic.user.nickname, user_path(@topic.user.username) %> 发布于 <%= time_ago_in_words(@topic.created_at) %>  
+            <% if @topic.replies_count > 0 %>
+              · 最后由 <%= link_to @topic.last_reply_user_nickname, user_path(@topic.last_reply_user_username) %> 
+              回复于 <%= time_ago_in_words @topic.last_reply_at %>
+            <% end %>
+          </div>
+        </div> 
       </div>
-      <div class="media-body">
-        <div class="media-heading">
-          <span class="node"><%= link_to @topic.node.name, node_path(@topic.node.id) %></span>
-          <span class="topic-show-title"><%= @topic.title %></span>
-        </div>
-        <div class="media-info topic-show-info">
-          <%= link_to @topic.user.nickname, user_path(@topic.user.username) %> 发布于 <%= time_ago_in_words(@topic.created_at) %>  
-          <% if @topic.replies_count > 0 %>
-            · 最后由 <%= link_to @topic.last_reply_user_nickname, user_path(@topic.last_reply_user_username) %> 
-            回复于 <%= time_ago_in_words @topic.last_reply_at %>
-          <% end %>
-        </div>
-      </div> 
+
+      <div class="panel-body">
+        <%= @topic.body %>
+      </div>
     </div>
 
-    <div class="panel-body">
-      <%= @topic.body %>
-    </div>
+    <div class="reply"><%= render 'replies/reply' %></div>
   </div>
-
-  <div class="reply"><%= render 'replies/reply' %></div>
+  <div class="sidebar col-md-2">
+    <%= render 'sidebar' %>
+  </div>
 </div>

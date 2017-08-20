@@ -23,6 +23,11 @@ class TopicsController < ApplicationController
     @replies = Reply.where(topic_id: @topic.id)
   end
 
+  def edit
+    @topic = Topic.find(params[:id])
+    @nodes = Node.all
+  end
+
   private
 
   def topic_params

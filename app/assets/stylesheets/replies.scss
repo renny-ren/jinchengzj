@@ -17,3 +17,8 @@
   color: #999999;
 }
 .submit-reply-btn{ cursor: pointer; }
+
+.edit{ display: none; float: right; font-size: 14px; margin-right: 10px; }
+.edit:hover{ text-decoration: none; }
+.visible{ display: none; }
+.reply-body:hover .visible{ display: block; }

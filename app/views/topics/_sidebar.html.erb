@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div>
+      <%= fa_icon('thumbs-o-up') %>
+      <span><%= @topic.praise_count %></span>
+    </div>
+    
+    <%= link_to fa_icon('edit', text: '编辑'), edit_topic_path(@topic) %>
+  </div>
+  
+</div>
