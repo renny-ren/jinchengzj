@@ -20,6 +20,9 @@ class User < ApplicationRecord
     UserMailer.welcome(id).deliver_later
   end
 
+  def admin?
+  end
+
   class << self
     def overview
       { nickname: nickname, id: id, reg_date: created_at.to_date, topics: topics, replies: repiles,

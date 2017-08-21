@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
     session[:return_to] = request.url
   end
 
+  rescue_from CanCan::AccessDenied do |_exception|
+    redirect_to root_path, alert: "操作被拒绝"
+  end
+
   protected
 
   def configure_permitted_parameters
