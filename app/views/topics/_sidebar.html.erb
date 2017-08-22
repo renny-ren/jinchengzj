@@ -5,7 +5,8 @@
       <span><%= @topic.praise_count %></span>
     </div>
     
-    <%= link_to fa_icon('edit', text: '编辑'), edit_topic_path(@topic) %>
+    <% if is_owner?(@topic.user) %>
+      <%= link_to fa_icon('edit', text: '编辑'), edit_topic_path(@topic) %>
+    <% end %>
   </div>
-  
 </div>

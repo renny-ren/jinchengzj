@@ -1,5 +1,7 @@
 class TopicsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  load_and_authorize_resource :topic
+  
+  before_action :authenticate_user!, only: [:new, :create, :update]
 
   def index
     @nodes = Node.all
@@ -16,6 +18,11 @@ class TopicsController < ApplicationController
     @topic.user_id = current_user.id
     @topic.save
     redirect_to topics_path
+  end
+
+  def update
+    @topic = Topic.find(params[:id])
+    @topic.update(topic_params)
   end
 
   def show

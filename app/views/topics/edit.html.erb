@@ -3,7 +3,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">编辑</div>
   <div class="panel-body">
-    <%= form_for @topic do |f| %>
+    <%= form_for @topic, remote: true do |f| %>
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-btn">

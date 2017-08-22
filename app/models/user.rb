@@ -20,7 +20,7 @@ class User < ApplicationRecord
     UserMailer.welcome(id).deliver_later
   end
 
-  def admin?
+  def is_admin?
   end
 
   class << self
