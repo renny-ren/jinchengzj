@@ -9,7 +9,6 @@
       <%= fa_icon 'mars', class: 'gender_male' %>
     <% when 'female' %>
       <%= fa_icon 'venus', class: 'gender_female' %>
-    <% else %>
     <% end %>
     <%= @user.nickname %>
 
@@ -20,13 +19,27 @@
       <div role="separator" class="divider"></div>
 
       <ul class="user-details">
+      <% if @user.school.present? %>
         <li><%= fa_icon 'university' %> <%= @user.school %></li>
+      <% end %>
+
+      <% if @user.major.present? %>
         <li><%= fa_icon 'graduation-cap' %> <%= @user.major %></li>
+      <% end %>
+
+      <% if @user.city.present? %>
         <li><%= fa_icon 'map-marker' %> <%= ChinaCity.get(@user.city) %></li>
+      <% end %>
+
+      <% if @user.qq.present? %>
         <li><%= fa_icon 'qq' %> <%= @user.qq %></li>
+      <% end %>
+
+      <% if @user.wechat.present? %>
         <li><%= fa_icon 'wechat' %> <%= @user.wechat %></li>
+      <% end %>
       </ul>
-      <div role="separator" class="divider"></div>
+      <div role="separator" class="divider optional-divider"></div>
     </div>
   </div>
 </div>
