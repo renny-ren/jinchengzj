@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include Followable
+  include Praise
   
   attr_accessor :login
   validates :username, presence: true, uniqueness: true, length: 3..16

@@ -9,5 +9,9 @@ class User
     def praise(topic)
       self.create_action(:praise, target: topic)
     end
+
+    def cancel_praise(topic)
+      self.destroy_action(:praise, target: topic)
+    end
   end
 end
