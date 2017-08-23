@@ -1,6 +1,11 @@
 class PraisesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create, :destroy]
   before_action :set_target
+
+  def index
+    @users = @target.praise_by_users
+    render :index, layout: false
+  end
 
   def create
     current_user.praise(@target)
