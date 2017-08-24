@@ -17,10 +17,9 @@ $ ->
         url: '/praises'
         method: 'POST'
         data: id: $(this).data('id')
-      $(this).data('loaded', 0)
     else
       icon.removeClass('fa-thumbs-up').addClass('fa-thumbs-o-up')
       $.ajax
         url: '/praises/' + $(this).data('id')
         method: 'DELETE'
-      $(this).data('loaded', 0)
+    $(this).data('loaded', 0)
