@@ -23,9 +23,12 @@
 
 .bg-nav{ box-shadow: 0 2px 5px #888888; }
 
-.dropdown, .btn{ cursor: pointer; }
+.btn{ cursor: pointer; }
+.dropdown-menu{ padding: 0.5rem 8px; }
+.dropdown-menu a{ color: black; }
+.dropdown-menu a:hover{ text-decoration: none; color: #0275D8; }
 
-.divider{ border: solid 0.5px #e5f0fb; }
+.divider{ border: solid 0.5px #e5f0fb; margin-top: 6px; }
 
 .navbar-header{ float: left; }
 
@@ -49,4 +52,4 @@
 .nav-body a:hover{ color: orange; }
 .nav-body li{ font-size: 18px; padding-left: 20px; }
 
-.login-btn, .signup-btn{ width: 65px; height: 35px; cursor: pointer; }
+.login-btn, .signup-btn{ width: 65px; height: 35px; cursor: pointer; margin-left: 1em; }

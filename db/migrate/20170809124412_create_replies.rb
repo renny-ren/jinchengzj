@@ -5,7 +5,7 @@ class CreateReplies < ActiveRecord::Migration[5.0]
       t.integer :topic_id, null: false
       t.text :body, null: false
       t.datetime :deleted_at
-      t.integer :praise_count, default: 0
+      t.integer :praises_count, default: 0
 
       t.timestamps
     end

@@ -10,6 +10,7 @@
   padding: 20px;
 }
 .reply-body{ padding: 20px; }
+.reply-praise{ float: right; }
 .reply-content{ min-height: 80px; }
 .reply-date, .reply-floor{
   float: right; 
@@ -22,3 +23,6 @@
 .edit:hover{ text-decoration: none; }
 .visible{ display: none; }
 .reply-body:hover .visible{ display: block; }
+
+.popular{ background: #fffce9; }
+

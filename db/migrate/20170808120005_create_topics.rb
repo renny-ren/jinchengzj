@@ -10,7 +10,7 @@ class CreateTopics < ActiveRecord::Migration[5.0]
       t.string :last_reply_user_nickname
       t.string :last_reply_user_username
       t.datetime :last_reply_at
-      t.integer :praise_count, default: 0
+      t.integer :praises_count, default: 0
       t.integer :replies_count, default: 0, null: false
       t.integer :status
       t.boolean :is_excellent, default: false

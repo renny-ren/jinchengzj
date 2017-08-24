@@ -1,3 +1,3 @@
 <% @users.each do |user| %>
-  <%= user_avatar_tag(user, 20) %>
+  <%= link_to user_avatar_tag(user, 20), user_path(user.username), method: :get %>
 <% end %>

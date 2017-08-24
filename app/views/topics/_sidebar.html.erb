@@ -1,10 +1,10 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div>
-        <%= button_tag data: {id: @topic.id}, class: 'btn praise-btn' do %>
-          <%= current_user.praise_topic?(@topic) ? fa_icon('thumbs-up 2x') : fa_icon('thumbs-o-up 2x') %>
-          <div class='praises-count'><%= @topic.praises_count %> 个赞</div>
-        <% end %>
+      <%= button_tag data: {id: @topic.id, table: @topic.class.name}, class: 'btn praise-btn' do %>
+        <%= current_user.praise_topic?(@topic) ? fa_icon('thumbs-up 2x') : fa_icon('thumbs-o-up 2x') %>
+        <div class='praises-count'><%= @topic.praises_count %> 个赞</div>
+      <% end %>
     </div>
     
     <% if is_owner?(@topic.user) %>

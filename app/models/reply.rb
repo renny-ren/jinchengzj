@@ -7,4 +7,8 @@ class Reply < ApplicationRecord
   def update_corresding_topic
     topic.update_last_reply(self)
   end
+
+  def popular?
+    'popular' if praises_count >= 5
+  end
 end

@@ -18,6 +18,6 @@ class PraisesController < ApplicationController
   private
 
   def set_target
-    @target = Topic.find(params[:id])
+    @target = params[:table].constantize.find(params[:id])
   end
 end

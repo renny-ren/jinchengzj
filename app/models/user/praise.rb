@@ -4,6 +4,7 @@ class User
 
     included do
       action_store :praise, :topic, counter_cache: true
+      action_store :praise, :reply, counter_cache: true
     end
 
     def praise(topic)
