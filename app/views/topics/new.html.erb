@@ -11,7 +11,7 @@
                 data-toggle="modal" data-target="#node-selector"><%= @topic.node&.name || '选择分类...' %></button>
             <%= f.hidden_field :node_id %>
           </div>
-          <div><%= f.text_field :title, placeholder: '在这里填写标题' %></div><br>
+          <div><%= f.text_field :title, placeholder: '在这里填写标题', size: 80, maxlength: 32 %></div><br>
         </div>
       </div>
       <div><%= f.text_area :body, size: '100x20' %></div>

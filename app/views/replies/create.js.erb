@@ -1,3 +1,4 @@
 $('.reply').html("<%= j(render 'reply') %>");
-$(".flash-notice").text("回复成功!");
-$(".flash-notice").fadeIn().delay(2000).fadeOut();
+$('.total-replies').html("共收到 <%= @topic.reload.replies_count %> 条回复");
+$('.flash-notice').text("回复成功!");
+$('.flash-notice').fadeIn().delay(2000).fadeOut();

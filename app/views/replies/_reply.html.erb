@@ -7,7 +7,7 @@
 </script>
 
 <div class="panel panel-info">
-  <div class="panel-heading">
+  <div class="panel-heading total-replies">
     共收到 <%= @topic.replies_count %> 条回复
   </div>
 
@@ -15,9 +15,9 @@
   <div class="panel-body media reply-item">
     <div class="media-left col-md-2 reply-user-info">
       <div class="avatar">
-        <%= link_to user_avatar_tag(reply.user, 80), user_path(reply.user.username) %>
+        <%= link_to user_avatar_tag(reply.user, 80), user_path(reply.user.username), method: :get %>
       </div>
-      <%= link_to reply.user.nickname, user_path(reply.user.username) %>
+      <%= link_to reply.user.nickname, user_path(reply.user.username), method: :get %>
     </div>
 
     <div class="media-body reply-body <%= reply.popular? %>">
@@ -39,7 +39,6 @@
     </div>
   </div>
   <% end %>
-  
 </div>
 
 <div class="panel panel-default">
