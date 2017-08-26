@@ -2,13 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .reply-item{ padding: 0 !important; border-bottom: solid 1px #eee; }
 .reply-user-info{
   background-color: #FAFBFC;
   border-right: 1px solid #C2D5E3;
   padding: 20px;
+  text-align: center;
 }
+.reply-user-name{ margin-top: 5px; }
 .reply-body{ padding: 20px; }
 .reply-praise{ float: right; }
 .reply-content{ min-height: 80px; }
@@ -17,7 +18,8 @@
   font-size: 0.8rem;
   color: #999999;
 }
-.submit-reply-btn{ cursor: pointer; }
+.submit-reply-btn{ cursor: pointer; margin-top: 10px; }
+#reply_body{ width: 100%; }
 
 .edit{ display: none; float: right; font-size: 14px; margin-right: 10px; }
 .edit:hover{ text-decoration: none; }
@@ -25,4 +27,4 @@
 .reply-body:hover .visible{ display: block; }
 
 .popular{ background: #fffce9; }
-
+.emoji-btn{ background: none; color: #0275D8 !important; cursor: pointer; }

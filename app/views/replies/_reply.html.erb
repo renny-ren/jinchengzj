@@ -6,6 +6,8 @@
   })
 </script>
 
+<%= render 'replies/emoji_selector' %>
+
 <div class="panel panel-info">
   <div class="panel-heading total-replies">
     共收到 <%= @topic.replies_count %> 条回复
@@ -17,7 +19,9 @@
       <div class="avatar">
         <%= link_to user_avatar_tag(reply.user, 80), user_path(reply.user.username), method: :get %>
       </div>
-      <%= link_to reply.user.nickname, user_path(reply.user.username), method: :get %>
+      <div class="reply-user-name">
+        <%= link_to reply.user.nickname, user_path(reply.user.username), method: :get %>
+      </div>
     </div>
 
     <div class="media-body reply-body <%= reply.popular? %>">
@@ -30,7 +34,7 @@
         <% end %>
       </div>
 
-      <div class="reply-content"><%= reply.body %></div>
+      <div class="reply-content"><%= emojify reply.body %></div>
       <div class="reply-date"><%= reply.created_at.strftime("%Y-%m-%d %H:%M") %></div>
       <div class="reply-floor"><%= floor + 1 %>楼&nbsp&nbsp</div>
       <span class="visible">
@@ -42,11 +46,15 @@
 </div>
 
 <div class="panel panel-default">
-  <div class="panel-heading">回帖</div>
+  <div class="panel-heading">回帖
+  <span style="float: right;">
+    <a class="emoji-btn" id="emoji-selector-button" data-toggle="modal" data-target="#emoji-selector"><%= fa_icon 'smile-o' %></a>
+  </span></div>
+
   <div class="panel-body">
     <% if user_signed_in? %>
       <%= form_for(Reply.new, remote: true, url: topic_replies_path(@topic)) do |f| %>
-        <%= f.text_area :body, size: '80x5' %> <br />
+        <%= f.text_area :body, size: '80x5', minlength: 2 %> <br />
         <%= f.hidden_field :topic_id, value: @topic.id %>
         <%= f.submit '提交回复', class: 'btn btn-primary submit-reply-btn' %>
       <% end %>
