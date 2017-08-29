@@ -12,4 +12,9 @@ class Topic < ApplicationRecord
     self.last_reply_user_username = reply.user.username
     save
   end
+
+  def update_to_previous_reply(deleted_reply)
+    previous_reply = replies.where.not(id: deleted_reply.id).order(id: :desc).first
+    update_last_reply(previous_reply)
+  end
 end

@@ -14,34 +14,41 @@
   </div>
 
   <% @replies.each_with_index do |reply, floor| %>
-  <div class="panel-body media reply-item">
-    <div class="media-left col-md-2 reply-user-info">
-      <div class="avatar">
-        <%= link_to user_avatar_tag(reply.user, 80), user_path(reply.user.username), method: :get %>
+    <% if reply.deleted %>
+      <div class="deleted text-center">
+        <%= floor + 1 %>楼已删除
       </div>
-      <div class="reply-user-name">
-        <%= link_to reply.user.nickname, user_path(reply.user.username), method: :get %>
-      </div>
-    </div>
+    <% else %>
+      <div class="panel-body media reply-item">
+        <div class="media-left col-md-2 reply-user-info">
+          <div class="avatar">
+            <%= link_to user_avatar_tag(reply.user, 80), user_path(reply.user.username), method: :get %>
+          </div>
+          <div class="reply-user-name">
+            <%= link_to reply.user.nickname, user_path(reply.user.username), method: :get %>
+          </div>
+        </div>
+      
+        <div class="media-body reply-body <%= reply.popular? %>">
+          <div class='reply-praise'>
+            <%= button_tag data: {id: reply.id, table: reply.class.name}, class: 'btn praise-btn' do %>
+              <%= current_user.praise_reply?(reply) ? fa_icon('thumbs-up') : fa_icon('thumbs-o-up') %>
+              <span class='praises-count' style="font-size: 14px;">
+                <%= "#{reply.praises_count} 个赞" if reply.praises_count != 0 %>
+              </span>
+            <% end %>
+          </div>
 
-    <div class="media-body reply-body <%= reply.popular? %>">
-      <div class='reply-praise'>
-        <%= button_tag data: {id: reply.id, table: reply.class.name}, class: 'btn praise-btn' do %>
-          <%= current_user.praise_reply?(reply) ? fa_icon('thumbs-up') : fa_icon('thumbs-o-up') %>
-          <span class='praises-count' style="font-size: 14px;">
-            <%= "#{reply.praises_count} 个赞" if reply.praises_count != 0 %>
+          <div class="reply-content"><%= emojify reply.body %></div>
+          <div class="reply-date"><%= reply.created_at.strftime("%Y-%m-%d %H:%M") %></div>
+          <div class="reply-floor"><%= floor + 1 %>楼&nbsp&nbsp</div>
+          <span class="visible">
+          <%= link_to '编辑', edit_topic_reply_path(@topic, reply), class: 'edit', 'data-uid' => reply.user_id %>
+          <%= link_to '删除', topic_reply_path(@topic, reply), method: :delete, data: { confirm: '你确定要删除这条回复吗？' }, remote: :true, class: 'edit', 'data-uid' => reply.user_id %>
           </span>
-        <% end %>
+        </div>
       </div>
-
-      <div class="reply-content"><%= emojify reply.body %></div>
-      <div class="reply-date"><%= reply.created_at.strftime("%Y-%m-%d %H:%M") %></div>
-      <div class="reply-floor"><%= floor + 1 %>楼&nbsp&nbsp</div>
-      <span class="visible">
-      <%= link_to '编辑', edit_topic_reply_path(@topic, reply), class: 'edit', 'data-uid' => reply.user_id %>
-      </span>
-    </div>
-  </div>
+    <% end %>
   <% end %>
 </div>
 

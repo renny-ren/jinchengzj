@@ -6,7 +6,7 @@
         <% @topics.each do |topic| %>
           <div class="media topic-item">
             <div class="media-left avatar">
-              <%= link_to user_avatar_tag(topic.user, 45), user_path(topic.user.username), title: topic.user.nickname %>
+              <%= link_to user_avatar_tag(topic.user, 45), user_path(topic.user.username), title: topic.user.nickname, method: :get %>
             </div>
 
             <div class="media-body">
