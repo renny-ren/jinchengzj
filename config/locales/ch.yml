@@ -15,11 +15,11 @@
         other: 接近 %{count} 年前
       half_a_minute: 半分钟前
       less_than_x_minutes:
-        one: 不到 1 分钟前
+        one: 刚刚
         other: 不到 %{count} 分钟前
       less_than_x_seconds:
         one: 刚刚
-        other: 不到 %{count} 秒前
+        other: 刚刚
       over_x_years:
         one: 一年多前
         other: "%{count} 年多以前"

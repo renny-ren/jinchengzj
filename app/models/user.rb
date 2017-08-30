@@ -16,6 +16,7 @@ class User < ApplicationRecord
 
   has_many :topics, dependent: :destroy
   has_many :replies, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def send_welcome_mail
     UserMailer.welcome(id).deliver_later

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+
   mount ChinaCity::Engine => '/china_city'
 
   devise_for :users, controllers: {
@@ -11,14 +13,16 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-
   resources :home, only: :index
-  resources :announcements
+  # resources :announcements
   resources :praises
 
   resources :topics do
-    resources :replies
+    resources :replies do
+      resources :comments
+    end
   end
+
   resources :nodes
 
   resources :users, path: '', param: :username do

@@ -3,6 +3,7 @@ class Reply < ApplicationRecord
 
   belongs_to :topic, counter_cache: true
   belongs_to :user, counter_cache: true
+  has_many :comments
 
   after_commit :update_corresponding_topic, on: :create
   after_destroy :update_after_delete_reply

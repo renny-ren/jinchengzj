@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   load_and_authorize_resource :topic
-  
+
   before_action :authenticate_user!, only: [:new, :create, :update]
 
   def index

@@ -40,12 +40,17 @@
           </div>
 
           <div class="reply-content"><%= emojify reply.body %></div>
+          <%= button_tag data: { id: reply.id }, class: 'btn comment-btn' do %>
+             讨论 <%= fa_icon 'angle-down', class: 'arrow' %>
+           <% end %>
           <div class="reply-date"><%= reply.created_at.strftime("%Y-%m-%d %H:%M") %></div>
           <div class="reply-floor"><%= floor + 1 %>楼&nbsp&nbsp</div>
-          <span class="visible">
+          <div class="visible">
           <%= link_to '编辑', edit_topic_reply_path(@topic, reply), class: 'edit', 'data-uid' => reply.user_id %>
           <%= link_to '删除', topic_reply_path(@topic, reply), method: :delete, data: { confirm: '你确定要删除这条回复吗？' }, remote: :true, class: 'edit', 'data-uid' => reply.user_id %>
-          </span>
+          </div>
+          
+          <%= render 'comments/comment', reply: reply %>
         </div>
       </div>
     <% end %>

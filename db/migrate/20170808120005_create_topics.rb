@@ -21,7 +21,7 @@ class CreateTopics < ActiveRecord::Migration[5.0]
       t.timestamps
 
       t.index :deleted_at
-      t.index :praise_count
+      t.index :praises_count
     end
   end
 end
