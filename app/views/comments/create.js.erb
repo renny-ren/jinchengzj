@@ -1,3 +1,5 @@
-$('.reply').html("<%= j(render 'replies/reply') %>");
+$('.comment-container[data-id=<%= @reply.id %>]').replaceWith("<%= j(render 'comments/comment', reply: @reply) %>");
+$('.comments-count[data-id=<%= @reply.id %>]').html("(" + "<%= @reply.reload.comments_count %>" + ")");
 $('.flash-notice').text("评论成功!");
-$('.flash-notice').fadeIn().delay(2000).fadeOut();
+$('.flash-notice').fadeIn().delay(1500).fadeOut();
+$('.comment-container[data-id=<%= @reply.id %>]').show();

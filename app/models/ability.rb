@@ -25,5 +25,4 @@ class Ability
     can :create, Reply
     can [:update, :destroy], Reply, user_id: user.id
   end
-
 end

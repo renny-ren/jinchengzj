@@ -20,7 +20,7 @@
       </div>
     <% else %>
       <div class="panel-body media reply-item">
-        <div class="media-left col-md-2 reply-user-info">
+        <div class="media-left col-md-2 reply-user-info" data-id= <%= reply.id %>>
           <div class="avatar">
             <%= link_to user_avatar_tag(reply.user, 80), user_path(reply.user.username), method: :get %>
           </div>
@@ -29,19 +29,21 @@
           </div>
         </div>
       
-        <div class="media-body reply-body <%= reply.popular? %>">
+        <div class="media-body reply-body <%= reply.popular? %>" data-id=<%= reply.id %>>
           <div class='reply-praise'>
             <%= button_tag data: {id: reply.id, table: reply.class.name}, class: 'btn praise-btn' do %>
               <%= current_user.praise_reply?(reply) ? fa_icon('thumbs-up') : fa_icon('thumbs-o-up') %>
               <span class='praises-count' style="font-size: 14px;">
-                <%= "#{reply.praises_count} 个赞" if reply.praises_count != 0 %>
+                <%= "#{reply.praises_count} 个赞" unless reply.praises_count.zero? %>
               </span>
             <% end %>
           </div>
 
           <div class="reply-content"><%= emojify reply.body %></div>
           <%= button_tag data: { id: reply.id }, class: 'btn comment-btn' do %>
-             讨论 <%= fa_icon 'angle-down', class: 'arrow' %>
+             讨论
+             <span class="comments-count" data-id=<%= reply.id %>><%= "(#{reply.comments_count})" unless reply.comments_count.zero? %></span>
+             <%= fa_icon 'angle-down', class: 'arrow', 'data-id' => reply.id %>
            <% end %>
           <div class="reply-date"><%= reply.created_at.strftime("%Y-%m-%d %H:%M") %></div>
           <div class="reply-floor"><%= floor + 1 %>楼&nbsp&nbsp</div>
@@ -51,6 +53,7 @@
           </div>
           
           <%= render 'comments/comment', reply: reply %>
+          <div style="clear: both;"></div>
         </div>
       </div>
     <% end %>

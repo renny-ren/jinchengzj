@@ -15,6 +15,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.integer :level, default: 1
       t.integer :topics_count, default: 0, null: false
       t.integer :replies_count, default: 0, null: false
+      t.integer :comments_count, default: 0
       t.integer :followers_count, default: 0, null: false
       t.integer :following_count, default: 0, null: false
 

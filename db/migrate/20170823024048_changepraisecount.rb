@@ -8,6 +8,7 @@ class Changepraisecount < ActiveRecord::Migration[5.0]
     #   t.rename :praise_count, :praises_count
     # end
 
-    # add_column :comments, :topic_id, :integer, null:  false
+    # remove_column :comments, :comments_count
+    # add_column :replies, :comments_count, :integer, defualt: 0
   end
 end
