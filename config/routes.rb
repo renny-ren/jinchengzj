@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :topics do
     resources :replies do
-      resources :comments
+      resource :comments
     end
   end
 

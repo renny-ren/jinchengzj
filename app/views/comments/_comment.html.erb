@@ -1,5 +1,5 @@
-<div class="comment-container" data-id=<%= reply.id %>>
-  <% reply.comments.each do |comment| %>
+<div class="comment-container" data-id=<%= reply.id %> data-count=<%= reply.comments_count %>>
+  <% reply.comments.page(params[:page]).each do |comment| %>
     <div class="media comment-item">
       <div class="media-left">
         <span class="avatar">
@@ -16,6 +16,7 @@
       </span>
     </div>
   <% end %>
+  <%= will_paginate reply.comments.page(params[:page]) %>
 
   <% if user_signed_in? %>
     <%= render 'comments/comment_form', reply: reply %>

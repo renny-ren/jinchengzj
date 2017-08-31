@@ -3,6 +3,7 @@
     <% if current_user %>
       $(".visible a.edit[data-uid='<%= current_user.id %>']").show();
     <% end %>
+    $('.comment-btn[data-count!=0]').trigger('click');
   })
 </script>
 
@@ -40,9 +41,10 @@
           </div>
 
           <div class="reply-content"><%= emojify reply.body %></div>
-          <%= button_tag data: { id: reply.id }, class: 'btn comment-btn' do %>
+          <%= button_tag data: { id: reply.id, count: reply.comments_count }, class: 'btn comment-btn' do %>
              讨论
-             <span class="comments-count" data-id=<%= reply.id %>><%= "(#{reply.comments_count})" unless reply.comments_count.zero? %></span>
+             <span class="comments-count" data-id=<%= reply.id %>>
+               <%= "(#{reply.comments_count})" unless reply.comments_count.zero? %></span>
              <%= fa_icon 'angle-down', class: 'arrow', 'data-id' => reply.id %>
            <% end %>
           <div class="reply-date"><%= reply.created_at.strftime("%Y-%m-%d %H:%M") %></div>
