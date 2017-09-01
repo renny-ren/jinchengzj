@@ -29,7 +29,7 @@
       </span>
     </div>
   <% end %>
-  <%= will_paginate reply.comments.page(params["c#{reply.id}"]), param_name: "c#{reply.id}" %>
+  <%= will_paginate reply.comments.page(params["c#{reply.id}"]), param_name: "c#{reply.id}", class: 'flickr_pagination' %>
 
   <% if user_signed_in? %>
     <%= render 'comments/comment_form', reply: reply %>
