@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
 //= require 'china_city/jquery.china_city'
 //= require tooltipster.bundle.min
+//= require turbolinks

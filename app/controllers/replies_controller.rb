@@ -10,6 +10,10 @@ class RepliesController < ApplicationController
     @reply.save
   end
 
+  def index
+    redirect_to topic_path(@topic, params: { page: params[:page] })
+  end
+
   def edit
   end
 

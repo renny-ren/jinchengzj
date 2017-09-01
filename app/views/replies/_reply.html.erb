@@ -3,7 +3,7 @@
     <% if current_user %>
       $(".visible a.edit[data-uid='<%= current_user.id %>']").show();
     <% end %>
-    $('.comment-btn[data-count!=0]').trigger('click');
+    $('.comment-btn[data-count!=0]').click();
   })
 </script>
 
