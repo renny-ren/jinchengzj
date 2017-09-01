@@ -1,12 +1,14 @@
 <script type="text/javascript">
-  var height = localStorage.getItem("Ltop");
-  if (height){
-    document.documentElement.scrollTop = height;
-  }
-  window.addEventListener("scroll", function(){  
-    var top = document.documentElement.scrollTop;
-    localStorage.setItem("Ltop", top);
-  })
+  // retain scroll position
+  $(document).on('turbolinks:load', function(){
+    if (sessionStorage.scrollTop != "undefined") {
+      $(window).scrollTop(sessionStorage.scrollTop);
+    }
+  });
+
+  $(window).scroll(function() {
+    sessionStorage.scrollTop = $(this).scrollTop();
+  });
 </script>
 
 <div class="comment-container" data-id=<%= reply.id %> data-count=<%= reply.comments_count %>>
