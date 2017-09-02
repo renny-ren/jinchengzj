@@ -20,6 +20,14 @@ class UsersController < ApplicationController
   def following
   end
 
+  def follow
+    current_user.follow_user(@user)
+  end
+
+  def unfollow
+    current_user.unfollow_user(@user)
+  end
+
   def favorites
   end
 

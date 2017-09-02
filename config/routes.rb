@@ -32,6 +32,8 @@ Rails.application.routes.draw do
       get :followers
       get :following
       get :favorites
+      post :follow
+      delete :unfollow
     end
   end
 end

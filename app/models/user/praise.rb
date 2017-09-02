@@ -7,12 +7,12 @@ class User
       action_store :praise, :reply, counter_cache: true
     end
 
-    def praise(topic)
-      self.create_action(:praise, target: topic)
+    def praise(target)
+      self.create_action(:praise, target: target)
     end
 
-    def cancel_praise(topic)
-      self.destroy_action(:praise, target: topic)
+    def cancel_praise(target)
+      self.destroy_action(:praise, target: target)
     end
   end
 end

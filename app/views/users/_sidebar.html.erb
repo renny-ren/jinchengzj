@@ -10,7 +10,7 @@
     <% when 'female' %>
       <%= fa_icon 'venus', class: 'gender_female' %>
     <% end %>
-    <%= @user.nickname %>
+    <%= @user.nickname %> (<%= @user.username %>)
 
     <div class="info">
       第 <%= @user.id %> 位成员 ·  
@@ -41,5 +41,11 @@
       </ul>
       <div role="separator" class="divider optional-divider"></div>
     </div>
+  </div>
+
+  <div class="follow <%= 'hide' if current_user == @user %>">
+    <%= button_tag data: { username: @user.username }, class: 'btn btn-primary follow-btn', remote: true do %>
+      <%= current_user.follow_user?(@user) ? fa_icon('user', text: '取消关注') : fa_icon('user-o', text: '关注') %>
+    <% end %>
   </div>
 </div>
