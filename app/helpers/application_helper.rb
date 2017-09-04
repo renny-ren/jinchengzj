@@ -5,6 +5,7 @@ module ApplicationHelper
   end
 
   def is_owner?(user)
+    return false if user.blank? || current_user.blank?
     user.id == current_user.id
   end
 end

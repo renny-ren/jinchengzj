@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def topics
     @topics = @user.topics
+    render template: "/users/show"
   end
 
   def replies
@@ -15,9 +16,12 @@ class UsersController < ApplicationController
   end
 
   def followers
+    @users = @user.follow_by_users.order("actions.id asc")
   end
 
   def following
+    @users = @user.follow_users.order("actions.id asc")
+    render template: "/users/followers"
   end
 
   def follow

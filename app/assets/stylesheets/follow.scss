@@ -3,3 +3,11 @@
   padding: 5px !important;
   font-size: 14px !important;
 }
+
+.user-card {
+  margin: 15px 15px;
+  .media-heading {
+    font-weight: bold;
+    a { color: #333; vertical-align: middle; }
+  }
+}

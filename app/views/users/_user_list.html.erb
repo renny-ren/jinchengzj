@@ -1,0 +1,14 @@
+<div class="row">
+  <% @users.each do |user| %>
+    <div class="col-md-2">
+      <div class="media user-card">
+        <div class="media-left avatar">
+          <%= link_to user_avatar_tag(user, 36), user_path(user.username), method: :get %>
+        </div>
+        <div class="media-body">
+          <div class="media-heading"><%= link_to user.nickname, user_path(user.username), method: :get %></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
