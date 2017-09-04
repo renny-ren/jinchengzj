@@ -1,6 +1,6 @@
 <div class="container main-container">
   <div class="col-md-10 float-left">
-    <div class="panel panel-default">
+    <div class="panel panel-default <%= @topic.popular? %>">
       <div class="panel-heading media">
         <div class="media-left avatar">
           <%= user_avatar_tag @topic.user, 45 %>

@@ -17,4 +17,8 @@ class Topic < ApplicationRecord
     previous_reply = replies.where.not(id: deleted_reply.id).order(id: :desc).first
     update_last_reply(previous_reply)
   end
+
+  def popular?
+    "popular-topic" if praises_count > 4
+  end
 end
