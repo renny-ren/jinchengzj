@@ -28,6 +28,7 @@ class TopicsController < ApplicationController
   def show
     @topic = Topic.find(params[:id])
     @replies = Reply.where(topic_id: @topic.id)
+    @topic.view_times.incr(1)
   end
 
   def edit

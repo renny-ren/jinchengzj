@@ -16,6 +16,7 @@
               · 最后由 <%= link_to @topic.last_reply_user_nickname, user_path(@topic.last_reply_user_username) %> 
               回复于 <%= time_ago_in_words @topic.last_reply_at %>
             <% end %>
+             · <%= @topic.view_times %> 次阅读
           </div>
         </div> 
       </div>
