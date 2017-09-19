@@ -273,7 +273,6 @@ DEPENDENCIES
   paperclip
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
-  redis
   redis-objects
   rspec-rails
   rucaptcha
