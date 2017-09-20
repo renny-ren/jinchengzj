@@ -80,6 +80,19 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    elasticsearch (5.0.4)
+      elasticsearch-api (= 5.0.4)
+      elasticsearch-transport (= 5.0.4)
+    elasticsearch-api (5.0.4)
+      multi_json
+    elasticsearch-model (5.0.1)
+      activesupport (> 3)
+      elasticsearch (~> 5)
+      hashie
+    elasticsearch-rails (5.0.1)
+    elasticsearch-transport (5.0.4)
+      faraday
+      multi_json
     erubis (2.7.0)
     execjs (2.7.0)
     factory_girl (4.7.0)
@@ -87,6 +100,8 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
+    faraday (0.11.0)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.14)
     ffi (1.9.14-java)
     ffi (1.9.14-x64-mingw32)
@@ -96,6 +111,7 @@ GEM
     gemoji (3.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    hashie (3.5.5)
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -120,6 +136,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    multipart-post (2.0.0)
     mysql2 (0.4.5)
     mysql2 (0.4.5-x64-mingw32)
     mysql2 (0.4.5-x86-mingw32)
@@ -262,6 +279,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   config
   devise
+  elasticsearch-model
+  elasticsearch-rails
   factory_girl_rails
   font-awesome-rails
   gemoji

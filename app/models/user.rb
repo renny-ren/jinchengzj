@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   include Followable
   include Praise
+  include Elasticsearch::Model
   
   attr_accessor :login
   validates :username, presence: true, uniqueness: true, length: 3..16

@@ -35,6 +35,9 @@ class UsersController < ApplicationController
   def favorites
   end
 
+  def search
+  end
+
   private
 
   def set_user

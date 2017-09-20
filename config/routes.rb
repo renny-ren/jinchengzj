@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   get 'comments/create'
+  # post 'search' => 'search#index'
+  get '/search' => 'search#index'
+
 
   mount ChinaCity::Engine => '/china_city'
 

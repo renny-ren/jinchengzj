@@ -1,0 +1,11 @@
+<% title = hit.highlight.title.try(:first) || item.title %>
+<% body = hit.highlight.body.try(:first) || item.body %>
+
+<div class="result">
+  <div class="result-title"><%= link_to highlight(title), item, method: :get %></div>
+  <div class="result-body"><%= link_to highlight(body), item, method: :get %></div>
+  <div class="info">
+    <span><%= fa_icon('reply', text: item.replies_count) %>&nbsp&nbsp&nbsp<%= fa_icon('thumbs-o-up', text: item.praises_count) %></span>
+    <span class="date" title=<%= "发表于#{item.created_at.to_date}" %>><%= item.created_at.to_date %></span>
+  </div>
+</div>

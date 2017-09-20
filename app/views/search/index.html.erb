@@ -1,0 +1,24 @@
+<% zero = @result.records.total.zero? %>
+
+<div class="container main-container">
+  <div class="search-results panel panel-default">
+    <div class="panel-heading">
+      <% unless zero %>
+      共搜索到 <%= @result.records.total %> 条关于 <%= params[:q] %> 的结果
+      <% end %>
+    </div>
+
+    <div class="panel-body">
+      <% if zero %>
+        <div class="no-result">没有搜索到任何有关 <%= params[:q]%> 的内容</div>
+      <% else %>
+        <% @result.records.each_with_hit do |item, hit| %>
+          <%= render partial: item.class.name.downcase, locals: { item: item, hit: hit } %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="panel-footer">
+    </div>
+  </div>
+</div>

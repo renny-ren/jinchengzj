@@ -41,8 +41,14 @@
     </div>
   </div>
 
-  <div class="sidebar col-md-3">
-    <%= link_to "发帖", new_topic_path, method: :get, class: 'btn btn-primary' %>
+  <div class="sidebar col-md-3 panel panel-default">
+    <div class="panel-body">
+      <%= link_to "发帖", new_topic_path, method: :get, class: 'btn btn-primary' %>
+      <%= form_tag(search_path, remote: true) do %>
+        <%= text_field_tag "search", params[:q], placeholder: "搜索" %>
+        <%= fa_icon 'search' %>
+      <% end %>
+    </div>
   </div>
 </div>
        

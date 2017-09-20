@@ -1,11 +1,10 @@
 <table class="user-topics">
-  
   <% @topics.each do |topic| %>
     <tr class="topic <%= cycle("odd","") %>">
       <td class="node"><%= link_to topic.node.name, node_path(topic.node) %></td>
       <td class="title"><%= link_to topic.title, topic_path(topic) %>
       <span class="date"><%= topic.created_at.strftime("%Y年%m月%d日") %></span></td>
-      <td class='word'><%= topic.replies_count %> 回复</span> · <%= topic.praises_count %> 个赞</span> </td>
+      <td class='word'><%= topic.replies_count %> 回复 · <%= topic.praises_count %> 个赞 </td>
     </tr>
   <% end %>
 </table>

@@ -1,5 +1,7 @@
 class Topic < ApplicationRecord
   include Redis::Objects
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   belongs_to :user, counter_cache: true
   belongs_to :node, counter_cache: true
@@ -24,3 +26,5 @@ class Topic < ApplicationRecord
     "popular-topic" if praises_count > 4
   end
 end
+
+Topic.import

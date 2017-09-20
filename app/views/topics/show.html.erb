@@ -3,7 +3,7 @@
     <div class="panel panel-default <%= @topic.popular? %>">
       <div class="panel-heading media">
         <div class="media-left avatar">
-          <%= user_avatar_tag @topic.user, 45 %>
+          <%= link_to user_avatar_tag(@topic.user, 45), user_path(@topic.user.username) %>
         </div>
         <div class="media-body">
           <div class="media-heading">
