@@ -7,13 +7,13 @@ class SearchController < ApplicationController
           query: params[:q],
           default_operator: "AND",
           minimum_should_match: "70%",
-          fields: %w(title body name login)
+          fields: %w(title body username nickname)
         }
       },
       highlight: {
         pre_tags: ["[h]"],
         post_tags: ["[/h]"],
-        fields: { title: {}, body: {}, name: {}, login: {} }
+        fields: { title: {}, body: {}, username: {}, nickname: {} }
       }
     }
     @result = Elasticsearch::Model.search(search_params, search_modules)
