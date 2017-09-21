@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   def index
+    params[:q] ||= ""
     search_modules = [Topic, User]
     search_params = {
       query: {

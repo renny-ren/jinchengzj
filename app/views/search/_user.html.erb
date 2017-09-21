@@ -1,0 +1,14 @@
+<div class="result">
+  <span class="avatar"><%= link_to user_avatar_tag(item, 36), user_path(item.username), method: :get %></span>
+  <span>
+    <%= link_to user_path(item.username) do %>
+      <%= item.nickname %> (<%=  item.username%>)
+    <% end %>
+  </span>
+  <div class="info">
+    <%= "#{item.major} ·" if item.major.present? %>
+    <%= "#{ChinaCity.get(item.city)} ·" if item.city.present? %>
+    第 <%= item.id %> 位成员 ·
+    <%= item.created_at.strftime("%Y年%m月%d日") %>加入
+  </div>
+</div>
