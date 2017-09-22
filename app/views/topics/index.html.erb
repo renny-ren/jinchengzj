@@ -43,13 +43,14 @@
 
   <div class="sidebar col-md-3 panel panel-default">
     <div class="panel-body">
-      <%= link_to "发帖", new_topic_path, method: :get, class: 'btn btn-primary' %>
       <form action="/search" method="GET">
         <div class="form-group">
           <input class="form-control search-box" name="q" type="text" value="<%= params[:q] %>" placeholder="搜索" />
           <%= button_tag fa_icon('search'), name: nil, class: 'btn btn-default search-btn' %>
         </div>
       </form>
+
+      <%= link_to "发帖", new_topic_path, method: :get, class: 'btn btn-primary' %>
     </div>
   </div>
 </div>
