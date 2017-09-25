@@ -1,6 +1,4 @@
 RailsAdmin.config do |config|
-  config.main_app_name = ["锦城之家", "后台管理"]
-
   ### Popular gems integration
 
   ## == Devise ==
@@ -24,16 +22,28 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
 
+  # config.navigation_static_links = {
+  #   'Baidu' => 'http://www.baidu.com'
+  # }
+
+  config.main_app_name = ["锦城之家", "后台管理"]
+
+  config.excluded_models << "Action"
+
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
     new
-    export
+    # export
     bulk_delete
     show
     edit
-    delete
-    show_in_app
+    delete do
+      except ['Node']
+    end
+    show_in_app do
+      except ['Node']
+    end
 
     ## With an audit adapter, you can add:
     # history_index
