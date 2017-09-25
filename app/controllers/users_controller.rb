@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     render plain: "User not found", status: 404 unless @user
-    @topics = @user.topics
+    @topics = @user.topics if @user
   end
 
   def topics
