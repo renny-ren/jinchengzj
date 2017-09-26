@@ -2,6 +2,7 @@ class Topic < ApplicationRecord
   include Redis::Objects
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+  include TailorAdmin::TopicAdmin
 
   belongs_to :user, counter_cache: true
   belongs_to :node, counter_cache: true

@@ -66,7 +66,7 @@ ch:
         menu: "主页"
         breadcrumb: "主页"
       index:
-        title: "%{model_label_plural}列表"
+        title: "%{model_label_plural}"
         menu: "列表"
         breadcrumb: "%{model_label_plural}"
       show:
