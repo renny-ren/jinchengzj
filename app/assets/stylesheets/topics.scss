@@ -35,7 +35,7 @@
   padding: 0 8px;
 }
 
-.topic-show-info{ font-size: 0.8rem; }
+.topic-show-info{ position: relative; z-index: 2; font-size: 0.8rem; }
 .topic-show-info a:hover{ text-decoration: none; font-weight: bold; }
 .topic-show-title{
   font-family: "Microsoft Yahei", Helvetica, Arial, "PingFang SC", "Noto Sans", Roboto, sans-serif;
@@ -54,4 +54,17 @@
     background-color: #d9edf7 !important;
     border-color: #bce8f1 !important;
   }
+}
+
+.topic-excellent img{
+  margin-top: -5px;
+  margin-left: 5px;
+}
+.topic-show-excellent img{
+  position: absolute;
+  z-index: 1;
+  height: 70px;
+  width: 80px;
+  margin-left: 100px;
+  margin-top: -10px;
 }

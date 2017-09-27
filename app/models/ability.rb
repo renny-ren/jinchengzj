@@ -19,6 +19,8 @@ class Ability
     can :destroy, Topic do |topic|
       topic.user_id == user.id && topic.replies_count == 0
     end
+
+    can :action, Topic
   end
 
   def roles_for_reply(user)

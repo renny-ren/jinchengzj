@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   resources :praises
 
   resources :topics do
+    member do
+      post :action
+    end
     resources :replies do
       resource :comments
     end

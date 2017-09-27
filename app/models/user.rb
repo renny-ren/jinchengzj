@@ -27,6 +27,10 @@ class User < ApplicationRecord
   def is_admin?
   end
 
+  def root?
+    role == 'root'
+  end
+
   class << self
     def overview
       { nickname: nickname, id: id, reg_date: created_at.to_date, topics: topics, replies: repiles,

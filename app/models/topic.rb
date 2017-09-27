@@ -26,6 +26,14 @@ class Topic < ApplicationRecord
   def popular?
     "popular-topic" if praises_count > 4
   end
+
+  def excellent
+    update!(is_excellent: true)
+  end
+
+  def cancel_excellent
+    update!(is_excellent: false)
+  end
 end
 
 Topic.import

@@ -2,6 +2,7 @@ class TopicsController < ApplicationController
   load_and_authorize_resource :topic
 
   before_action :authenticate_user!, only: [:new, :create, :update]
+  before_action :set_topic, only: [:update, :show, :edit]
 
   def index
     @nodes = Node.all
@@ -21,22 +22,34 @@ class TopicsController < ApplicationController
   end
 
   def update
-    @topic = Topic.find(params[:id])
     @topic.update(topic_params)
   end
 
   def show
-    @topic = Topic.find(params[:id])
     @replies = Reply.where(topic_id: @topic.id)
     @topic.view_times.incr(1)
   end
 
   def edit
-    @topic = Topic.find(params[:id])
     @nodes = Node.all
   end
 
+  def action
+    case params[:type]
+    when "excellent"
+      @topic.excellent
+      redirect_to @topic, notice: "加精成功"
+    when "cancel_excellent"
+      @topic.cancel_excellent
+      redirect_to @topic, notice: "取消精华成功"
+    end
+  end
+
   private
+
+  def set_topic
+    @topic = Topic.find(params[:id])
+  end
 
   def topic_params
     params.require(:topic).permit(:title, :body, :node_id)

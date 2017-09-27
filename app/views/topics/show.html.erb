@@ -9,6 +9,7 @@
           <div class="media-heading">
             <span class="node"><%= link_to @topic.node.name, node_path(@topic.node.id) %></span>
             <span class="topic-show-title"><%= @topic.title %></span>
+            <span class="topic-show-excellent"><%= image_tag "excellent_show.gif" if @topic.is_excellent %></span>
           </div>
           <div class="media-info topic-show-info">
             <%= link_to @topic.user.nickname, user_path(@topic.user.username) %> 发布于 <%= time_ago_in_words(@topic.created_at) %>  

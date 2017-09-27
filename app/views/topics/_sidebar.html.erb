@@ -10,5 +10,13 @@
     <% if is_owner?(@topic.user) %>
       <%= link_to fa_icon('edit', text: '编辑'), edit_topic_path(@topic) %>
     <% end %>
+
+    <% if current_user.root? %>
+      <% if @topic.is_excellent %>
+        <div><%= link_to "取精", action_topic_path(type: 'cancel_excellent'), title: '取消精华帖', data: { confirm: "确定要取消精华吗？" }, method: :post %></div>
+      <% else %>
+        <div><%= link_to "加精", action_topic_path(type: 'excellent'), title: '设为精华帖', data: { confirm: "确定要加精吗？" }, method: :post %></div>
+      <% end %>
+    <% end %>
   </div>
 </div>
