@@ -24,6 +24,11 @@ class User < ApplicationRecord
     UserMailer.welcome(id).deliver_later
   end
 
+  def update_replies_count
+    self.replies_count = replies.without_event.count
+    save
+  end
+
   def is_admin?
   end
 

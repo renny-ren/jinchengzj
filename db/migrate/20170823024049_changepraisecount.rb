@@ -10,5 +10,6 @@ class Changepraisecount < ActiveRecord::Migration[5.0]
 
     # remove_column :comments, :comments_count
     # add_column :replies, :comments_count, :integer, defualt: 0
+    # add_column :replies, :action, :string
   end
 end

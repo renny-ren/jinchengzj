@@ -3,6 +3,7 @@ class Topic < ApplicationRecord
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
   include TailorAdmin::TopicAdmin
+  include SoftDelete
 
   belongs_to :user, counter_cache: true
   belongs_to :node, counter_cache: true
@@ -10,12 +11,15 @@ class Topic < ApplicationRecord
 
   counter :view_times, default: 0
 
+  default_scope -> { where(deleted_at: nil) }
+
   def update_last_reply(reply)
     self.last_reply_at = reply.created_at
     self.last_reply_user_id = reply.user.id
     self.last_reply_user_nickname = reply.user.nickname
     self.last_reply_user_username = reply.user.username
-    save
+    self.replies_count = replies.without_event.count
+    save!
   end
 
   def update_to_previous_reply(deleted_reply)
@@ -23,16 +27,23 @@ class Topic < ApplicationRecord
     update_last_reply(previous_reply)
   end
 
+  def destroy_by(user)
+    update_columns(deleted_by: user.username)
+    destroy
+  end
+
   def popular?
     "popular-topic" if praises_count > 4
   end
 
-  def excellent
+  def excellent(operator)
     update!(is_excellent: true)
+    Reply.create_event(action: 'excellent', topic_id: self.id, user_id: operator.id)
   end
 
-  def cancel_excellent
+  def cancel_excellent(operator)
     update!(is_excellent: false)
+    Reply.create_event(action: 'cancel_excellent', topic_id: self.id, user_id: operator.id)
   end
 end
 

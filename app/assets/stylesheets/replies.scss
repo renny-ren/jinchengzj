@@ -25,6 +25,7 @@
 .visible{ display: none; }
 .reply-body:hover .visible{ display: block; }
 .deleted{ text-decoration: line-through; color: #777; font-size: 14px; padding: 6px; border-bottom: solid 1px #eee; }
+.event{ font-size: 14px; padding: 6px; border-bottom: solid 1px #eee; text-align: center; }
 
 .popular{ background: #fffce9; }
 .emoji-btn{ background: none; color: #0275D8 !important; cursor: pointer; }

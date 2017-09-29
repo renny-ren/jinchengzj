@@ -11,6 +11,7 @@ class CreateReplies < ActiveRecord::Migration[5.0]
       t.datetime :deleted_at
       t.integer :praises_count, default: 0
       t.integer :comments_count, default: 0
+      t.string :action
 
       t.timestamps
     end

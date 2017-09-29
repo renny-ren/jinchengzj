@@ -1,15 +1,18 @@
 class Reply < ApplicationRecord
   include SoftDelete
 
-  belongs_to :topic, counter_cache: true
-  belongs_to :user, counter_cache: true
+  belongs_to :topic
+  belongs_to :user
   has_many :comments, dependent: :destroy
 
-  after_commit :update_corresponding_topic, on: :create
+  after_commit :update_correspondence, on: :create
   after_destroy :update_after_delete_reply
 
-  def update_corresponding_topic
+  scope :without_event, -> { where(action: nil) }
+
+  def update_correspondence
     topic.update_last_reply(self)
+    user.update_replies_count
   end
 
   def update_after_delete_reply
@@ -18,5 +21,10 @@ class Reply < ApplicationRecord
 
   def popular?
     'popular' if praises_count >= 5
+  end
+
+  def self.create_event(opts = {})
+    opts[:body] = ""
+    self.create!(opts)
   end
 end

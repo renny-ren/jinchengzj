@@ -1,0 +1,7 @@
+<div>
+  <%= link_to user_path(reply.user.username), method: :get do %>
+    <span class="avatar"><%= user_avatar_tag(reply.user, 26) %></span> <%= reply.user.nickname %>
+  <% end %>
+  <%= render "replies/events/#{reply.action}" %>
+  <span class="date"><%= reply.created_at.strftime("%Y-%m-%d %H:%M") %></span>
+</div>

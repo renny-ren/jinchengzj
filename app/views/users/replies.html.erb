@@ -4,7 +4,7 @@
   <div class="col-md-8 float-left">
     <%= render 'menu' %>
     <div class="user-replies">
-      <% @replies.each do |reply| %>
+      <% @replies.without_event.each do |reply| %>
         <div class="user-reply-item">
           <div>
             <%= link_to reply.topic.title, topic_path(reply.topic) %>

@@ -34,13 +34,18 @@ class TopicsController < ApplicationController
     @nodes = Node.all
   end
 
+  def destroy
+    @topic.destroy_by(current_user)
+    redirect_to topics_path
+  end
+
   def action
     case params[:type]
     when "excellent"
-      @topic.excellent
+      @topic.excellent(current_user)
       redirect_to @topic, notice: "加精成功"
     when "cancel_excellent"
-      @topic.cancel_excellent
+      @topic.cancel_excellent(current_user)
       redirect_to @topic, notice: "取消精华成功"
     end
   end

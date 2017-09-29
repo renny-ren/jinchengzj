@@ -11,7 +11,7 @@
 
 <div class="panel panel-info">
   <div class="panel-heading total-replies">
-    共收到 <%= @topic.replies_count %> 条回复
+    共 <b><%= @topic.replies_count %></b> 条回复
   </div>
 
   <% @replies.each_with_index do |reply, floor| %>
@@ -19,6 +19,8 @@
       <div class="deleted text-center">
         <%= floor + 1 %>楼已删除
       </div>
+    <% elsif reply.action.present? %>
+      <div class="event"><%= render 'replies/event', reply: reply %></div>
     <% else %>
       <div class="panel-body media reply-item">
         <div class="media-left col-md-2 reply-user-info" data-id= <%= reply.id %>>
