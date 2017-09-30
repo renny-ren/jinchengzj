@@ -171,6 +171,9 @@ GEM
     nokogiri (1.6.8-x86-mingw32)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    notifications (0.4.2)
+      kaminari (>= 0.15)
+      rails (>= 4.2.0)
     orm_adapter (0.5.0)
     paperclip (5.1.0)
       activemodel (>= 4.2.0)
@@ -325,6 +328,7 @@ DEPENDENCIES
   letter_avatar
   listen (~> 3.0.5)
   mysql2
+  notifications
   paperclip
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)

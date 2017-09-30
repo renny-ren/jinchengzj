@@ -6,7 +6,7 @@ module TailorAdmin
       rails_admin do
         label '帖子'
         label_plural '帖子'
-        
+
         list do
           field :title
           field :body
@@ -16,7 +16,6 @@ module TailorAdmin
           field :praises_count
           field :replies_count
         end
-
 
       end
     end

@@ -17,14 +17,14 @@
     <nav class="navbar navbar-default bg-nav">
       <div class="container">
         <div class="navbar-header">
-          <%= link_to(root_path) do %>
+          <%= link_to(main_app.root_path) do %>
             <%= image_tag 'logo.png', size: '36x36' %> 锦城之家
           <% end %>
         </div>
 
         <ul class="nav nav-body">
-          <li><%= link_to '首页', root_path %></li>
-          <li><%= link_to '论坛', topics_path %></li>
+          <li><%= link_to '首页', main_app.root_path %></li>
+          <li><%= link_to '论坛', main_app.topics_path %></li>
           <li>失物招领</li>
           <li>二手买卖</li>
           <li>兼职招聘</li>
@@ -33,23 +33,24 @@
         <div>
           <ul class="nav user-bar">
             <% if user_signed_in? %>
-              <div class="cog"><%= link_to fa_icon('cog'), rails_admin_path if current_user.root? %></div>
+              <div class="notify"><%= link_to fa_icon('comment-o'), notifications_path %></div>
+              <div class="cog"><%= link_to fa_icon('cog'), main_app.rails_admin_path if current_user.root? %></div>
               <div class="dropdown">
                 <a class="dropdown-toggle" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                   <span class='nav-avatar'><%= user_avatar_tag(current_user, 36) %></span>
                   <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><%= link_to current_user.username, user_path(current_user.username), method: :get %></li>
+                  <li><%= link_to current_user.username, main_app.user_path(current_user.username), method: :get %></li>
                   <li role="separator" class="divider"></li>
-                  <li><%= link_to "个人设置", setting_path, method: :get %></li>
+                  <li><%= link_to "个人设置", main_app.setting_path, method: :get %></li>
                   <li role="separator" class="divider"></li>
-                  <li><%= link_to '退出登录', destroy_user_session_path, method: :delete %></li>
+                  <li><%= link_to '退出登录', main_app.destroy_user_session_path, method: :delete %></li>
                 </ul>
               </div>
             <% else %>
-              <li><%= button_to '注册', new_user_registration_path, method: :get, class: 'btn btn-default signup-btn' %></li>
-              <li><%= button_to '登录', new_user_session_path, method: :get, class: 'btn btn-success login-btn' %></li>
+              <li><%= button_to '注册', main_app.new_user_registration_path, method: :get, class: 'btn btn-default signup-btn' %></li>
+              <li><%= button_to '登录', main_app.new_user_session_path, method: :get, class: 'btn btn-success login-btn' %></li>
             <% end %>
           </ul>
         </div>

@@ -15,6 +15,7 @@ gem 'cancancan' # permission
 gem 'gemoji'
 gem 'will_paginate'
 gem 'rails_admin'
+gem 'notifications'
 
 gem 'redis-objects'
 
