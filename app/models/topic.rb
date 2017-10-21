@@ -47,4 +47,4 @@ class Topic < ApplicationRecord
   end
 end
 
-Topic.import
+# Topic.import

@@ -16,4 +16,9 @@ module ApplicationHelper
     text.gsub!(/\\n|\\r/, "")
     raw text
   end
+
+  def unread_notification_count
+    return 0 if current_user.blank?
+    Notification.unread_count(current_user)
+  end
 end
