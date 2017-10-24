@@ -3,7 +3,7 @@
     <div class="panel panel-default <%= @topic.popular? %>">
       <div class="panel-heading media">
         <div class="media-left avatar">
-          <%= link_to user_avatar_tag(@topic.user, 45), user_path(@topic.user.username) %>
+          <%= link_to user_avatar_tag(@topic.user, 45), user_path(@topic.user.username), method: :get %>
         </div>
         <div class="media-body">
           <div class="media-heading">
@@ -12,9 +12,9 @@
             <span class="topic-show-excellent"><%= image_tag "excellent_show.gif" if @topic.is_excellent %></span>
           </div>
           <div class="media-info topic-show-info">
-            <%= link_to @topic.user.nickname, user_path(@topic.user.username) %> 发布于 <%= time_ago_in_words(@topic.created_at) %>  
+            <%= link_to @topic.user.nickname, user_path(@topic.user.username), method: :get %> 发布于 <%= time_ago_in_words(@topic.created_at) %>  
             <% if @topic.replies_count > 0 %>
-              · 最后由 <%= link_to @topic.last_reply_user_nickname, user_path(@topic.last_reply_user_username) %> 
+              · 最后由 <%= link_to @topic.last_reply_user_nickname, user_path(@topic.last_reply_user_username), method: :get %> 
               回复于 <%= time_ago_in_words @topic.last_reply_at %>
             <% end %>
              · <%= @topic.view_times %> 次阅读
