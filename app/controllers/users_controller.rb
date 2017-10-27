@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def follow
-    current_user.follow_user(@user)
+    current_user.follow_and_notify_user(@user)
   end
 
   def unfollow
