@@ -1,5 +1,4 @@
-# This migration comes from notifications (originally 20160328045436)
-class CreateNotifications < ActiveRecord::Migration[4.2]
+class CreateNotifications < ActiveRecord::Migration[5.0]
   def change
     create_table :notifications do |t|
       t.integer :user_id, null: false
