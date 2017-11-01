@@ -1,24 +1,24 @@
-<div class="notifications panel">
-  <div class="panel-heading clearfix">
-    <%= t('notifications.all_notifications') %>
+<div class="container">
+  <div class="panel panel-info notifications">
+    <div class="panel-heading">
+      <%= t('notifications.all_notifications') %>
+      <span class="pull-right">
+        <%= link_to t('notifications.clean_all'), notifications.clean_notifications_path, class: 'btn btn-sm btn-secondary', method: 'delete' %>
+      </span>
+    </div>
 
-    <span class="pull-xs-right">
-      <%= link_to t('notifications.clean_all'), notifications.clean_notifications_path, class: 'btn btn-sm btn-secondary', method: 'delete' %>
-    </span>
-  </div>
-  <div class="panel-body list">
-    <% if @notifications.blank? %>
-      <div class="no-records"><%= t('notifications.no_records') %></div>
-    <% else %>
-      <% @notification_groups.each do |group, notifications| %>
-        <div class="notification-group">
-          <div class="group-title"><%= group %></div>
-          <%= render notifications %>
-        </div>
+    <div class="panel-body list">
+      <% if @notifications.blank? %>
+        <div class="no-records"><%= t('notifications.no_records') %></div>
+      <% else %>
+        <% @notification_groups.each do |group, notifications| %>
+          <div class="notification-group">
+            <div class="group-title"><%= group %></div>
+            <%= render notifications %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <div class="panel-footer">
-    <%= will_paginate @notifications %>
+    </div>
+      <%= will_paginate @notifications, class: 'flickr_pagination' %>
   </div>
 </div>

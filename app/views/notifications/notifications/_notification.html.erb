@@ -3,15 +3,13 @@
      data-id="<%= notification.id %>"
      class="media notification notification-<%= notification.notify_type %><%= ' unread' unless notification.read? %>">
   <div class="media-left">
-    <% if notification.actor_profile_url && notification.actor_avatar_url %>
-      <%= link_to image_tag(notification.actor_avatar_url), notification.actor_profile_url, title: notification.actor_name, class: 'user-avatar' %>
-    <% end %>
+    <%= link_to user_avatar_tag(notification.actor, 32), main_app.user_path(notification.actor.username), title: notification.actor_name, class: 'avatar' %>
   </div>
   <div class="media-body">
     <%= render partial: "/notifications/#{notification.notify_type}", locals: { notification: notification } %>
   </div>
   <div class="media-right">
-    <%= notification.created_at %>
+    <%= notification.created_at.strftime("%Y-%m-%d %H:%M") %>
   </div>
 </div>
 <% end %>

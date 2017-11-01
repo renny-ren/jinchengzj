@@ -35,7 +35,7 @@
             <% if user_signed_in? %>
               <% notify_class = "fa-comment-o"
                   notify_class = "fa-comment" if unread_notification_count > 0 %>
-              <div class="notify"><a href="<%= notifications_path %>"><i class="fa <%= notify_class %>"></i><%= unread_notification_count %></a></div>
+              <div class="notify"><a href="<%= notifications_path %>"><i class="fa <%= notify_class %>"></i> <%= unread_notification_count %></a></div>
               <div class="cog"><%= link_to fa_icon('cog'), main_app.rails_admin_path if current_user.root? %></div>
               <div class="dropdown">
                 <a class="dropdown-toggle" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
