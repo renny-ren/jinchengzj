@@ -1,4 +1,8 @@
 "ch":
+  seo:
+    keywords: 锦城, 锦城学院, 锦城大学, 锦城之家, 锦城在线, 四川大学锦城学院
+    description: 四川大学锦城学院一站式生活服务平台，记录你的学习生活，在这里，聊天交友、失物招领、二手买卖、兼职招聘等，应有尽有！
+
   notifications:
     all_notifications: '所有通知'
     clean_all: '清空'

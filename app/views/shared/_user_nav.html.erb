@@ -1,0 +1,24 @@
+<% notify_class = "fa-comment-o"
+    notify_class = "fa-comment" if unread_notification_count > 0 %>
+
+<div class="notify"><a href="<%= notifications_path %>"><i class="fa <%= notify_class %>"></i> <%= unread_notification_count %></a></div>
+
+<div class="cog"><%= link_to fa_icon('cog'), rails_admin_path if current_user.root? %></div>
+
+<div class="dropdown">
+  <a class="dropdown-toggle" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class='nav-avatar'><%= user_avatar_tag(current_user, 36) %></span>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><%= link_to current_user.username, user_path(current_user.username), method: :get %></li>
+
+    <li role="separator" class="divider"></li>
+
+    <li><%= link_to "个人设置", setting_path, method: :get %></li>
+
+    <li role="separator" class="divider"></li>
+    
+    <li><%= link_to '退出登录', destroy_user_session_path, method: :delete %></li>
+  </ul>
+</div>

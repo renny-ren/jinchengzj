@@ -2,8 +2,8 @@
 <html>
   <head>
     <title>锦城之家</title>
-    <meta name=keywords content="锦城, 锦城学院, 锦城大学, 锦城之家, 锦城在线, 四川大学锦城学院">
-    <meta name=description content="四川大学锦城学院论坛，记录你的学习生活，在这里，聊天交友、失物招领、二手买卖、兼职招聘等，应有尽有！">
+    <meta name=keywords content="<%= t 'seo.keywords' %>">
+    <meta name=description content="<%= t 'seo.description' %>">
     <meta name="viewport" content="width=device-width, initial-scale=1">  
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
     
@@ -32,38 +32,15 @@
 
         <div>
           <ul class="nav user-bar">
-            <% if user_signed_in? %>
-              <% notify_class = "fa-comment-o"
-                  notify_class = "fa-comment" if unread_notification_count > 0 %>
-              <div class="notify"><a href="<%= notifications_path %>"><i class="fa <%= notify_class %>"></i> <%= unread_notification_count %></a></div>
-              <div class="cog"><%= link_to fa_icon('cog'), main_app.rails_admin_path if current_user.root? %></div>
-              <div class="dropdown">
-                <a class="dropdown-toggle" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <span class='nav-avatar'><%= user_avatar_tag(current_user, 36) %></span>
-                  <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                  <li><%= link_to current_user.username, main_app.user_path(current_user.username), method: :get %></li>
-                  <li role="separator" class="divider"></li>
-                  <li><%= link_to "个人设置", main_app.setting_path, method: :get %></li>
-                  <li role="separator" class="divider"></li>
-                  <li><%= link_to '退出登录', main_app.destroy_user_session_path, method: :delete %></li>
-                </ul>
-              </div>
-            <% else %>
-              <li><%= button_to '注册', main_app.new_user_registration_path, method: :get, class: 'btn btn-default signup-btn' %></li>
-              <li><%= button_to '登录', main_app.new_user_session_path, method: :get, class: 'btn btn-success login-btn' %></li>
-            <% end %>
+            <%= render user_signed_in? ? 'shared/user_nav' : 'shared/user_bar' %>
           </ul>
         </div>
-
       </div>      
     </nav>
 
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, id: "flash_#{name}" %>
     <% end %>
-
     <div class="flash-notice"></div>
     
     <%= yield %>
