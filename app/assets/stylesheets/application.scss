@@ -7,6 +7,9 @@
 @import 'bootstrap';
 @import "font-awesome";
 
+body{ background-color: #f7fbff; }
+.footer{ text-align: center; clear: left; }
+
 #flash_notice{ text-align: center; background: #feffcf; }
 .flash-notice{ 
   text-align: center; 
@@ -21,7 +24,7 @@
 .panel-info{ border-color: #bce8f1; }
 .panel-info > .panel-heading{ color: #31708f; border-bottom: dashed 1px #bce8f1; }
 
-.bg-nav{ box-shadow: 0 2px 5px #888888; }
+.bg-nav{ box-shadow: 0 2px 5px #888888; background-color: white; }
 
 .btn{ cursor: pointer; }
 .dropdown-menu{ padding: 0.5rem 8px; }
