@@ -14,29 +14,31 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default bg-nav">
-      <div class="container">
-        <div class="navbar-header">
-          <%= link_to(main_app.root_path) do %>
-            <%= image_tag 'logo.png', size: '36x36' %> 锦城之家
-          <% end %>
-        </div>
+    <div class="header">
+      <nav class="navbar navbar-fixed-top bg-nav">
+        <div class="container">
+          <div class="navbar-header">
+            <%= link_to(main_app.root_path) do %>
+              <%= image_tag 'logo.png', size: '36x36' %> 锦城之家
+            <% end %>
+          </div>
 
-        <ul class="nav nav-body">
-          <li><%= link_to '首页', main_app.root_path %></li>
-          <li><%= link_to '论坛', main_app.topics_path %></li>
-          <li><%= link_to '失物招领', main_app.resources_path %></li>
-          <li>二手买卖</li>
-          <li>兼职招聘</li>
-        </ul>
-
-        <div>
-          <ul class="nav user-bar">
-            <%= render user_signed_in? ? 'shared/user_nav' : 'shared/user_bar' %>
+          <ul class="nav nav-body">
+            <li><%= link_to '首页', main_app.root_path %></li>
+            <li><%= link_to '论坛', main_app.topics_path %></li>
+            <li><%= link_to '失物招领', main_app.resources_path %></li>
+            <li>二手买卖</li>
+            <li>兼职招聘</li>
           </ul>
+
+          <div>
+            <ul class="nav user-bar">
+              <%= render user_signed_in? ? 'shared/user_nav' : 'shared/user_bar' %>
+            </ul>
+          </div>
         </div>
-      </div>      
-    </nav>
+      </nav>
+    </div>
 
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, id: "flash_#{name}" %>

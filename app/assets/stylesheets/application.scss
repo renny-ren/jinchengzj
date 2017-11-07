@@ -7,7 +7,7 @@
 @import 'bootstrap';
 @import "font-awesome";
 
-body{ background-color: #f7fbff; }
+body{ background-color: #f7fbff; padding-top: 70px;}
 .footer{ text-align: center; clear: left; }
 
 #flash_notice{ text-align: center; background: #feffcf; }
@@ -25,6 +25,8 @@ body{ background-color: #f7fbff; }
 .panel-info > .panel-heading{ color: #31708f; border-bottom: dashed 1px #bce8f1; }
 
 .bg-nav{ box-shadow: 0 2px 5px #888888; background-color: white; }
+.navbar-header{ float: left; }
+.navbar-fixed-top{ position: fixed; top: 0; left: 0; right: 0; z-index: 99; }
 
 .btn{ cursor: pointer; }
 .dropdown-menu{ padding: 0.5rem 8px; }
@@ -32,10 +34,6 @@ body{ background-color: #f7fbff; }
 .dropdown-menu a:hover{ text-decoration: none; color: #0275D8; }
 
 .divider{ border: solid 0.5px #e5f0fb; margin-top: 6px; }
-
-.navbar-header{ float: left; }
-
-.navbar-brand{ padding-top: 0; }
 
 .user-bar{ float: right !important; }
 
