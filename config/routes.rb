@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :home, only: :index
-  # resources :announcements
   resources :praises
 
   resources :topics do
@@ -31,6 +30,9 @@ Rails.application.routes.draw do
   end
 
   resources :nodes
+
+  resources :resources
+  post '/resources/new' => 'resources#new'
 
   resources :users, path: '', param: :username do
     member do

@@ -1,0 +1,27 @@
+<% type_array = ['找物品', '找宠物', '找人', '其他'] %>
+
+<div class="container main-container">
+  <div class="panel panel-info col-md-10">
+    <div class="panel-body">
+      <%= form_for(Resource.new) do |f| %>
+        <%= f.hidden_field :lost_or_found, value: 'lost' %>
+        <dl>
+          <dt><%= f.label "类型" %></dt>
+          <%= f.select :res_type, options_for_select(type_array) %>
+        </dl>
+
+        <dl>
+          <dt><%= f.label "日期" %></dt>
+          <%= f.date_select :date, order: [:month, :day], use_month_numbers: true, date_separator: '月 ' %>日
+        </dl>
+
+        <dl>
+          <dt><%= f.label "描述" %></dt>
+          <dd><%= f.text_area :description %></dd>
+        </dl>
+
+        <%= f.submit '提交', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>

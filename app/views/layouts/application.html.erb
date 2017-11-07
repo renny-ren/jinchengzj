@@ -25,7 +25,7 @@
         <ul class="nav nav-body">
           <li><%= link_to '首页', main_app.root_path %></li>
           <li><%= link_to '论坛', main_app.topics_path %></li>
-          <li>失物招领</li>
+          <li><%= link_to '失物招领', main_app.resources_path %></li>
           <li>二手买卖</li>
           <li>兼职招聘</li>
         </ul>
@@ -46,7 +46,8 @@
     <%= yield %>
 
     <footer class="footer">
-      蜀ICP备16035108号
+      <a href="http://720yun.com/t/befjO7kkek7?from=singlemessage&pano_id=3246439">学院全景</a>
+      <a href="http://www.miitbeian.gov.cn/">蜀ICP备16035108号</a>
     </footer>
   </body>
 </html>

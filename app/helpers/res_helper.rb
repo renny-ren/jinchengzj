@@ -1,0 +1,2 @@
+module ResHelper
+end
