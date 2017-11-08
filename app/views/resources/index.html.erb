@@ -1,7 +1,14 @@
 <div class="container main-container">
   <div class="col-md-10 float-left">
     <div class="panel panel-default">
-      <div class="panel-body"><%= @resources %></div>
+      <div class="panel-body">
+        <% @resources.each do |resource| %>
+          <%= resource.user.nickname %>
+          <%= resource.res_type %>
+          <%= resource.date.strftime("%m月%1d日") %>
+          <%= resource.description %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="sidebar col-md-2">

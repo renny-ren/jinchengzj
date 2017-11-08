@@ -11,16 +11,19 @@
         </dl>
 
         <dl>
-          <dt><%= f.label "日期" %></dt>
+          <dt><%= f.label "遗失日期" %></dt>
           <%= f.date_select :date, order: [:month, :day], use_month_numbers: true, date_separator: '月 ' %>日
         </dl>
 
         <dl>
-          <dt><%= f.label "描述" %></dt>
-          <dd><%= f.text_area :description %></dd>
+          <dt><%= f.label "详细描述" %></dt>
+          <dd><%= f.text_area :description, size: "80 x 6" %></dd>
         </dl>
 
-        <%= f.submit '提交', class: 'btn btn-primary' %>
+        <dl>
+          <dt>　</dt>
+          <dd><%= f.submit '提交', data: { disable_with: '发布中...' }, class: 'btn btn-primary' %></dd>
+        </dl>
       <% end %>
     </div>
   </div>

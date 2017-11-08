@@ -2,7 +2,8 @@ class CreateReplies < ActiveRecord::Migration[5.0]
   def change
     create_table :replies do |t|
       t.integer :user_id, null: false
-      t.integer :topic_id, null: false
+      t.integer :topic_id
+      t.integer :resource_id
       t.integer :reply_to_id
       t.string :target_id
       t.string :target_type
