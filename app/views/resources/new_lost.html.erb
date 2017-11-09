@@ -6,6 +6,11 @@
       <%= form_for(Resource.new) do |f| %>
         <%= f.hidden_field :lost_or_found, value: 'lost' %>
         <dl>
+          <dt><%= f.label "标题" %></dt>
+          <%= f.text_field :title, placeholder: '10个字以内为最佳' %>
+        </dl>
+
+        <dl>
           <dt><%= f.label "类型" %></dt>
           <%= f.select :res_type, options_for_select(type_array) %>
         </dl>

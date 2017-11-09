@@ -1,5 +1,5 @@
 <ul class="nav nav-tabs">
-  <li class=<%= "active" if action_name == 'topics' %>>
+  <li class=<%= "active" if action_name.match(/topics|show/) %>>
     <%= link_to topics_user_path, method: :get do %>
       发帖<span class='nav-count'> <%= @user.topics_count %></span>
     <% end %>

@@ -6,9 +6,8 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    @resource = Resource.new(resource_params)
-    @resource.user_id = current_user.id
-    @resource.save
+    create_corresponding_topic
+    create_resource
     redirect_to resources_path
   end
 
@@ -30,6 +29,26 @@ class ResourcesController < ApplicationController
     @resource.destroy
   end
 
+  def found
+    @resources = Resource.found
+    render 'index'
+  end
+
+  def create_resource
+    @resource = Resource.new(resource_params)
+    @resource.user_id = current_user.id
+    @resource.topic_id = @topic.id
+    @resource.save
+  end
+
+  def create_corresponding_topic
+    @topic = Topic.create(
+      user_id: current_user.id,
+      title: resource_params[:title],
+      node_id: 1,
+      body: "类型：#{resource_params[:res_type]} \n 遗失日期： #{resource_params[:date]} \n #{resource_params[:description]}")
+  end
+
   private 
 
   def find_resource
@@ -37,6 +56,6 @@ class ResourcesController < ApplicationController
   end
 
   def resource_params
-    params.require(:resource).permit(:lost_or_found, :res_type, :date, :description)
+    params.require(:resource).permit(:lost_or_found, :res_type, :date, :title, :description)
   end
 end

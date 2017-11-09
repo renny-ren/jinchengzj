@@ -2,12 +2,24 @@
   <div class="col-md-10 float-left">
     <div class="panel panel-default">
       <div class="panel-body">
-        <% @resources.each do |resource| %>
-          <%= resource.user.nickname %>
-          <%= resource.res_type %>
-          <%= resource.date.strftime("%m月%1d日") %>
-          <%= resource.description %>
-        <% end %>
+        <%= render 'menu' %>
+
+        <div class="row" style="margin-top: 10px;">
+          <% @resources.each do |resource| %>
+            <div class="col-md-4">
+              <div class="panel resource-panel">
+                <div class="panel-body">
+                  <div class="res-title"><%= resource.title %></div>
+                  <div>失主：<%= link_to resource.user.nickname, user_path(resource.user.username) %></div>
+                  <div>类型：<%= resource.res_type %></div>
+                  <div>遗失日期：<%= resource.date.strftime("%m月%1d日") %></div>
+                  <div class="desc">描述：<%= resource.description %></div>
+                  <div class="detail"><%= link_to '详情..', resource_path(resource.id) %></div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

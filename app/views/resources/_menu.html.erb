@@ -1,0 +1,20 @@
+<ul class="nav nav-tabs">
+  <li class="<%= 'active' if action_name.match(/lost|index/) %>">
+    <%= link_to(resources_path, method: :get){ 'LOST' } %>
+  </li>
+  <li class="<%= 'active' if action_name == 'found' %>">
+    <%= link_to(found_resources_path, method: :get){ 'FOUND' } %>
+  </li>
+  
+  <li role="presentation" class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      筛选类型 <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+      人
+      物品
+      宠物
+      其他
+    </ul>
+  </li>
+</ul>

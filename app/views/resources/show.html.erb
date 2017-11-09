@@ -1,0 +1,15 @@
+<div class="container main-container">
+  <div class="col-md-12 float-left">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="res-title"><%= @resource.title %></div>
+        <div>失主：<%= link_to @resource.user.nickname, user_path(@resource.user.username) %></div>
+        <div>类型：<%= @resource.res_type %></div>
+        <div>遗失日期：<%= @resource.date.strftime("%y年%m月%1d日") %></div>
+        <div class="desc">描述：<%= @resource.description %></div>
+      </div>
+
+    </div>
+    <div class="reply"><%= render 'replies/resource_reply' %></div>
+  </div>
+</div>

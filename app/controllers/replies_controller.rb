@@ -37,6 +37,6 @@ class RepliesController < ApplicationController
   end
 
   def reply_params
-    params.require(:reply).permit(:body, :topic_id, :resource_id)
+    params.require(:reply).permit(:body, :topic_id)
   end
 end

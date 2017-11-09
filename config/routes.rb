@@ -29,10 +29,15 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :resources do
+    collection do
+      get :found
+    end
+  end
+  post '/resources/new' => 'resources#new'
+  
   resources :nodes
 
-  resources :resources
-  post '/resources/new' => 'resources#new'
 
   resources :users, path: '', param: :username do
     member do

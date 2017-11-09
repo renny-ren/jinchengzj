@@ -3,7 +3,6 @@ class Reply < ApplicationRecord
 
   belongs_to :topic
   belongs_to :user
-  belongs_to :resource
   has_many :comments, dependent: :destroy
 
   after_commit :update_correspondence, :notify_reply, on: :create
