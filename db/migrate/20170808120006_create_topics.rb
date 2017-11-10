@@ -3,7 +3,6 @@ class CreateTopics < ActiveRecord::Migration[5.0]
     create_table :topics do |t|
       t.integer :user_id, null: false
       t.integer :node_id, null: false
-      # t.string :node_name
       t.string :title, null: false
       t.text :body, null: false
       t.integer :last_reply_user_id

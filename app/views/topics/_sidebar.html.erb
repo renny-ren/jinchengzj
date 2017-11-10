@@ -6,21 +6,7 @@
         <div class='praises-count'><%= @topic.praises_count %> 个赞</div>
       <% end %>
     </div>
-    
-    <% if is_owner?(@topic.user) %>
-      <%= link_to fa_icon('edit', text: '编辑'), edit_topic_path(@topic) %>
-    <% end %>
 
-    <% if current_user.root? %>
-      <% if @topic.is_excellent %>
-        <div><%= link_to "取精", action_topic_path(type: 'cancel_excellent'), title: '取消精华帖', data: { confirm: "确定要取消精华吗？" }, method: :post %></div>
-      <% else %>
-        <div><%= link_to "加精", action_topic_path(type: 'excellent'), title: '设为精华帖', data: { confirm: "确定要加精吗？" }, method: :post %></div>
-      <% end %>
-    <% end %>
-
-    <% if is_owner?(@topic.user) || current_user.root? %>
-      <div><%= link_to "删帖", topic_path, data: { confirm: "确定要删除此贴吗？", method: :delete } %></div>
-    <% end %>
+    <%= render @topic.node_id == 7 ? 'resource_sidebar' : 'topic_sidebar' %>
   </div>
 </div>

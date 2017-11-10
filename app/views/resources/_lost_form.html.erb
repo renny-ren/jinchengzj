@@ -1,0 +1,35 @@
+<% type_array = ['找物品', '找宠物', '找人', '其他'] %>
+
+<div class="container main-container">
+  <div class="panel panel-info col-md-10">
+    <div class="panel-body">
+      <%= form_for @resource, remote: true do |f| %>
+        <%= f.hidden_field :lost_or_found, value: 'lost' %>
+        <dl>
+          <dt><%= f.label "标题" %></dt>
+          <%= f.text_field :title, placeholder: '10个字以内为最佳', maxlength: 20 %>
+        </dl>
+
+        <dl>
+          <dt><%= f.label "类型" %></dt>
+          <%= f.select :res_type, options_for_select(type_array, @resource.res_type) %>
+        </dl>
+
+        <dl>
+          <dt><%= f.label "遗失日期" %></dt>
+          <%= f.date_select :date, order: [:month, :day], use_month_numbers: true, date_separator: '月 ' %>日
+        </dl>
+
+        <dl>
+          <dt><%= f.label "详细描述" %></dt>
+          <dd><%= f.text_area :description, size: "80 x 6" %></dd>
+        </dl>
+
+        <dl>
+          <dt>　</dt>
+          <dd><%= f.submit '提交', data: { disable_with: '发布中...' }, class: 'btn btn-primary' %></dd>
+        </dl>
+      <% end %>
+    </div>
+  </div>
+</div>

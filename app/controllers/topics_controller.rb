@@ -36,7 +36,7 @@ class TopicsController < ApplicationController
 
   def destroy
     @topic.destroy_by(current_user)
-    redirect_to topics_path
+    redirect_to params[:type] == 'res' ? resources_path : topics_path, notice: '删除成功'
   end
 
   def action

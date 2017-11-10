@@ -1,5 +1,5 @@
 class ResourcesController < ApplicationController
-  before_action :find_resource, only: [:show, :edit]
+  before_action :find_resource, only: [:show, :edit, :update]
 
   def index
     @resources = Resource.order('created_at desc')
@@ -16,17 +16,17 @@ class ResourcesController < ApplicationController
   end
 
   def new
+    @resource = Resource.new
     render params[:type] == 'lost' ? 'new_lost' : 'new_found'
   end
 
   def edit
+    render 'edit_lost'
   end
 
   def update
-  end
-
-  def destroy
-    @resource.destroy
+    @resource.update(resource_params)
+    @resource.topic.update(title: resource_params[:title])
   end
 
   def found
@@ -45,8 +45,8 @@ class ResourcesController < ApplicationController
     @topic = Topic.create(
       user_id: current_user.id,
       title: resource_params[:title],
-      node_id: 1,
-      body: "类型：#{resource_params[:res_type]} \n 遗失日期： #{resource_params[:date]} \n #{resource_params[:description]}")
+      node_id: 7,      # 这是“失物招领”的node_id
+      body: "")   # the body is useless for resources
   end
 
   private 

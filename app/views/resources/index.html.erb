@@ -14,7 +14,7 @@
                   <div>类型：<%= resource.res_type %></div>
                   <div>遗失日期：<%= resource.date.strftime("%m月%1d日") %></div>
                   <div class="desc">描述：<%= resource.description %></div>
-                  <div class="detail"><%= link_to '详情..', resource_path(resource.id) %></div>
+                  <div class="detail"><%= link_to '详情..', topic_path(resource.topic.id) %></div>
                 </div>
               </div>
             </div>

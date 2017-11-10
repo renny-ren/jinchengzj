@@ -6,7 +6,7 @@ class Reply < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   after_commit :update_correspondence, :notify_reply, on: :create
-  after_destroy :update_after_delete_reply
+  after_destroy :update_after_delete_last_reply
 
   scope :without_event, -> { where(action: nil) }
 
@@ -15,17 +15,17 @@ class Reply < ApplicationRecord
     user.update_replies_count
   end
 
-  def update_after_delete_reply
+  def update_after_delete_last_reply
     topic.update_to_previous_reply(self)
   end
 
   def notify_reply
-    Notification.create(
-      notify_type: 'reply',
-      actor: self.user,
-      user: self.topic.user,
-      target: self
-    )
+    # Notification.create(
+    #   notify_type: 'reply',
+    #   actor: self.user,
+    #   user: self.topic.user,
+    #   target: self
+    # )
   end
 
   def popular?

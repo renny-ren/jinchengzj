@@ -15,6 +15,8 @@ class Topic < ApplicationRecord
   default_scope -> { where(deleted_at: nil) }
 
   def update_last_reply(reply)
+    return false if reply.blank?
+
     self.last_reply_at = reply.created_at
     self.last_reply_user_id = reply.user.id
     self.last_reply_user_nickname = reply.user.nickname
@@ -24,8 +26,11 @@ class Topic < ApplicationRecord
   end
 
   def update_to_previous_reply(deleted_reply)
-    previous_reply = replies.where.not(id: deleted_reply.id).order(id: :desc).first
-    update_last_reply(previous_reply)
+    return false if deleted_reply.blank?
+    return false if deleted_reply.user_id != last_reply_user_id
+
+    last_reply = replies.where.not(id: deleted_reply.id).order(id: :desc).first
+    update_last_reply(last_reply) 
   end
 
   def destroy_by(user)
