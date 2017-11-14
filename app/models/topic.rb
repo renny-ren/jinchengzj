@@ -12,7 +12,7 @@ class Topic < ApplicationRecord
 
   counter :view_times, default: 0
 
-  default_scope -> { where(deleted_at: nil) }
+  scope :without_resources, -> { where("deleted_at is null && node_id != 7") }
 
   def update_last_reply(reply)
     return false if reply.blank?

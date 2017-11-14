@@ -6,7 +6,7 @@ class TopicsController < ApplicationController
 
   def index
     @nodes = Node.all
-    @topics = Topic.all
+    @topics = Topic.without_resources
   end
 
   def new
