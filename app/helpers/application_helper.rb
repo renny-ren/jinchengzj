@@ -21,4 +21,8 @@ module ApplicationHelper
     return 0 if current_user.blank?
     Notification.unread_count(current_user)
   end
+
+  def current_url(new_params)
+    request.query_parameters.merge(new_params)
+  end
 end

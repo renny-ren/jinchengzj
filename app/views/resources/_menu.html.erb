@@ -1,9 +1,9 @@
 <ul class="nav nav-tabs">
   <li class="<%= 'active' if action_name.match(/lost|index/) %>">
-    <%= link_to(resources_path, method: :get){ 'LOST' } %>
+    <%= link_to 'LOST', resources_path, method: :get %>
   </li>
   <li class="<%= 'active' if action_name == 'found' %>">
-    <%= link_to(found_resources_path, method: :get){ 'FOUND' } %>
+    <%= link_to 'FOUND', found_resources_path, method: :get %>
   </li>
   
   <li role="presentation" class="dropdown">
@@ -11,10 +11,13 @@
       筛选类型 <span class="caret"></span>
     </a>
     <ul class="dropdown-menu">
-      人
-      物品
-      宠物
-      其他
+      <li><%= link_to "人", current_url(res_type: '人') %></li>
+      <li><%= link_to "物品", current_url(res_type: '物品') %></li>
+      <li><%= link_to "宠物", current_url(res_type: '宠物') %></li>
+      <li><%= link_to "其他", current_url(res_type: '其他') %></li>
     </ul>
   </li>
+  <% if params[:res_type].present? %>
+    <li><%= link_to request.params[:res_type], current_url(res_type: nil)  %></li>
+  <% end %>
 </ul>

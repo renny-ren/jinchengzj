@@ -4,4 +4,8 @@ class Resource < ApplicationRecord
 
   scope :lost, -> { where(lost_or_found: 'lost') }
   scope :found, -> { where(lost_or_found: 'found') }
+
+  def self.type_filter(type)
+    where(res_type: type)
+  end
 end

@@ -3,6 +3,7 @@ class ResourcesController < ApplicationController
 
   def index
     @resources = Resource.lost.order('updated_at desc')
+    filter if params[:res_type].present?
   end
 
   def create
@@ -31,7 +32,12 @@ class ResourcesController < ApplicationController
 
   def found
     @resources = Resource.found.order('updated_at desc')
+    filter if params[:res_type].present?
     render 'index'
+  end
+
+  def filter
+    @resources = @resources.type_filter(params[:res_type])
   end
 
   def create_resource
