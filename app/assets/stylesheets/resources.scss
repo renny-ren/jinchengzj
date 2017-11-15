@@ -1,8 +1,17 @@
-.resource-panel {
+@mixin basic-panel {
+  height: 220px;
+  width: 100%;
+  float: left;
+}
+
+.index-panel {
  background-color: skyblue;
- height: 220px;  
- width: 100%;
- float: left;
+ @include basic-panel;
+}
+
+.found-panel {
+ background-color: #5CB85C;
+ @include basic-panel;
 }
 
 .desc { height: 80px; overflow: scroll; }

@@ -7,12 +7,12 @@
         <div class="row" style="margin-top: 10px;">
           <% @resources.each do |resource| %>
             <div class="col-md-4">
-              <div class="panel resource-panel">
+              <div class="panel <%= action_name %>-panel">
                 <div class="panel-body">
                   <div class="res-title"><%= resource.title %></div>
-                  <div>失主：<%= link_to resource.user.nickname, user_path(resource.user.username) %></div>
+                  <div>发布者：<%= link_to resource.user.nickname, user_path(resource.user.username) %></div>
                   <div>类型：<%= resource.res_type %></div>
-                  <div>遗失日期：<%= resource.date.strftime("%m月%1d日") %></div>
+                  <div>日期：<%= resource.date.strftime("%m月%1d日") %></div>
                   <div class="desc">描述：<%= resource.description %></div>
                   <div class="detail"><%= link_to '详情..', topic_path(resource.topic.id) %></div>
                 </div>

@@ -2,13 +2,13 @@ class ResourcesController < ApplicationController
   before_action :find_resource, only: [:show, :edit, :update]
 
   def index
-    @resources = Resource.order('created_at desc')
+    @resources = Resource.lost.order('updated_at desc')
   end
 
   def create
     create_corresponding_topic
     create_resource
-    redirect_to resources_path
+    redirect_to params[:lost_or_found] == 'lost' ? resources_path : found_resources_path
   end
 
   def show
@@ -21,7 +21,7 @@ class ResourcesController < ApplicationController
   end
 
   def edit
-    render 'edit_lost'
+    render params[:type] == 'lost' ? 'edit_lost' : 'edit_found'
   end
 
   def update
@@ -30,7 +30,7 @@ class ResourcesController < ApplicationController
   end
 
   def found
-    @resources = Resource.found
+    @resources = Resource.found.order('updated_at desc')
     render 'index'
   end
 

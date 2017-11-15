@@ -1,5 +1,5 @@
 <% if is_owner?(@topic.user) %>
-  <%= link_to fa_icon('edit', text: '编辑'), edit_resource_path(@topic.resource) %>
+  <%= link_to fa_icon('edit', text: '编辑'), edit_resource_path(@topic.resource, type: @topic.resource.lost_or_found) %>
 <% end %>
 
 <% if is_owner?(@topic.user) || current_user.root? %>
