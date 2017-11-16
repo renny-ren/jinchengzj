@@ -3,15 +3,14 @@ class TopicsController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :create, :update]
   before_action :set_topic, only: [:update, :show, :edit]
+  before_action :set_nodes, only: [:new, :edit]
 
   def index
-    @nodes = Node.all
     @topics = Topic.without_resources
   end
 
   def new
     @topic = Topic.new(user_id: current_user.id)
-    @nodes = Node.all
   end
 
   def create
@@ -31,7 +30,6 @@ class TopicsController < ApplicationController
   end
 
   def edit
-    @nodes = Node.all
   end
 
   def destroy
@@ -54,6 +52,10 @@ class TopicsController < ApplicationController
 
   def set_topic
     @topic = Topic.find(params[:id])
+  end
+
+  def set_nodes
+    @nodes = Node.where.not(name: '失物招领')
   end
 
   def topic_params
