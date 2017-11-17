@@ -26,6 +26,7 @@ config/settings/*.local.yml
 config/environments/*.local.yml
 log/development.log
 public/assets
+public/uploads
 
 !public/404.html
 !public/422.html
