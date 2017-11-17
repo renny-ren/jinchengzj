@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require kindeditor
 //= require_tree .
 //= require bootstrap-sprockets
 //= require 'china_city/jquery.china_city'

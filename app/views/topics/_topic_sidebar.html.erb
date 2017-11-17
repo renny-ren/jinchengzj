@@ -1,5 +1,5 @@
 <% if is_owner?(@topic.user) %>
-  <%= link_to fa_icon('edit', text: '编辑'), edit_topic_path(@topic) %>
+  <%= link_to fa_icon('edit', text: '编辑'), edit_topic_path(@topic), method: :get %>
 <% end %>
 
 <% if current_user.root? %>

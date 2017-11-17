@@ -22,6 +22,8 @@ gem 'redis-objects'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
+gem 'rails_kindeditor'
+
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use mysql2 as the database for Active Record
 gem 'mysql2'
