@@ -11,13 +11,14 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new(user_id: current_user.id)
+    session[:asset_ids] = []
   end
 
   def create
     @topic = Topic.new(topic_params)
     @topic.user_id = current_user.id
     @topic.save
-    redirect_to topics_path
+    update_related_assets unless session[:asset_ids].blank?
   end
 
   def update
@@ -45,6 +46,15 @@ class TopicsController < ApplicationController
     when "cancel_excellent"
       @topic.cancel_excellent(current_user)
       redirect_to @topic, notice: "取消精华成功"
+    end
+  end
+
+  def update_related_assets
+    session[:asset_ids].each do |asset_id|
+      @asset = Kindeditor::Asset.find(asset_id)
+      @asset.owner_id = @topic.id
+      @asset.owner_type = @topic.class.name
+      @asset.save
     end
   end
 

@@ -9,6 +9,7 @@ class Topic < ApplicationRecord
   belongs_to :node, counter_cache: true
   has_many :replies, dependent: :destroy
   has_one :resource, dependent: :destroy
+  has_many_kindeditor_assets :attachments, dependent: :destroy
 
   counter :view_times, default: 0
 
