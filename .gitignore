@@ -27,6 +27,7 @@ config/environments/*.local.yml
 log/development.log
 public/assets
 public/uploads
+lib/assets/javascripts/kindeditor.js
 
 !public/404.html
 !public/422.html
