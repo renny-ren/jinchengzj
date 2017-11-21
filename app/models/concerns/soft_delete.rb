@@ -2,13 +2,10 @@ module SoftDelete
   extend ActiveSupport::Concern
 
   def destroy
-    run_callbacks :destroy do
-      t = Time.now
-      update_columns(deleted_at: t, updated_at: t)
-    end
+    update_columns(deleted_at: Time.now, updated_at: Time.now)
   end
 
-  def deleted
+  def deleted?
     deleted_at.present?
   end
 end
