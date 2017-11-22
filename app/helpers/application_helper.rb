@@ -1,12 +1,17 @@
 module ApplicationHelper
-  # def is_admin?(user = nil)
-  #   user ||= current_user
-  #   user.type == 'admin'
-  # end
-
   def is_owner?(user)
     return false if user.blank? || current_user.blank?
     user.id == current_user.id
+  end
+
+  def is_admin?
+    return false if current_user.nil?
+    current_user.role == 'admin'
+  end
+
+  def root?
+    return false if current_user.nil?
+    current_user.role == 'root'
   end
 
   def highlight(text)

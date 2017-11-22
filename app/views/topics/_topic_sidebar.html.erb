@@ -2,7 +2,7 @@
   <%= link_to fa_icon('edit', text: '编辑'), edit_topic_path(@topic), method: :get %>
 <% end %>
 
-<% if current_user.root? %>
+<% if is_admin? || root? %>
   <% if @topic.is_excellent %>
     <div><%= link_to fa_icon('star', text: "取精"), action_topic_path(type: 'cancel_excellent'), title: '取消精华帖', data: { confirm: "确定要取消精华吗？" }, method: :post %></div>
   <% else %>
@@ -10,6 +10,6 @@
   <% end %>
 <% end %>
 
-<% if is_owner?(@topic.user) || current_user.root? %>
+<% if is_owner?(@topic.user) || is_admin? || root? %>
   <div><%= link_to fa_icon('trash', text: '删帖'), topic_path, data: { confirm: "确定要删除此贴吗？", method: :delete } %></div>
 <% end %>

@@ -3,7 +3,7 @@
 
 <div class="notify"><a href="<%= notifications_path %>"><i class="fa <%= notify_class %>"></i> <%= unread_notification_count %></a></div>
 
-<div class="cog"><%= link_to fa_icon('cog'), rails_admin_path if current_user.root? %></div>
+<div class="cog"><%= link_to fa_icon('cog'), rails_admin_path if root? %></div>
 
 <div class="dropdown">
   <a class="dropdown-toggle" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">

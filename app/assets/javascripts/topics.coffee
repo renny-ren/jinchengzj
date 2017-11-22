@@ -8,3 +8,6 @@ $ ->
     $("#node-selector").modal('hide')
     $('#node-selector-button').html($(this).text())
     $('#topic_node_id').val($(this).data('id'))
+
+  $(document).on 'click', '#flash_notice', ->
+    $(this).hide();

@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
-    if user.is_admin?
+    if false
     else
       can :read, :all
       roles_for_topic(user)
