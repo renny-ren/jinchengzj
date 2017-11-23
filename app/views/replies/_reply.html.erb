@@ -35,7 +35,7 @@
         <div class="media-body reply-body <%= reply.popular? %>" data-id=<%= reply.id %>>
           <div class='reply-praise'>
             <%= button_tag data: {id: reply.id, table: reply.class.name}, class: 'btn praise-btn' do %>
-              <%= current_user.praise_reply?(reply) ? fa_icon('thumbs-up') : fa_icon('thumbs-o-up') %>
+              <%= fa_icon praised?(reply) ? 'thumbs-up' : 'thumbs-o-up' %>
               <span class='praises-count' style="font-size: 14px;">
                 <%= "#{reply.praises_count} 个赞" unless reply.praises_count.zero? %>
               </span>
