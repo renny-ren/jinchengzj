@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   attr_accessor :login
   validates :username, presence: true, uniqueness: true, length: 3..16
+  validates :nickname, presence: true
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, multiline: true # Only allow letter, number, underscore and punctuation.
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

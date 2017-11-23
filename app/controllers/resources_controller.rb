@@ -1,4 +1,5 @@
 class ResourcesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :update]
   before_action :find_resource, only: [:show, :edit, :update]
 
   def index
@@ -9,7 +10,6 @@ class ResourcesController < ApplicationController
   def create
     create_corresponding_topic
     create_resource
-    redirect_to params[:lost_or_found] == 'lost' ? resources_path : found_resources_path
   end
 
   def show
@@ -52,7 +52,7 @@ class ResourcesController < ApplicationController
       user_id: current_user.id,
       title: resource_params[:title],
       node_id: 7,      # 这是“失物招领”的node_id
-      body: "")   # the body is useless for resources
+      body: "body")   # the body is useless for resources
   end
 
   private 

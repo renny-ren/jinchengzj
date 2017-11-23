@@ -2,7 +2,7 @@
 <div class="panel panel-default topic-panel">
   <div class="panel-heading"><%= header %></div>
   <div class="panel-body">
-    <%= form_for @topic, remote: true do |f| %>
+    <%= form_for @topic, remote: true, html: { class: 'topic-form' } do |f| %>
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-btn">

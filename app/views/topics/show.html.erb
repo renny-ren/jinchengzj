@@ -23,8 +23,11 @@
       </div>
 
       <div class="panel-body">
-        <%== @topic.body %>
-        <%= render 'resource_body' if @topic.node_id == 7 %>
+        <% if @topic.node_id == 7 %>
+          <%= render 'resource_body' %>
+        <% else %>
+          <%== @topic.body %>
+        <% end %>
       </div>
     </div>
 

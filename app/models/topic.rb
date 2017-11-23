@@ -11,6 +11,8 @@ class Topic < ApplicationRecord
   has_one :resource, dependent: :destroy
   has_many_kindeditor_assets :attachments, dependent: :destroy
 
+  validates :title, :body, :node_id, presence: true
+
   counter :view_times, default: 0
 
   scope :without_resources, -> { where("deleted_at is null && node_id != 7") }

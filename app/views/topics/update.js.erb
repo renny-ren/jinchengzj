@@ -1,2 +1,8 @@
-<% flash[:notice] = '修改成功。' %>
-Turbolinks.visit('<%= topic_path(@topic) %>');
+<% if @topic.errors.empty? %>
+  <% flash[:notice] = '修改成功。' %>
+  Turbolinks.visit('<%= topic_path(@topic.id) %>');
+<% else %>
+  $('.topic-form .alert').remove();
+  $('.topic-form').prepend('<%= j render("shared/error_messages", target: @topic) %>');
+<% end %>
+

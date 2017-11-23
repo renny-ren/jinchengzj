@@ -1,0 +1,13 @@
+<% if @resource.errors.empty? %>
+  <% flash[:notice] = '发表成功。' %>
+  if ($('#resource_lost_or_found').attr('value') == 'lost') {
+    Turbolinks.visit('<%= resources_path %>');
+  }
+  else{
+    Turbolinks.visit('<%= found_resources_path %>');
+  }
+<% else %>
+  $('.resource-form .alert').remove();
+  $('.resource-form').prepend('<%= j render("shared/error_messages", target: @resource) %>');
+<% end %>
+
