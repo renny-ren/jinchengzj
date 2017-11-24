@@ -14,7 +14,7 @@ RailsKindeditor.setup do |config|
   # eg: 1600x1600 => 800x800
   #     1600x800  => 800x400
   #     400x400   => 400x400  # No Change
-  # config.image_resize_to_limit = [800, 800]
+  config.image_resize_to_limit = [800, 800]
 
   # if you have config in your rails application like this:
   # /config/enviroments/production.rb
@@ -23,7 +23,4 @@ RailsKindeditor.setup do |config|
   # then you should:
   #
   # config.asset_url_prefix = "http://asset.example.com/assets_prefx/" if Rails.env.production?
-
-
-
 end
