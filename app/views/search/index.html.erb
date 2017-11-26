@@ -1,6 +1,13 @@
 <% zero = @result.records.total.zero? %>
 
 <div class="container main-container">
+  <form action="/search" method="GET">
+    <div class="form-group">
+      <input class="form-control search-box" name="q" type="text" value="<%= params[:q] %>" placeholder="搜索" />
+      <%= button_tag fa_icon('search'), name: nil, class: 'btn btn-default search-btn' %>
+    </div>
+  </form>
+  
   <div class="search-results panel panel-default">
     <div class="panel-heading">
       <% unless zero %>
