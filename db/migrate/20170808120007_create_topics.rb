@@ -16,6 +16,7 @@ class CreateTopics < ActiveRecord::Migration[5.0]
       t.datetime :deleted_at
       t.string :deleted_by
       t.datetime :closed_at
+      t.datetime :topped_at
 
       t.timestamps
 

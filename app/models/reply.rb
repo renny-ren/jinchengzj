@@ -33,7 +33,9 @@ class Reply < ApplicationRecord
   end
 
   def self.create_event(opts = {})
-    opts[:body] = ""
+    opts[:body], opts[:user_id] = "", User.current.id
+    return false if opts[:user_id].nil?
+    return false if opts[:action].blank?
     self.create!(opts)
   end
 end

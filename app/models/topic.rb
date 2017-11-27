@@ -15,7 +15,9 @@ class Topic < ApplicationRecord
 
   counter :view_times, default: 0
 
-  scope :without_resources, -> { where("deleted_at is null && node_id != 7") }
+  scope :without_deleted, -> { where('deleted_at is null') }
+  scope :without_resources, -> { without_deleted.where("node_id != 7") }
+  scope :topped, -> { without_resources.order('topped_at desc') }
 
   def update_last_reply(reply)
     return false if reply.blank?
@@ -45,14 +47,24 @@ class Topic < ApplicationRecord
     "popular-topic" if praises_count > 4
   end
 
-  def excellent(operator)
+  def excellent
     update!(is_excellent: true)
-    Reply.create_event(action: 'excellent', topic_id: self.id, user_id: operator.id)
+    Reply.create_event(action: 'excellent', topic_id: self.id)
   end
 
-  def cancel_excellent(operator)
+  def cancel_excellent
     update!(is_excellent: false)
-    Reply.create_event(action: 'cancel_excellent', topic_id: self.id, user_id: operator.id)
+    Reply.create_event(action: 'cancel_excellent', topic_id: self.id)
+  end
+
+  def top
+    update_columns(topped_at: Time.now)
+    Reply.create_event(action: 'top', topic_id: self.id)
+  end
+
+  def untop
+    update_columns(topped_at: nil)
+    Reply.create_event(action: 'untop', topic_id: self.id)
   end
 end
 

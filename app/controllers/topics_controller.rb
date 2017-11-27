@@ -6,7 +6,7 @@ class TopicsController < ApplicationController
   before_action :set_nodes, only: [:new, :edit]
 
   def index
-    @topics = Topic.without_resources
+    @topics = Topic.topped.order('updated_at desc')
   end
 
   def new
@@ -40,12 +40,18 @@ class TopicsController < ApplicationController
 
   def action
     case params[:type]
-    when "excellent"
-      @topic.excellent(current_user)
-      redirect_to @topic, notice: "加精成功"
-    when "cancel_excellent"
-      @topic.cancel_excellent(current_user)
-      redirect_to @topic, notice: "取消精华成功"
+    when 'excellent'
+      @topic.excellent
+      redirect_to @topic, notice: '加精成功'
+    when 'cancel_excellent'
+      @topic.cancel_excellent
+      redirect_to @topic, notice: '取消精华成功'
+    when 'top'
+      @topic.top
+      redirect_to @topic, notice: '置顶成功'
+    when 'untop'
+      @topic.untop
+      redirect_to @topic, notice: '取消置顶成功'
     end
   end
 

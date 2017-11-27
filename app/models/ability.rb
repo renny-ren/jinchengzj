@@ -21,6 +21,7 @@ class Ability
     end
 
     can :action, Topic
+    can :top, Topic
   end
 
   def roles_for_reply(user)

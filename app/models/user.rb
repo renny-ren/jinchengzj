@@ -42,6 +42,14 @@ class User < ApplicationRecord
       login = conditions.delete(:login)
       where(conditions).where(['lower(username) = :value OR lower(email) = :value', { value: login.strip.downcase }]).first
     end
+
+    def current
+      Thread.current[:current_user]
+    end
+
+    def current=(user)
+      Thread.current[:current_user] = user
+    end
   end
 
   # protected

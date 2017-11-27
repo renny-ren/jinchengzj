@@ -1,13 +1,16 @@
+<% unexce_array = ['star', '取精', 'cancel_excellent', '取消精华帖', '确定要取消精华吗？']
+    exce_array = ['star-o', '加精', 'excellent', '设为精华帖', '确定要加精吗？']
+    top_array = ['arrow-up', '置顶', 'top', '设为置顶帖', '确定要将该帖置顶吗？']
+    untop_array = ['arrow-up', '取顶', 'untop', '取消置顶帖', '确定要将该帖取消置顶吗？'] %>
+
 <% if is_owner?(@topic.user) %>
   <%= link_to fa_icon('edit', text: '编辑'), edit_topic_path(@topic), method: :get %>
 <% end %>
 
 <% if is_admin? || root? %>
-  <% if @topic.is_excellent %>
-    <div><%= link_to fa_icon('star', text: "取精"), action_topic_path(type: 'cancel_excellent'), title: '取消精华帖', data: { confirm: "确定要取消精华吗？" }, method: :post %></div>
-  <% else %>
-    <div><%= link_to fa_icon('star-o', text: "加精"), action_topic_path(type: 'excellent'), title: '设为精华帖', data: { confirm: "确定要加精吗？" }, method: :post %></div>
-  <% end %>
+  <div><%= action_tag @topic.is_excellent ? unexce_array : exce_array %></div>
+
+  <div><%= action_tag @topic.topped_at ? untop_array : top_array %></div>
 <% end %>
 
 <% if is_owner?(@topic.user) || is_admin? || root? %>
