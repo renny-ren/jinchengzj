@@ -9,7 +9,6 @@
 
 <% if is_admin? || root? %>
   <div><%= action_tag @topic.is_excellent ? unexce_array : exce_array %></div>
-
   <div><%= action_tag @topic.topped_at ? untop_array : top_array %></div>
 <% end %>
 

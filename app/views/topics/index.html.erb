@@ -13,7 +13,8 @@
               <div class="media-heading">
                 <span class="node"><%= link_to topic.node.name, node_path(topic.node.id) %></span>
                 <span class="topic-title"><%= link_to(topic.title, topic_path(topic.id), title: topic.title, method: :get) %></span>
-                <span class="topic-excellent"><%= image_tag "excellent.gif" if topic.is_excellent %></span>
+                <span class="topic-icon"><%= image_tag 'excellent.gif' if topic.is_excellent %></span>
+                <span class="topic-icon"><%= image_tag 'top.png' if topic.topped_at %></span>
               </div>
 
               <div>
@@ -30,10 +31,8 @@
               </div>
             </div>
 
-            <% if topic.replies_count > 0 %>
-              <div class="count media-right">
-                <%= topic.replies_count  %>
-              </div>
+            <% unless topic.replies_count.zero? %>
+              <div class="count media-right"><%= topic.replies_count %></div>
             <% end %>
           </div>
         <% end %>

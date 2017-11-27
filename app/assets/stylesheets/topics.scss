@@ -31,16 +31,16 @@
 .topic-participant{ font-size: 0.8rem; }
 #topic_title { font-weight: bold; }
 
-.count{
+.count {
   border: solid 1px lightblue;
   box-shadow: 1px 2px 4px lightblue;
   border-radius: 18px;
   padding: 0 8px;
 }
 
-.topic-show-info{ position: relative; z-index: 2; font-size: 0.8rem; }
-.topic-show-info a:hover{ text-decoration: none; font-weight: bold; }
-.topic-show-title{
+.topic-show-info { position: relative; z-index: 2; font-size: 0.8rem; }
+.topic-show-info a:hover { text-decoration: none; font-weight: bold; }
+.topic-show-title {
   font-family: "Microsoft Yahei", Helvetica, Arial, "PingFang SC", "Noto Sans", Roboto, sans-serif;
   font-size: 20px;
 }
@@ -50,24 +50,32 @@
   border-color: #d6e9c6 !important;
 } */
 
-.popular-topic{
+.popular-topic {
   border-color: #bce8f1 !important;
-  .panel-heading{
+  .panel-heading {
     color: #31708f !important;
     background-color: #d9edf7 !important;
     border-color: #bce8f1 !important;
   }
 }
 
-.topic-excellent img{
+.topic-icon img {
   margin-top: -5px;
   margin-left: 5px;
 }
-.topic-show-excellent img{
-  position: absolute;
-  z-index: 1;
-  height: 70px;
-  width: 80px;
-  margin-left: 100px;
-  margin-top: -10px;
+.topic-panel .excellent {
+  background-image: url(/images/luntan.png);
+  background-repeat: no-repeat;
+  background-position: -160px -990px;
+  height: 60px;
+  width: 50px;
+  float: left;
+}
+.topic-panel .top {
+  background-image: url(/images/luntan.png);
+  background-repeat: no-repeat;
+  background-position: -37px -170px;
+  height: 30px;
+  width: 56px;
+  float: left;
 }
