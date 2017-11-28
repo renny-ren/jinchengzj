@@ -12,6 +12,6 @@
   <div><%= action_tag @topic.topped_at ? untop_array : top_array %></div>
 <% end %>
 
-<% if is_owner?(@topic.user) || is_admin? || root? %>
+<% if can? :destroy, @topic %>
   <div><%= link_to fa_icon('trash', text: '删帖'), topic_path, data: { confirm: "确定要删除此贴吗？", method: :delete } %></div>
 <% end %>

@@ -25,7 +25,7 @@
           <% end -%>
 
           <div class="text-center">
-            <%= f.submit "登录", class: 'btn btn-primary' %>
+            <%= f.submit "登录", data: { disable_with: '登录中..' }, class: 'btn btn-primary' %>
           </div>
         <% end %>
         <div class="text-center"><%= render "devise/shared/links" %></div>

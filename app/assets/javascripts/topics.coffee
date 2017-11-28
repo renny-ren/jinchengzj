@@ -9,5 +9,5 @@ $ ->
     $('#node-selector-button').html($(this).text())
     $('#topic_node_id').val($(this).data('id'))
 
-  $(document).on 'click', '#flash_notice', ->
+  $(document).on 'click', '#flash_notice, #flash_alert', ->
     $(this).hide();

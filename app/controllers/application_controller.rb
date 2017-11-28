@@ -16,13 +16,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!(opts = {})
     return if current_user
-    if turbolinks_app?
-      render plain: '401 Unauthorized', status: 401
-      return
-    end
-
     store_location
-
     super(opts)
   end
 
@@ -31,7 +25,11 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |_exception|
-    redirect_to root_path, alert: "操作被拒绝"
+    respond_to do |format|
+      format.json { head :forbidden, content_type: 'text/html' }
+      format.html { redirect_to root_url, alert: t('exception.message') }
+      format.js { head :forbidden, content_type: 'text/html' }
+    end
   end
 
   protected

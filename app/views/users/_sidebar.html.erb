@@ -46,7 +46,7 @@
   <% unless is_owner?(@user) %>
     <div class="follow">
       <%= button_tag data: { username: @user.username }, class: 'btn btn-primary follow-btn', remote: true do %>
-        <%= current_user.follow_user?(@user) ? fa_icon('user', text: '取消关注') : fa_icon('user-o', text: '关注') %>
+        <%= followed?(@user) ? fa_icon('user', text: '取消关注') : fa_icon('user-o', text: '关注') %>
       <% end %>
     </div>
   <% end %>
