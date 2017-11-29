@@ -32,6 +32,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def render_404
+    respond_to do |format|
+      format.html { render template: "/errors/404", handler: [:erb], status: status, layout: "application" }
+      format.all  { render nothing: true, status: status }
+    end
+  end
+
   protected
 
   def configure_permitted_parameters

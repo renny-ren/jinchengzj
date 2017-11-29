@@ -27,6 +27,7 @@ class TopicsController < ApplicationController
 
   def show
     @replies = Reply.where(topic_id: @topic.id)
+    render_404 if @topic.deleted?
     @topic.view_times.incr(1)
   end
 
@@ -34,8 +35,13 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    @topic.destroy_by(current_user)
-    redirect_to params[:type] == 'res' ? resources_path : topics_path, notice: '删除成功'
+    if params[:type] == 'res'
+      @topic.real_destroy
+      redirect_to resources_path, notice: '删除成功'
+    else
+      @topic.destroy_by(current_user)
+      redirect_to topics_path, notice: '删除成功'
+    end
   end
 
   def action

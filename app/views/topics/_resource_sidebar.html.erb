@@ -1,7 +1,7 @@
-<% if is_owner?(@topic.user) %>
+<% if can? :update, @topic %>
   <%= link_to fa_icon('edit', text: '编辑'), edit_resource_path(@topic.resource, type: @topic.resource.lost_or_found) %>
 <% end %>
 
-<% if is_owner?(@topic.user) || current_user.root? %>
+<% if can? :destroy, @topic %>
   <div><%= link_to fa_icon('trash', text: '删除'), topic_path(type: 'res'), data: { confirm: "确定要删除这条失物招领吗？", method: :delete } %></div>
 <% end %>

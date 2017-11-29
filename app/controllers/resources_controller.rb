@@ -1,6 +1,6 @@
 class ResourcesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update]
-  before_action :find_resource, only: [:show, :edit, :update]
+  before_action :find_resource, only: [:edit, :update]
 
   def index
     @resources = Resource.lost.order('updated_at desc')
@@ -10,10 +10,6 @@ class ResourcesController < ApplicationController
   def create
     create_corresponding_topic
     create_resource
-  end
-
-  def show
-    @replies = Reply.where(resource_id: @resource.id)
   end
 
   def new

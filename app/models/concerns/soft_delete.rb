@@ -8,4 +8,8 @@ module SoftDelete
   def deleted?
     deleted_at.present?
   end
+
+  def real_destroy
+    run_callbacks :destroy
+  end
 end
