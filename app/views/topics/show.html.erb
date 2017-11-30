@@ -7,7 +7,7 @@
         </div>
         <div class="media-body">
           <div class="media-heading">
-            <span class="node"><%= link_to @topic.node.name, node_path(@topic.node.id) %></span>
+            <span class="node"><%= link_to @topic.node.name, node_topics_path(@topic.node) %></span>
             <span class="topic-show-title"><%= @topic.title %></span>
             <%== "<div class='excellent'></div>" if @topic.is_excellent %>
             <%== "<div class='top'></div>" if @topic.topped_at %>
