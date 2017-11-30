@@ -44,6 +44,12 @@ class TopicsController < ApplicationController
     end
   end
 
+  def node
+    @node = Node.find(params[:id])
+    @topics = @node.topics.order('updated_at desc')
+    render 'index'
+  end
+
   def action
     case params[:type]
     when 'excellent'

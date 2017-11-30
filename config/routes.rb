@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   post '/resources/new' => 'resources#new'
   
   resources :nodes
-
+  get '/topics/node/:id' => 'topics#node', as: 'node_topics'
 
   resources :users, path: '', param: :username do
     member do
