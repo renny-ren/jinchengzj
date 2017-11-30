@@ -10,7 +10,7 @@
           <%= devise_error_messages! %>
           <dl>
             <dt><%= f.label "用户名" %></dt>
-            <dd><%= f.text_field :username, autofocus: true %></dd>
+            <dd><%= f.text_field :username, autofocus: true, onchange: "if ($('#user_username').val() == 'admin') { alert('您输入了非法用户名'); }" %></dd>
           </dl>
 
           <dl>

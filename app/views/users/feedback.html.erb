@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="panel panel-info col-md-10">
+    <div class="panel-heading">提交反馈</div>
+    <div class="panel-body">
+      <%= form_for Feedback.new, url: feedback_path do |f| -%>
+        <dl>
+          <dt><%= f.label '反馈内容' %></dt>
+          <dd><%= f.text_area :body, rows: 10, maxlength: 200, required: true, placeholder: "如果你对本网站有任何建议、意见或是想法，我们期待你的声音！（200字以内）", class: 'form-control' %></dd>
+        </dl>
+        <dl>
+          <dt><%= f.label '联系方式' %></dt>
+          <%= f.text_field :contact_info, maxlength: 30, placeholder: '（可选）' %>
+        </dl>
+        <dl>
+          <dt>　</dt>
+          <dd><%= f.submit '发送反馈', data: { disable_with: '发送中..' }, class: 'btn btn-primary' %></dd>
+        </dl>
+      <% end -%>
+    </div>
+  </div>
+</div>

@@ -12,7 +12,8 @@ body { background-color: #f7fbff; padding-top: 68px; }
 .footer { text-align: center; clear: left; }
 
 #flash_notice { text-align: center; background: #feffcf; }
-#flash_alert { color: red; text-align: center; }
+#flash_alert { text-align: center; background: #FFE6DF; }
+#flash_success { text-align: center; background: #bcffbc; }
 .flash-notice {
   text-align: center; 
   background: #feffcf;

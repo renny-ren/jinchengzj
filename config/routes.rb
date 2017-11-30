@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   resources :nodes
   get '/topics/node/:id' => 'topics#node', as: 'node_topics'
 
+  get 'feedback', to: 'users#feedback', as: 'feedback'
+  post 'feedback', to: 'users#create_feedback'
   resources :users, path: '', param: :username do
     member do
       get :topics

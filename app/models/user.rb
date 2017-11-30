@@ -50,6 +50,10 @@ class User < ApplicationRecord
     def current=(user)
       Thread.current[:current_user] = user
     end
+
+    def send_feedback_email(body, contact_info)
+      UserMailer.feedback_email(body, contact_info).deliver_later
+    end
   end
 
   # protected

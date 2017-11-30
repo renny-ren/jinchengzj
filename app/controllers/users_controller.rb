@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:follow, :unfollow]
+  before_action :authenticate_user!, only: [:follow, :unfollow, :feedback]
   before_action :set_user
 
   def show
@@ -39,9 +39,25 @@ class UsersController < ApplicationController
   def search
   end
 
+  def feedback
+  end
+
+  def create_feedback
+    if feedback_params[:body].blank?
+      redirect_to feedback_path, alert: '请输入反馈内容'
+    else
+      User.send_feedback_email(feedback_params[:body], feedback_params[:contact_info])
+      redirect_to root_path, flash: { success: "如果没有意外，我们已经收到你的反馈。非常感谢！" }
+    end
+  end
+
   private
 
   def set_user
     @user = User.find_by_username(params[:username])
+  end
+
+  def feedback_params
+    params.require(:feedback).permit(:body, :contact_info)
   end
 end

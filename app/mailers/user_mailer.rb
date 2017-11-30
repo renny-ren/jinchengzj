@@ -4,4 +4,10 @@ class UserMailer < ApplicationMailer
     return false if @user.blank?
     mail(from: '锦城之家 <admin@jinchengzj.com>', to: @user.email, subject: '欢迎加入锦城之家！')
   end
+
+  def feedback_email(body, contact_info)
+    @body = body
+    @contact_info = contact_info
+    mail(from: '锦城之家 <admin@jinchengzj.com>', to: 'rennyallen@hotmail.com', subject: 'feedback mail')
+  end
 end
