@@ -3,7 +3,7 @@
 
 <div class="notify"><a href="<%= notifications_path %>"><i class="fa <%= notify_class %>"></i> <%= unread_notification_count %></a></div>
 
-<div class="cog"><%= link_to fa_icon('cog'), rails_admin_path if root? %></div>
+<div class="cog"><%= link_to fa_icon('cog'), main_app.rails_admin_path if root? %></div>
 
 <div class="dropdown">
   <a class="dropdown-toggle" role="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -11,14 +11,14 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><%= link_to current_user.username, user_path(current_user.username), method: :get %></li>
+    <li><%= link_to current_user.username, main_app.user_path(current_user.username), method: :get %></li>
 
     <li role="separator" class="divider"></li>
 
-    <li><%= link_to "个人设置", setting_path, method: :get %></li>
+    <li><%= link_to "个人设置", main_app.setting_path, method: :get %></li>
 
     <li role="separator" class="divider"></li>
     
-    <li><%= link_to '退出登录', destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to '退出登录', main_app.destroy_user_session_path, method: :delete %></li>
   </ul>
 </div>

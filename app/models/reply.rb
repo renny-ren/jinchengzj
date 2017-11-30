@@ -20,12 +20,12 @@ class Reply < ApplicationRecord
   end
 
   def notify_reply
-    # Notification.create(
-    #   notify_type: 'reply',
-    #   actor: self.user,
-    #   user: self.topic.user,
-    #   target: self
-    # )
+    Notification.create(
+      notify_type: 'reply',
+      target: self,
+      actor: self.user,
+      user: self.topic.user
+    )
   end
 
   def popular?

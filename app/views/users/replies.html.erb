@@ -1,19 +1,22 @@
 <div class="container main-container">
   <%= render 'sidebar' %>
 
-  <div class="col-md-8 float-left">
+  <div class="col-md-9 float-left">
     <%= render 'menu' %>
     <div class="user-replies">
       <% @replies.without_event.each do |reply| %>
-        <div class="user-reply-item">
-          <div>
-            <%= link_to reply.topic.title, topic_path(reply.topic) %>
-            <span class="date">回复于 <%= time_ago_in_words reply.created_at %></span>
+        <% cache(['users', reply]) do %>
+          <% next if reply.topic.blank? %>
+          <div class="user-reply-item">
+            <div>
+              <%= link_to reply.topic.title, topic_path(reply.topic) %>
+              <span class="date">回复于 <%= time_ago_in_words reply.created_at %></span>
+            </div>
+            <div class="user-reply-body">
+              <%= reply.body %>
+            </div>
           </div>
-          <div class="user-reply-body">
-            <%= reply.body %>
-          </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>

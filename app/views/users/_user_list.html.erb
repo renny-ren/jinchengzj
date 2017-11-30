@@ -1,6 +1,6 @@
 <div class="row">
   <% @users.each do |user| %>
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="media user-card">
         <div class="media-left avatar">
           <%= link_to user_avatar_tag(user, 36), user_path(user.username), method: :get %>
