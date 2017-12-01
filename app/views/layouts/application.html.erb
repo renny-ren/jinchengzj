@@ -27,15 +27,11 @@
             <li><%= link_to '首页', main_app.root_path %></li>
             <li><%= link_to '论坛', main_app.topics_path %></li>
             <li><%= link_to '失物招领', main_app.resources_path %></li>
-            <li>二手买卖</li>
-            <li>兼职招聘</li>
           </ul>
 
-          <div>
-            <ul class="nav user-bar">
-              <%= render user_signed_in? ? 'shared/user_nav' : 'shared/user_bar' %>
-            </ul>
-          </div>
+          <ul class="nav user-bar">
+            <%= render user_signed_in? ? 'shared/user_nav' : 'shared/user_bar' %>
+          </ul>
         </div>
       </nav>
     </div>
@@ -48,9 +44,18 @@
     <%= yield %>
 
     <footer class="footer">
-      <a href="http://720yun.com/t/befjO7kkek7?from=singlemessage&pano_id=3246439">学院全景</a>
-      <a href="http://www.miitbeian.gov.cn/">蜀ICP备16035108号</a>
-      <%= link_to '反馈', feedback_path %>
+      <div class="container">
+        <div class="media">
+          <div class="media-left">
+            <div class="title">锦城之家 <span class="url">jinchengzj.com</span></div>
+            <div class="beian"><a href="http://www.miitbeian.gov.cn/">蜀ICP备16035108号</a></div>
+          </div>
+          <ul class="media-body">
+            <li><a href="http://720yun.com/t/befjO7kkek7?from=singlemessage&pano_id=3246439">学院全景</a></li>
+            <li><%= link_to '反馈', feedback_path %></li>
+          </ul>
+       </div>
+      </div>
     </footer>
   </body>
 </html>
