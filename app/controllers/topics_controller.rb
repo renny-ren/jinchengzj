@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
-  load_and_authorize_resource :topic
+  load_and_authorize_resource only: [:edit, :create, :update, :destroy,
+                                     :favorite, :unfavorite, :follow, :unfollow]
 
   before_action :authenticate_user!, only: [:new, :create, :update]
   before_action :set_topic, only: [:update, :show, :edit]

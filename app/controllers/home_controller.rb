@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  def new; end
-
-  def index; end
+  def index
+    @topics = Topic.topped.order('updated_at desc')
+  end
 end

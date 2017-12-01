@@ -114,9 +114,9 @@
       topic: "话题"
     attributes:
       user:
-        username: "账号"
+        username: "用户名"
         nickname: "名字"
-        email: "Email"
+        email: "邮箱"
         email_public: "公开 Email"
         avatar: "头像"
         location: "城市"
