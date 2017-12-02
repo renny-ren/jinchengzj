@@ -36,9 +36,6 @@ class UsersController < ApplicationController
   def favorites
   end
 
-  def search
-  end
-
   def feedback
   end
 

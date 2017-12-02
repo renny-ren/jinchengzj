@@ -78,10 +78,10 @@
         <%= f.submit '提交回复', class: 'btn btn-primary submit-reply-btn' %>
       <% end %>
     <% else %>需要
-      <%= link_to '登录', new_user_session_path %>
+      <%= link_to '登录', new_user_session_path, method: :get %>
       后才能回复，如果你还没有账号，赶快
-      <%= link_to '点击这里', new_user_registration_path, method: :get %>
-      加入锦城之家吧！
+      <%= link_to '加入', new_user_registration_path, method: :get %>
+      锦城之家吧！
     <% end %>
   </div>
 </div>
