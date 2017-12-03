@@ -22,7 +22,7 @@
 
         <dl>
           <dt><%= f.label "详细描述" %></dt>
-          <dd><%= f.kindeditor :description, simple_mode: true, width: '600px', owner: @resource %></dd>
+          <dd><%= f.kindeditor :description, simple_mode: true, width: '600px', owner: @resource.topic %></dd>
         </dl>
 
         <dl>

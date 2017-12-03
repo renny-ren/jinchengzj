@@ -39,6 +39,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def update_related_assets
+    session[:asset_ids].each do |asset_id|
+      @asset = Kindeditor::Asset.find(asset_id)
+      @asset.owner_id = @topic.id
+      @asset.owner_type = @topic.class.name
+      @asset.save
+    end
+  end
+
   protected
 
   def configure_permitted_parameters

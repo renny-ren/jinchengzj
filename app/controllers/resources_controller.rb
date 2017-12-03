@@ -42,7 +42,6 @@ class ResourcesController < ApplicationController
     @resource.user_id = current_user.id
     @resource.topic_id = @topic.id
     @resource.save
-    update_related_assets unless session[:asset_ids].blank?
   end
 
   def create_corresponding_topic
@@ -51,17 +50,8 @@ class ResourcesController < ApplicationController
       title: resource_params[:title],
       node_id: Settings.node_id.lost_and_found,    # 这是“失物招领”的node_id
       body: "body")   # the body is useless for resources
+    update_related_assets unless session[:asset_ids].blank?
   end
-
-  def update_related_assets
-    session[:asset_ids].each do |asset_id|
-      @asset = Kindeditor::Asset.find(asset_id)
-      @asset.owner_id = @resource.id
-      @asset.owner_type = @resource.class.name
-      @asset.save
-    end
-  end
-
 
   private 
 
