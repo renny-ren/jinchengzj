@@ -18,3 +18,10 @@
 .detail { float: right; }
 
 .res-title { text-align: center; font-size: 14px; color: red; }
+
+#resource_title {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  width: 400px;
+  padding: 5px;
+}

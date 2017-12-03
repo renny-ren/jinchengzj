@@ -7,6 +7,6 @@
       <% end %>
     </div>
 
-    <%= render @topic.node_id == 7 ? 'resource_sidebar' : 'topic_sidebar' %>
+    <%= render @topic.node_id == Settings.node_id.lost_and_found ? 'resource_sidebar' : 'topic_sidebar' %>
   </div>
 </div>

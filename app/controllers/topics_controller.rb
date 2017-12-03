@@ -37,11 +37,11 @@ class TopicsController < ApplicationController
 
   def destroy
     if params[:type] == 'res'
-      @topic.real_destroy
-      redirect_to resources_path, notice: '删除成功'
+      @topic.destroy
+      redirect_to resources_path, flash: { success: '删除成功' }
     else
       @topic.destroy_by(current_user)
-      redirect_to topics_path, notice: '删除成功'
+      redirect_to topics_path, flash: { success: '删除成功' }
     end
   end
 
@@ -84,7 +84,7 @@ class TopicsController < ApplicationController
   end
 
   def set_nodes
-    @nodes = Node.where.not(name: '失物招领')
+    @nodes = Node.where.not(id: Settings.node_id.lost_and_found)
   end
 
   def topic_params

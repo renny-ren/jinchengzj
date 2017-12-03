@@ -22,7 +22,7 @@ class RepliesController < ApplicationController
   end
 
   def destroy
-    @reply.destroy
+    @reply.soft_destroy
   end
 
   private

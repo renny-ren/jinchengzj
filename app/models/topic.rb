@@ -16,7 +16,7 @@ class Topic < ApplicationRecord
   counter :view_times, default: 0
 
   scope :without_deleted, -> { where('deleted_at is null') }
-  scope :without_resources, -> { without_deleted.where("node_id != 7") }
+  scope :without_resources, -> { without_deleted.where("node_id != ?", Settings.node_id.lost_and_found) }
   scope :topped, -> { without_resources.order('topped_at desc') }
 
   def update_last_reply(reply)
@@ -40,7 +40,7 @@ class Topic < ApplicationRecord
 
   def destroy_by(user)
     update_columns(deleted_by: user.username)
-    destroy
+    soft_destroy
   end
 
   def popular?

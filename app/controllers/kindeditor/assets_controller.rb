@@ -13,7 +13,7 @@ class Kindeditor::AssetsController < ApplicationController
           logger.warn '========= Warning: the owner have not been created, "delete uploaded files automatically" will not work. =========' if defined?(logger) && @asset.owner_id == 0
           @asset.asset_type = @dir
           if @asset.save
-            session[:asset_ids] << @asset.id if @asset.owner_id = 0  # used for creating new topic
+            session[:asset_ids] << @asset.id if @asset.owner_id == 0  # used for creating new topic
             render :plain => ({:error => 0, :url => @asset.asset.url, :asset_id => @asset.id}.to_json)
           else
             show_error(@asset.errors.full_messages)

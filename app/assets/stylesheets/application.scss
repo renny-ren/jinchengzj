@@ -12,11 +12,12 @@ body { background-color: #f7fbff; padding-top: 68px; }
 /* .footer { text-align: center; } */
 .footer {
   font-size: 14px;
+  clear: left;
   .container {
     border-top: solid 1px #e1e4e8;
     padding-top: 10px;
   }
-  .title { color: #3c3c3c; }
+  .title { color: #3c3c3c; font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei", sans-serif; }
   .url { font-weight: bold; }
   .beian a { color: #818181; font-size: 12px; }
   .media-left { border-right: solid 1px #e1e4e8; }
