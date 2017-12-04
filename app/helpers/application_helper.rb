@@ -30,4 +30,8 @@ module ApplicationHelper
   def current_url(new_params)
     request.query_parameters.merge(new_params)
   end
+
+  def preview(text)
+    text.gsub(/<img.*?\/>/, ' [图片] ')
+  end
 end

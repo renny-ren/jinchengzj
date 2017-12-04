@@ -1,5 +1,5 @@
 <% if is_owner?(@topic.user) %>
-  <%= link_to fa_icon('edit', text: '编辑'), edit_resource_path(@topic.resource, method: :get, type: @topic.resource.lost_or_found) %>
+  <%= link_to fa_icon('edit', text: '编辑'), edit_resource_path(@topic.resource, type: @topic.resource.lost_or_found), method: :get %>
 <% end %>
 
 <% if can? :destroy, @topic %>

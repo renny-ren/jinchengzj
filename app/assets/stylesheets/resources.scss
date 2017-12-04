@@ -1,5 +1,5 @@
 @mixin basic-panel {
-  height: 220px;
+  height: 228px;
   width: 100%;
   float: left;
 }
@@ -15,9 +15,16 @@
 }
 
 .desc { height: 80px; overflow: scroll; }
-.detail { float: right; }
+.detail { float: right; margin-top: 5px; }
 
-.res-title { text-align: center; font-size: 14px; color: red; }
+.res-title {
+  text-align: center;
+  font-size: 14px;
+  color: red;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
 #resource_title {
   border: 1px solid rgba(0, 0, 0, 0.15);
