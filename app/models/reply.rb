@@ -5,7 +5,7 @@ class Reply < ApplicationRecord
   belongs_to :user
   has_many :comments, dependent: :destroy
 
-  after_commit :update_correspondence, :notify_reply, on: :create
+  after_commit :update_correspondence, :notify_reply, on: :create, unless: -> { system_event? }
   after_destroy :update_after_delete_last_reply
 
   scope :without_event, -> { where(action: nil) }
@@ -20,6 +20,7 @@ class Reply < ApplicationRecord
   end
 
   def notify_reply
+    return if self.user == self.topic.user
     Notification.create(
       notify_type: 'reply',
       target: self,
@@ -30,6 +31,10 @@ class Reply < ApplicationRecord
 
   def popular?
     'popular' if praises_count >= 5
+  end
+
+  def system_event?
+    action.present?
   end
 
   def self.create_event(opts = {})

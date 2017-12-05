@@ -19,7 +19,7 @@
       <div class="deleted text-center">
         <%= floor + 1 %>楼已删除
       </div>
-    <% elsif reply.action.present? %>
+    <% elsif reply.system_event? %>
       <div class="event"><%= render 'replies/event', reply: reply %></div>
     <% else %>
       <div class="panel-body media reply-item">

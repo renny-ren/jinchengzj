@@ -3,7 +3,7 @@ class TopicsController < ApplicationController
                                      :favorite, :unfavorite, :follow, :unfollow]
 
   before_action :authenticate_user!, only: [:new, :create, :update]
-  before_action :set_topic, only: [:update, :show, :edit]
+  before_action :set_topic, only: [:update, :show, :edit, :action]
   before_action :set_nodes, only: [:new, :edit]
 
   def index
