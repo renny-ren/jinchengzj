@@ -47,7 +47,7 @@ class TopicsController < ApplicationController
 
   def node
     @node = Node.find(params[:id])
-    @topics = @node.topics.order('updated_at desc')
+    @topics = @node.topics.for_list
     render 'index'
   end
 

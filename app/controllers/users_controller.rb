@@ -4,11 +4,11 @@ class UsersController < ApplicationController
 
   def show
     render plain: "User not found", status: 404 unless @user
-    @topics = @user.topics if @user
+    @topics = @user.topics.for_list if @user
   end
 
   def topics
-    @topics = @user.topics
+    @topics = @user.topics.for_list
     render template: "/users/show"
   end
 

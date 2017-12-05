@@ -18,6 +18,7 @@ class Topic < ApplicationRecord
   scope :without_deleted, -> { where('deleted_at is null') }
   scope :without_resources, -> { without_deleted.where("node_id != ?", Settings.node_id.lost_and_found) }
   scope :topped, -> { without_resources.order('topped_at desc') }
+  scope :for_list, -> { without_deleted.order('topped_at desc').order('is_excellent desc') }
 
   def update_last_reply(reply)
     return false if reply.blank?

@@ -13,7 +13,7 @@
 
             <div class="media-body">
               <div class="media-heading">
-                <span class="node"><%= link_to topic.node.name, node_topics_path(topic.node.id) %></span>
+                <span class="node"><%= link_to topic.node.name, node_topics_path(topic.node.id) unless @node.present? %></span>
                 <span class="topic-title"><%= link_to(topic.title, topic_path(topic.id), title: topic.title, method: :get) %></span>
                 <span class="topic-icon"><%= image_tag 'excellent.gif' if topic.is_excellent %></span>
                 <span class="topic-icon"><%= image_tag 'top.png' if topic.topped_at %></span>
