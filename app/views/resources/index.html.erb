@@ -10,7 +10,7 @@
               <div class="panel <%= action_name %>-panel">
                 <div class="panel-body">
                   <div class="res-title"><%= resource.title %></div>
-                  <div>发布者：<%= link_to resource.user.nickname, user_path(resource.user.username) %></div>
+                  <div>发布者：<%= link_to resource.user.nickname, user_path(resource.user.username), method: :get %></div>
                   <div>类型：<%= resource.res_type %></div>
                   <div>日期：<%= resource.date.strftime("%m月%1d日") %></div>
                   <div class="desc">描述：<%= preview resource.description %></div>

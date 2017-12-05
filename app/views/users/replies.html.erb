@@ -6,7 +6,7 @@
     <div class="user-replies">
       <% @replies.without_event.each do |reply| %>
         <% cache(['users', reply]) do %>
-          <% next if reply.topic.blank? %>
+          <% next if reply.topic.blank? || reply.deleted? %>
           <div class="user-reply-item">
             <div>
               <%= link_to reply.topic.title, topic_path(reply.topic) %>
