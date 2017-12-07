@@ -1,21 +1,17 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.gender_male { color: #0808ff; }
+.gender_female { color: #ff7cbd; }
 
-.gender_male{ color: #0808ff; }
-.gender_female{ color: #ff7cbd; }
-
-.profile{
+.profile {
   margin-top: 20px;
   line-height: 1.5;
 }
-.info{ font-size: 14px; }
+.info { font-size: 14px; }
 
-.user-details li{ list-style: none; }
-.user-details{ padding: 10px 0 0 0; }
-.user-details .fa{ width: 15px; }
+.user-details li { list-style: none; }
+.user-details { padding: 10px 0 0 0; }
+.user-details .fa { width: 15px; }
 
-.nav-count{ 
+.nav-count { 
   color: #586069;
   padding: 2px 5px;
   margin-left: 3px;
@@ -25,20 +21,37 @@
   border-radius: 20px;
 }
 .nav-tabs { height: 35px; }
-.nav-tabs .active{ border-bottom: solid 2px #ffa705; }
+.nav-tabs .active { border-bottom: solid 2px #ffa705; }
 
-.user-topics th, .user-topics td{ padding: 1rem; }
-.user-topics tr.odd{ background: #fafafa; }
-.user-topics .title{ width: 600px; }
-.date{ font-size: 12px; color: #bbb; margin-left: 10px; }
-.word{ font-size: 12px; color: #bbb; }
+.user-topics th, .user-topics td { padding: 1rem; }
+.user-topics tr.odd { background: #fafafa; }
+.user-topics .title { width: 600px; }
+.date { font-size: 12px; color: #bbb; margin-left: 10px; }
+.word { font-size: 12px; color: #bbb; }
 
-.user-reply-item{ border-bottom: solid 1px #ddd; padding: 10px; }
-.user-reply-body{ margin-top: 6px; font-size: 15px; color: #666; }
+.user-reply-item { border-bottom: solid 1px #ddd; padding: 10px; }
+.user-reply-body { margin-top: 6px; font-size: 15px; color: #666; }
 
-.nav-tabs li{ font-size: 16px; padding: 0 20px; }
-.nav-tabs li:hover{ border-bottom: solid 2px #ffa705; }
-.nav-tabs a, .nav-tabs a:hover{ color: black; text-decoration: none; padding-bottom: 12px; }
+.nav-tabs li { font-size: 16px; padding: 0 20px; }
+.nav-tabs li:hover { border-bottom: solid 2px #ffa705; }
+.nav-tabs a, .nav-tabs a:hover { color: black; text-decoration: none; padding-bottom: 12px; }
 
 #feedback_body, #feedback_contact_info { width: 70% !important; }
 
+.setting-menu {
+  list-style: none;
+  width: 100px;
+  padding-left: 8px;
+}
+.setting-menu li {
+  padding: 5px 0;
+}
+.setting-menu li:hover { border-right: solid 2px #2EBBF4; }
+.setting-menu .active { border-right: solid 2px #2EBBF4; }
+.setting-menu a:hover { text-decoration: none; }
+
+.setting-form { margin-left: 10px; }
+.setting-form dt{ 
+  width: initial !important;
+  margin-left: 50px !important;
+}

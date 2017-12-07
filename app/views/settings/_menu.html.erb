@@ -1,6 +1,9 @@
-<div class="col-sm-2 col-md-offset-1 setting-menu">
-  <div class="panel panel-default">
-    <%= link_to '个人资料', setting_path %>
-    <%= link_to '修改密码', password_setting_path %>
-  </div>
-</div>
+<ul class="setting-menu">
+  <li class=<%= 'active' if q == 'basic_info' %>>
+    <%= link_to '个人资料', setting_path(q: 'basic_info') %>
+  </li>
+  
+  <li class=<%= 'active' if q == 'password' %>>
+    <%= link_to '修改密码', setting_path(q: 'password') %>
+  </li>
+</ul>

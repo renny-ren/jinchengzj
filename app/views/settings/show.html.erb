@@ -1,84 +1,15 @@
-<div class="main-container">
-  <%= render 'menu' %>
+<div class="container">
+  <div class="panel panel-info">
+    <div class="panel-body media">
+      <div class="media-left"><%= render 'menu', q: @q %></div>
 
-  <div class="panel-body">
-    <%= form_for(@user, url: setting_path, html: { method: :put }) do |f| %>
-      <%= render "shared/error_messages", target: @user %>
-      <dl>
-        <dt><%= f.label "名字" %></dt>
-        <dd><%= f.text_field :nickname %></dd>
-      </dl>
+      <div class="media-body setting-form">
+        <%= form_for(@user, url: setting_path, html: { method: :put }) do |f| %>
+          <%= render "shared/error_messages", target: @user %>
 
-      <dl>
-        <dt><%= f.label "性别" %></dt>
-        <dd>
-          <%= f.radio_button 'gender', 'male' %>
-          <%= f.label "男" %>
-          <%= f.radio_button 'gender', 'female' %>
-          <%= f.label "女" %>
-        </dd>
-      </dl>
-
-      <dl>
-        <dt><%= f.label "邮箱" %></dt>
-        <dd><%= f.email_field :email, disabled: true, title: "邮箱不能更改了哦" %></dd>
-      </dl>
-
-      <dl>
-        <dt><%= f.label "院" %></dt>
-        <%= f.select :school, options_for_select(['计算机与软件学院', '财务会计学院', '电子信息学院', '机械工程学院', '建筑学院', '土木与环境工程学院', '文学与传媒学院', '外国语学院', '工商管理学院', '金融学院', '艺术学院', '通识教育学院'], @user.school) %>
-
-        <b><%= f.label "系" %></b>
-        <%= f.text_field :department %>
-
-        <b><%= f.label "专业" %></b>
-        <%= f.text_field :major %>
-      </dl>
-
-      <dl>
-        <%= user_avatar_tag(current_user, 55) %>
-        <dt><%= f.label "头像" %></dt>
-        <%= f.file_field :avatar %>
-      </dl>
-
-      <dl>
-        <dt><%= f.label "QQ" %></dt>
-        <%= f.text_field :qq, pattern: "[0-9]*", maxlength: 12 %>
-      </dl>
-
-      <dl>
-        <dt><%= f.label "微信" %></dt>
-        <%= f.text_field :wechat %>
-      </dl>
-
-      <dl>
-        <dt><%= f.label "城市" %></dt>
-        <%= ChinaCity.get(current_user.city) %>
-
-        <div class="city-group">
-          <%= f.select(:city, {},{}, class: 'city-select') do %>
-            <option>---请选择省份---</option>
-            <%= options_for_select(ChinaCity.list) %>
-          <% end %>
-
-          <%= f.select(:city, {},{}, class: 'city-select') do %>
-            <option>---城市---</option>
-          <% end %>
-
-          <%= f.select(:city, {},{}, class: 'city-select') do %>
-            <option>---地区---</option>
-          <% end %>
-        </div>
-      </dl>
-
-      <dl>
-        <dt><%= f.label "个性签名" %></dt>
-        <%= f.text_area :signature %>
-      </dl>
-
-      <div class="actions">
-        <%= f.submit "更新资料", class: 'btn btn-primary' %>
+          <%= render @q, f: f %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>

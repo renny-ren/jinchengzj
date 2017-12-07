@@ -11,9 +11,7 @@ Rails.application.routes.draw do
     registrations: :registrations
   }
 
-  resource :setting do
-    get :password
-  end
+  resource :setting
 
   root 'home#index'
 
