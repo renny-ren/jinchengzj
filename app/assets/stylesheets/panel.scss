@@ -1,17 +1,13 @@
-.col-md-6{
-  margin-left: 25%;
-}
+.col-md-6 { margin-left: 25%; }
 
-.panel-body dt{
+.panel-body dt {
   width: 160px;
   float: left;
   text-align: right;
   margin-right: 15px;
 }
 
-#error_explanation{
-  color: red;
-}
+#error_explanation { color: red; }
 
 .rucaptcha_image_box{
   cursor: pointer;
@@ -27,9 +23,7 @@
           box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 
-.panel-body {
-  padding: 15px;
-}
+.panel-body { padding: 15px; }
 
 .panel-heading {
   padding: 10px 15px;
@@ -53,9 +47,7 @@
   border-bottom-left-radius: 3px;
 }
 
-.panel-default {
-  border-color: #ddd;
-}
+.panel-default { border-color: #ddd; }
 
 .panel-default > .panel-heading {
   color: #333;

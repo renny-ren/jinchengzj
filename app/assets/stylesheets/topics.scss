@@ -1,34 +1,30 @@
-// Place all the styles related to the topics controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 /* .bg{
   background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1502820393883&di=ba10346becc622f5436a18ba72cafef1&imgtype=0&src=http%3A%2F%2Fbwb.scujcc.cn%2Fupload%2F2011%2F4%2Ftupian%2F20110430002.JPG);
 } */
-.main-container{
+.main-container {
   min-height: 600px;
 }
 
-.topic-container, .sidebar{ float: left; }
+.topic-container, .sidebar { float: left; }
 
-.topic-item{
+.topic-item {
   border-bottom: 1px solid #F0F0F0;
   padding: 10px 0;
 }
 
-.topic-panel{ overflow: hidden; }
+.topic-panel { overflow: hidden; }
 
-.media-left{ padding-right: 10px; }
-.avatar img{ border-radius: 10px; }
-.nav-avatar img{ border-radius: 5px; }
+.media-left { padding-right: 10px; }
+.avatar img { border-radius: 10px; }
+.nav-avatar img { border-radius: 5px; }
 
-.node{ font-size: 14px; }
-.node a, .topic-participant a{ color: #323232; }
-.node a:hover, .topic-participant a:hover{ text-decoration: none; color: #0275D8; }
+.node { font-size: 14px; }
+.node a, .topic-participant a { color: #323232; }
+.node a:hover, .topic-participant a:hover { text-decoration: none; color: #0275D8; }
 
-.topic-title{ font-size: 1.1rem; line-height: 1; }
-.topic-title a:hover{ text-decoration: none; }
-.topic-participant{ font-size: 0.8rem; }
+.topic-title { font-size: 1.1rem; line-height: 1; }
+.topic-title a:hover { text-decoration: none; }
+.topic-participant { font-size: 0.8rem; }
 #topic_title { font-weight: bold; }
 
 .count {

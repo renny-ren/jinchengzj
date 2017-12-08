@@ -43,15 +43,13 @@
   width: 100px;
   padding-left: 8px;
 }
-.setting-menu li {
-  padding: 5px 0;
-}
+.setting-menu li { padding: 5px 0; }
 .setting-menu li:hover { border-right: solid 2px #2EBBF4; }
 .setting-menu .active { border-right: solid 2px #2EBBF4; }
 .setting-menu a:hover { text-decoration: none; }
 
 .setting-form { margin-left: 10px; }
-.setting-form dt{ 
+.setting-form dt { 
   width: initial !important;
   margin-left: 50px !important;
 }

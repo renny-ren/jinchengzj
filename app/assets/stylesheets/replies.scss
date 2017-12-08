@@ -2,30 +2,30 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.reply-item{ padding: 0 !important; border-bottom: solid 1px #eee; background: #FAFBFC; }
-.reply-user-info{
+.reply-item { padding: 0 !important; border-bottom: solid 1px #eee; background: #FAFBFC; }
+.reply-user-info {
   background-color: #FAFBFC;
   padding: 20px;
   text-align: center;
 }
-.reply-user-name{ margin-top: 5px; }
-.reply-body{ padding: 20px; background: #FFFFFF; border-left: solid 1px #C2D5E3; }
-.reply-praise{ float: right; }
-.reply-content{ min-height: 90px; }
-.reply-date, .reply-floor{
+.reply-user-name { margin-top: 5px; }
+.reply-body { padding: 20px; background: #FFFFFF; border-left: solid 1px #C2D5E3; }
+.reply-praise { float: right; }
+.reply-content { min-height: 90px; }
+.reply-date, .reply-floor {
   float: right; 
   font-size: 0.8rem;
   color: #999999;
 }
-.submit-reply-btn{ cursor: pointer; margin-top: 10px; }
-#reply_body{ width: 100%; }
+.submit-reply-btn { cursor: pointer; margin-top: 10px; }
+#reply_body { width: 100%; }
 
-.edit{ display: none; float: right; font-size: 14px; margin-right: 10px; }
-.edit:hover{ text-decoration: none; }
-.visible{ display: none; }
-.reply-body:hover .visible{ display: block; }
-.deleted{ text-decoration: line-through; color: #777; font-size: 14px; padding: 6px; border-bottom: solid 1px #eee; }
-.event{ font-size: 14px; padding: 6px; border-bottom: solid 1px #eee; text-align: center; }
+.edit { display: none; float: right; font-size: 14px; margin-right: 10px; }
+.edit:hover { text-decoration: none; }
+.visible { display: none; }
+.reply-body:hover .visible { display: block; }
+.deleted { text-decoration: line-through; color: #777; font-size: 14px; padding: 6px; border-bottom: solid 1px #eee; }
+.event { font-size: 14px; padding: 6px; border-bottom: solid 1px #eee; text-align: center; }
 
-.popular{ background: #fffce9; }
-.emoji-btn{ background: none; color: #0275D8 !important; cursor: pointer; }
+.popular { background: #fffce9; }
+.emoji-btn { background: none; color: #0275D8 !important; cursor: pointer; }

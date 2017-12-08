@@ -2,37 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.comment-container{
+.comment-container {
   display: none; 
   background: #FAFBFC;
   margin-top: 20px;
   padding: 10px;
   padding-bottom: 40px;
 }
-.comment-item{ border-bottom: dotted 1px #d7d7d7; padding-top: 5px; }
-.comment-date{
+.comment-item { border-bottom: dotted 1px #d7d7d7; padding-top: 5px; }
+.comment-date {
   font-size: 0.8rem;
   color: #999999;
   text-align: right;
 }
-.comment-btn{
+.comment-btn {
   background: none;
   font-size: 0.8rem !important;
   padding: 2px 8px !important;
   float: right;
 }
-.comment-open{ background: #FAFBFC; }
-.submit-comment-btn, .start-comment-btn{
+.comment-open { background: #FAFBFC; }
+.submit-comment-btn, .start-comment-btn {
   margin-top: 5px;
   padding: 5px !important;
   font-size: 12px !important;
   float: right;
 }
-.start-comment-btn{ border: solid 1px #D7D7D7 !important; background: #fdffff; }
+.start-comment-btn { border: solid 1px #D7D7D7 !important; background: #fdffff; }
 
-#comment_body{ width: 100%; margin-top: 5px; padding: 5px; }
-.comment-content{ padding-top: 5px; }
+#comment_body { width: 100%; margin-top: 5px; padding: 5px; }
+.comment-content { padding-top: 5px; }
 
-.arrow-rotate{ transform: rotate(180deg); }
+.arrow-rotate { transform: rotate(180deg); }
 
-.new_comment{ display: none; }
+.new_comment { display: none; }
