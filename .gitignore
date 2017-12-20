@@ -21,8 +21,7 @@ config/database.yml
 config/redis.yml
 config/secrets.yml
 config/settings.yml
-config/settings.local.yml
-config/settings/*.local.yml
+config/settings/*.yml
 config/environments/*.local.yml
 log/development.log
 public/assets
