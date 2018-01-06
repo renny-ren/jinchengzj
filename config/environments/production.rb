@@ -59,13 +59,12 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = true
   # config.action_mailer.default_url_options = { host: 'jinchengzj.com' }
-  config.action_mailer.default_options = { from: 'admin@jinchengzj.com' }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.ym.163.com',
     port:                  25,
-    domain:               'jinchengzj.com',
+    # domain:               'ym.163.com',
     user_name:          Settings.email.username,
     password:            Settings.email.password,
     authentication:       'plain',

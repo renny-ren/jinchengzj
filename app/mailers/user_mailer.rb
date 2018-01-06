@@ -8,6 +8,6 @@ class UserMailer < ApplicationMailer
   def feedback_email(body, contact_info)
     @body = body
     @contact_info = contact_info
-    mail(from: '锦城之家 <admin@jinchengzj.com>', to: 'rennyallen@hotmail.com', subject: 'feedback mail')
+    mail(from: '锦城之家 <admin@jinchengzj.com>', to: '267286753@qq.com', subject: 'feedback mail')
   end
 end
