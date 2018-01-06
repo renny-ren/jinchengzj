@@ -62,8 +62,9 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.ym.163.com',
-    port:                  25,
-    domain:               'jinchengzj.com',
+    port:                  465,
+    ssl:                    true,
+    # domain:               'jinchengzj.com',
     user_name:          Settings.email.username,
     password:            Settings.email.password,
     authentication:       'plain',
