@@ -33,5 +33,6 @@ module ApplicationHelper
 
   def preview(text)
     text.gsub(/<img.*?\/>/, ' [图片] ')
+    raw text
   end
 end

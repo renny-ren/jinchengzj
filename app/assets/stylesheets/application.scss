@@ -76,3 +76,25 @@ body { background-color: #f7fbff; padding-top: 68px; }
 }
 .cog { margin-right: 16px; i { color: #666; } }
 .notify { margin-right: 16px; }
+
+@media only screen and (max-device-width: 500px) {
+  .navbar-header img {
+    width: 65px;
+    height: 18px;
+    margin-left: -28px;
+  }
+
+  .nav-body {
+    margin-left: 1px;
+  }
+  .nav-body li { padding-left: 8px; }
+
+  .user-bar { margin-left: 5px; }
+
+  .login-btn, .signup-btn {
+    width: 30px;
+    height: 24px;
+    padding: 2px;
+    font-size: 12px;
+  }
+}
