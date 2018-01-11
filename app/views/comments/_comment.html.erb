@@ -19,7 +19,7 @@
           <%= link_to user_avatar_tag(comment.user, 36), user_path(comment.user.username), method: :get %>
         </span>
         <span>
-          <%= link_to reply.user.nickname, user_path(reply.user.username), method: :get %>
+          <%= link_to comment.user.nickname, user_path(comment.user.username), method: :get %> ：
         </span>
       </div>
 
