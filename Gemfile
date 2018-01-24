@@ -6,7 +6,7 @@ gem 'bootstrap'
 gem 'china_city'
 gem 'config'
 gem 'devise' # user system
-gem 'paperclip'
+gem "paperclip", "~> 5.0.0"
 gem 'font-awesome-rails'
 gem 'rucaptcha'
 gem 'letter_avatar'
