@@ -3,6 +3,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+tmp/cache/
 
 # Ignore DS_Store
 *.Ds_Store
@@ -26,7 +27,7 @@ config/environments/*.local.yml
 log/development.log
 public/assets
 public/uploads
-public/system/
+public/system
 lib/assets/javascripts/kindeditor.js
 
 !public/404.html
