@@ -24,6 +24,8 @@ gem 'elasticsearch-rails'
 
 gem 'rails_kindeditor'
 
+gem 'loofah', '~> 2.2.1'
+
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use mysql2 as the database for Active Record
 gem 'mysql2'
