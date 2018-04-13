@@ -46,7 +46,7 @@ body { background-color: #f7fbff; padding-top: 68px; }
 .navbar-header { float: left; }
 .navbar-fixed-top { position: fixed; top: 0; left: 0; right: 0; z-index: 99; }
 
-.btn { cursor: pointer; }
+.btn, #dropdownMenu1 { cursor: pointer; }
 .dropdown-menu { padding: 0.5rem 8px; }
 .dropdown-menu a { color: black; }
 .dropdown-menu a:hover { text-decoration: none; color: #0275D8; }

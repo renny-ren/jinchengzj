@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require kindeditor
 //= require_tree .
+//= require popper
 //= require bootstrap-sprockets
 //= require 'china_city/jquery.china_city'
 //= require tooltipster.bundle.min
