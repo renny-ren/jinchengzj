@@ -1,6 +1,6 @@
 # source 'https://rubygems.org'
 # source 'https://ruby.taobao.org'
-source 'https://gems.ruby-china.org'
+source 'https://gems.ruby-china.com'
 
 gem 'bootstrap'
 gem 'china_city'
