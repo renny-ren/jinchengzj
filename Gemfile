@@ -13,7 +13,7 @@ gem 'action-store'
 gem 'cancancan' # permission
 gem 'gemoji'
 gem 'will_paginate'
-gem 'rails_admin', '~> 1.3.0' 
+gem 'rails_admin', '~> 1.4.3' 
 gem 'notifications'
 
 gem 'redis-objects'
